@@ -17,6 +17,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "foxql": "0.0.2",
     "sirv-cli": "^1.0.0"
   }
 }
