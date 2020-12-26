@@ -1,84 +1,75 @@
 <script>
-    //export let client;
-    import Card from '../components/card.svelte';
+    import { EyeIcon, FlagIcon, ArchiveIcon, GithubIcon } from 'svelte-feather-icons'
 </script>
 
 <style>
-    .search-home-input {
-        width: 50%;
-        margin-left:25%;
-        position: relative;
-        margin-top: 15%;
-    }
-    .search-home-input input{
-        width:100%;
-        position: relative;
-        box-sizing: border-box;
-        padding:0.4rem;
-        border: 2px solid #ffd369;
-        border-radius: 4px;
-        outline: none;
-    }
-    .search-home-input button{
-        position: absolute;
-        right:0px;
-        padding:0rem 1rem;
-        height:33px;
-        border:0px;
-        border-radius: 0px 4px 4px 0px;
-        background: #ffd369;
-        color:#393e46;
-        outline: none;
-        cursor: pointer;
-    }
-
-    .search-home-input button:hover  {
-        background : #ffbc69;
-    }
-    .search-home-input h2 small{
-        font-size : 0.6rem;
-        background: #6259ca;
-        color:#fff;
-        padding : 0.2rem 0.6rem;
-        border-radius: 3px;
-        top:-3px;
-        position: relative;
-    }
     .widget-container {
-        margin-top: 20px;
-        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .widget-card {
+        flex:1;
+        margin-right:20px;
+        text-align: center;
     }
 
+    .widget-card:last-child {
+        margin-right: 0px;
+    }
 </style>
 
-<div class = "pure-1">
-    <div class = "search-home-input">
-        <h2>
-            FoxQL <small>mvp</small>
-        </h2>
-        <input type = "text" placeholder="Özgür, bağımsız ve sansürsüz!"/>
-        <button>
-            <i class="gg-search"></i>
-        </button>
+<div class = "card">
+    <div class = "card-header">
+        <h2>Nedir?</h2>
+    </div>
+    <div class = "card-body">
+        <p>
+            Tarayıcı üzerinde çalışan eşler arası(p2p) bir arama motorudur. İçerik bazında herhangi bir yönetici kadrosu yoktur.
+            Kullanıcılar kendi seçimleriyle dolaşımda kalacak verilerin ne olduğuna karar verir.
+        </p>
+        <br>
+        <p>
+            Olası bir senaryoda foxql yalnızca arayüz bazında sansür uygulayabilir, ancak veri her zaman ağ üzerinde bulunmaya devam eder.
+            Topluluk tarafında oluşturulmuş diğer arama motorları tarafından her zaman ulaşılmaya devam edilebilir.
+        </p>
+    </div>
+</div>
 
-        <div class = "pure-g widget-container">
-                <Card 
-                    title = "Gizlilik"
-                    content = 'Üyelik gerektirmez ve herhangi bir merkezi yoktur. Takip edilemez!'
-                    center = {true}
-                />
-            
-                <Card 
-                    title = "Şeffaflık"
-                    content = 'Tamamen açık kaynak, her şey göz önünde!'
-                    center = {true}
-                />
-                <Card 
-                    title = "Demokratik"
-                    content = 'Doğru bilginin insanlara ulaşabilmesi için onları kaydet!'
-                    center = {true}
-                />
-            </div>
+<div class = "widget-container">
+
+    <div class = "card widget-card">
+        <div class = "card-body">
+            <EyeIcon size="32" />
+        </div>
+        <div class = "card-title">
+            Anonim
+        </div>
     </div>
 
+    <div class = "card widget-card">
+        <div class = "card-body">
+            <FlagIcon size="32" />
+        </div>
+        <div class = "card-title">
+            Demokratik
+        </div>
+    </div>
+    <div class = "card widget-card">
+        <div class = "card-body">
+            <ArchiveIcon size="32" />
+        </div>
+        <div class = "card-title">
+            Şeffalık
+        </div>
+    </div>
+
+    <div class = "card widget-card">
+        <div class = "card-body">
+            <GithubIcon size="32" />
+        </div>
+        <div class = "card-title">
+            Açık Kaynak
+        </div>
+    </div>
 </div>

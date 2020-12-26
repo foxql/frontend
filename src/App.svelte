@@ -1,19 +1,24 @@
 <script>
-	import { Router, Route } from "svelte-routing";
+	import {Router, Route} from 'svelte-routing';
 	import Routes from './routers.js';
-	import Sidebar from './components/sidebar.svelte';
+	import Navbar from './components/navbar.svelte'
 
 	import Home from './views/home.svelte';
+
+	import Searchbox from './components/searchBox.svelte';
+	import Trends from './components/trends.svelte';
 
 	export let url = "";
 	export let client;
 </script>
 
-<div class="pure-g layout">
-    <div class="pure-u layout-item sidebar">
-		<Sidebar/>
-	</div>
-	<div class="pure-u layout-item content pure-g" > 
+<Navbar/>
+
+<div class = "container">
+	<div class ="content">
+
+		<Searchbox/>
+
 		<Router url="{url}">
 			{#each Routes as route} 
 				<Route path="{route.path}" component={route.component} client = {client}></Route>
@@ -21,5 +26,9 @@
 			<Route path="/"><Home client={client}/></Route>
 			<Route/>
 		</Router>
+	</div>
+	
+	<div class ="right-side">
+		<Trends/>
 	</div>
 </div>
