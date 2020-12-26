@@ -8,18 +8,11 @@
     const promise = loadDocumentation();
 </script>
 
-<style>
-    .content-document {
-        position: relative;
-        width:50%;
-        margin-left:25%;
-    }
-</style>
 
-<div class = "content-document">
+
 {#await promise}
     loading...
 {:then body}
     {@html body}
 {/await}
-</div>
+    
