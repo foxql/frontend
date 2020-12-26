@@ -11,7 +11,7 @@
 .sidebar {
     width:12%;
     min-width: 125px;
-    background : #25233c;
+    background: #222831;
     height:100% !important;
 }
 
@@ -21,13 +21,15 @@
 }
 
 .sidebar .pure-menu-link:hover, .sidebar .pure-menu-link:focus {
-    background: rgb(55, 60, 90);
+    background: #393e46;
 }
 
 .content {
     width:88%;
     padding : 2rem;
-    background: #eaedf7;
+    background: #eeeeee;
+    height:100%;
+    overflow-y: auto;
 }
 
 
@@ -46,3 +48,37 @@
     margin: 1em 0;
     border-radius: 100px;
 }
+
+.sidebar .menu-close-btn {
+    display: none;
+}
+
+/** Responsive **/
+@media screen and (max-width: 992px) {
+    .sidebar {
+        width:100%;
+        position: fixed;
+        z-index: 2;
+    }
+    .sidebar .menu-close-btn {
+        display: block;
+    }
+
+    .content {
+        width:100%;
+        padding:0rem;
+        padding-bottom: 20px;
+    }
+
+    .search-home-input {
+        margin-top: 0 !important;
+        width: 90% !important;
+        margin-left: 5% !important;
+        position: relative !important;
+    }
+
+    .widget-container {
+        display: block;
+        letter-spacing: normal;
+    }
+  }

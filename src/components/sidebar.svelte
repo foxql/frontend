@@ -1,6 +1,11 @@
 <script>
     import {link} from "svelte-routing";
     import Routes from '../routers.js';
+
+    function handleCloseMenu()
+    {
+        document.querySelector('.sidebar').style.display = 'none'
+    }
 </script>
 
 <style>
@@ -10,10 +15,20 @@
         text-align: center;
         color : #eee;
     }
+    .menu-close-btn {
+        position: absolute;
+        right:5px;
+        top:5px;
+        padding:0.4rem 1rem;
+        border:0px;
+        border-radius: 3px;
+    }
+
 </style>
 <div class="pure-menu">
     <a href="/" class="pure-menu-heading" use:link>FoxQL</a>
-    <ul class="pure-menu-list">
+    <button class = "menu-close-btn" on:click={handleCloseMenu}>X</button>
+    <ul class="pure-menu-list"> 
             {#each Routes as route} 
             <li class="pure-menu-item">
                 {#if route.hideMenu == undefined} 
@@ -21,8 +36,5 @@
                 {/if}
             </li>
             {/each}
-        <li class="pure-menu-item menu-centered-button fixed-bottom">
-            <a class="primary-button pure-button" href = "whisper" use:link>Fısılda</a>
-        </li>
     </ul>
 </div>
