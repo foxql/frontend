@@ -1,5 +1,6 @@
 <script>
     import { EyeIcon, FlagIcon, ArchiveIcon, GithubIcon } from 'svelte-feather-icons'
+    import Searchbox from '../components/searchBox.svelte';
 </script>
 
 <style>
@@ -19,6 +20,8 @@
     }
 </style>
 
+<Searchbox/>
+
 <div class = "card">
     <div class = "card-header">
         <h2>Nedir?</h2>
@@ -35,6 +38,7 @@
         </p>
     </div>
 </div>
+
 
 <div class = "widget-container">
 
