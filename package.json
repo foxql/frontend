@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "foxql": "0.0.2",
+    "foxql": "0.0.9",
     "marked": "^1.2.7",
     "sirv-cli": "^1.0.0",
     "svelte-routing": "^1.4.2"

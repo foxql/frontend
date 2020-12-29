@@ -72,9 +72,93 @@ body {
     margin-bottom:10px;
 }
 
+.card-footer {
+    display: flex;
+    margin-top:8px;
+}
+
+.card-footer button{
+    border : 1px solid #f7b462;
+    padding : 0.4rem 0.8rem;
+    outline: none;
+    cursor: pointer;
+    font-size:13px;
+    background: #ffd097;
+    border-radius: 4px;
+    color: #222;
+}
+
+.card-body .url {
+    margin-top:4px;
+    margin-bottom:4px;
+    font-size:12px;
+}
 
 
+.card-body .url a {
+    color : #777;
+}
 
+.card-body .card-slider {
+    position: relative;
+    height:85px;
+    overflow-x : auto;
+}
+.card-body .card-slider .card-container {
+    position: absolute;
+    height:100%;
+    width:max-content;
+}
+
+.card-body .card-slider .slider-item {
+    background : #dcdee461;
+    max-width: 200px;
+    padding: 0.7rem;
+    border-radius: 3px;
+    margin-right:8px;
+    float: left;
+    height: 45px;
+    overflow-y: hidden;
+}
+
+.card-body .card-slider::-webkit-scrollbar {
+    height: 10px;
+}
+   
+.card-body .card-slider::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+}
+   
+.card-body .card-slider::-webkit-scrollbar-thumb {
+    outline: none;
+    background-color: #daddf3;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.search-box input{
+    background:#f6f7f8;
+    border:1px solid #ffbc69;
+    padding:0.5rem;
+    outline: #ccc;
+    flex-basis: 90%;
+    border-radius: 4px 0px 0px 4px;
+    box-sizing: border-box;
+}
+.search-box button{
+    background:#ffbc69;
+    padding:0.5rem;
+    outline: #ddd;
+    flex-basis: 10%;
+    border-radius: 0px 4px 4px 0px;
+    border:0px;
+    box-sizing: border-box;
+    cursor: pointer;
+    color:#555;
+}
 
 @media screen and (max-width: 600px) {
     .navbar {

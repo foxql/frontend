@@ -4,8 +4,6 @@
 	import Navbar from './components/navbar.svelte'
 
 	import Home from './views/home.svelte';
-
-	import Searchbox from './components/searchBox.svelte';
 	import Trends from './components/trends.svelte';
 
 	export let url = "";
@@ -16,9 +14,6 @@
 
 <div class = "container">
 	<div class ="content">
-
-		<Searchbox/>
-
 		<Router url="{url}">
 			{#each Routes as route} 
 				<Route path="{route.path}" component={route.component} client = {client}></Route>
