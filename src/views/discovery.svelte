@@ -18,11 +18,6 @@
     }
 
     const eventPromise = getDocuments();
-
-    async function saveDocument()
-    {
-
-    }
 </script>
 
 <style>
@@ -41,8 +36,6 @@
     loading...
 {:then documents}
     {#if documents.length <= 0}
-        <NotFound/>
-
         <NewDocument client = {client} />
         {:else}
         
