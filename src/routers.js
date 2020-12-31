@@ -4,23 +4,32 @@ import Private from './views/private.svelte';
 import Whisper from './views/whisper.svelte';
 import Search from './views/search.svelte';
 
-
-
 export default [
     {
         name : 'Keşfet',
         path : 'discovery',
-        component : Discovery
+        component : Discovery,
+        icon : 'globe-europe',
+        client : true
     },
     {
-        name : 'Özel',
+        name : 'Sahiplik',
         path : 'private',
-        component : Private
+        component : Private,
+        icon : 'user-secret',
+        client : true
     },
     {
         name : 'Dokümantasyon',
         path : 'documentation',
-        component : Documentation
+        component : Documentation,
+        icon : 'file'
+    },
+    {
+        name : 'Ayarlar',
+        path : 'settings',
+        component : Documentation,
+        icon : 'cog'
     },
     {
         name : 'Fısılda',
@@ -32,6 +41,7 @@ export default [
         name : 'Ara',
         path : 'search/:query',
         component : Search,
-        hideMenu : true
+        hideMenu : true,
+        client : true
     }
 ];

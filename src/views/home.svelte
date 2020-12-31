@@ -18,15 +18,25 @@
     .widget-card:last-child {
         margin-right: 0px;
     }
-</style>
+    .card-header {
+        letter-spacing: -.3px;
+        color: #131517;
+    }
+    .card {
+        padding-right:2rem;
+        padding-left:2rem;
+    }
 
-<Searchbox/>
+    .p-4 {
+        padding-bottom:4rem;
+    }
+</style>
 
 <div class = "card">
     <div class = "card-header">
-        <h2>Nedir?</h2>
+       <h1>Anonim, Özgür Ve Şeffaf</h1>
     </div>
-    <div class = "card-body">
+    <div class = "card-body p-4">
         <p>
             Tarayıcı üzerinde çalışan eşler arası(p2p) bir arama motorudur. İçerik bazında herhangi bir yönetici kadrosu yoktur.
             Kullanıcılar kendi seçimleriyle dolaşımda kalacak verilerin ne olduğuna karar verir.
@@ -39,6 +49,7 @@
     </div>
 </div>
 
+<Searchbox/>
 
 <div class = "widget-container">
 
