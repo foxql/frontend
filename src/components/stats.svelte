@@ -1,3 +1,12 @@
+<script>
+    export let client;
+
+    let activeConnectionLength = 0;
+
+    setInterval(()=> activeConnectionLength = Object.keys(client.peer.connections).length,150)
+
+</script>
+
 <style>
     .stat-card ul li{
         display: flex;
@@ -24,16 +33,8 @@
     <div class = "card-body stat-card">
         <ul>
             <li>
-                <span class = "left-span">Dokümanlar</span> 
-                <span class = "right-span">23.422</span>
-            </li>
-            <li>
-                <span class = "left-span">Boyut</span> 
-                <span class = "right-span">233.3 (Gb)</span>
-            </li>
-            <li>
-                <span class = "left-span">Bağlantı</span> 
-                <span class = "right-span">232</span>
+                <span class = "left-span">Aktif Bağlantı</span> 
+                <span class = "right-span">{activeConnectionLength}</span>
             </li>
         </ul>
     </div>

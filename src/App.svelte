@@ -34,7 +34,7 @@
 	
 	<div class ="right-side">
 		<Trends/>
-		<Stats/>
+		<Stats client = {client}/>
 		<Footer/>
 	</div>
 </div>

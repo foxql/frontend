@@ -1,41 +1,52 @@
 <script>
     export let document;
     import { DownloadCloudIcon } from 'svelte-feather-icons'
+
+
 </script>
 
-<div class = "card entry-card">
+<style>
+    .webpage-result {
+        background: #f1ebeb5e;
+    }
+    .webpage-result .card-header{
+        font-family: 'Poppins';
+        text-align: left;
+        line-height: 1;
+        text-transform: none;
+    }
+
+    .webpage-result .card-body {
+        font-size: 0.83rem;
+        font-family: 'Open Sans';
+    }
+</style>
+
+<div class = "card webpage-result">
     <div class = "card-header">
-        {document.title}
+        {document.document.title}
     </div>
     <div class = "card-body">
-        <p>{document.description}</p>
+        <p>{document.document.description}</p>
         <p class = "url">
-            <a href = "#">{document.url}</a>
+            <a href = "{document.document.url}">{document.document.url}</a>
         </p>
-        <div class = "card-slider">
-            <div class = "card-container">
-                <div class = "slider-item">
-                    <a href = "">Mentors</a>
-                    <p>Mentors. mentee-profile-picture. Cagatay Cali. frontend</p>
-                </div>
-                <div class = "slider-item">
-                    <a href = "">How It Works?</a>
-                    <p>Active - Passive Mentorships. The best way to be a mentor </p>
-                </div>
-                <div class = "slider-item">
-                    <a href = "">Mücahit Bircan</a>
-                    <p>Mücahit Bircan - frontend, backend, mobile( react-native )</p>
-                </div>
-                <div class = "slider-item">
-                    <a href = "">Mustafa B. Yildiz</a>
-                    <p>Mustafa B. Yildiz. Mentor & Mentee Check out active mentorships ...</p>
+
+        {#if document.subResults.length > 0}
+
+
+            <div class = "card-slider">
+                <div class = "card-container">
+
+                    {#each document.subResults as item}
+                        <div class = "slider-item">
+                            <a href = "{item.document.url}">{item.document.title}</a>
+                            <p>{item.document.description}</p>
+                        </div>
+                    {/each}
                 </div>
             </div>
-        </div>
-    </div>
-    <div class = "card-footer">
-        <button>
-            <DownloadCloudIcon size="16"/>
-        </button>
+
+        {/if}
     </div>
 </div>

@@ -73,7 +73,6 @@ body::-webkit-scrollbar {
 }
 
 .card {
-    border:1px solid #e3e6e9;
     padding:0.5rem;
     margin-bottom:10px;
     font-family: "Open Sans",sans-serif;
@@ -132,14 +131,19 @@ body::-webkit-scrollbar {
 }
 
 .card-body .card-slider .slider-item {
-    background : #dcdee461;
+    background: #555;
     max-width: 200px;
     padding: 0.7rem;
-    border-radius: 3px;
-    margin-right:8px;
+    margin-right: 8px;
     float: left;
     height: 45px;
     overflow-y: hidden;
+    padding-bottom: 1.2rem;
+    color: #eee;
+}
+
+.slider-item a{
+    color : #fff;
 }
 
 .card-body .card-slider::-webkit-scrollbar {
@@ -183,6 +187,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding:0rem !important;
 }
 .search-box input{
     outline: #555;
@@ -190,6 +195,9 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
     border: 0px;
     border-bottom: 2px solid #555;
+    border-top: 2px solid #555;
+    border-left : 2px solid #555;
+    padding-left:8px;
 }
 .search-box button{
     background:#555;

@@ -2,17 +2,18 @@
     export let client;
 
     let activeConnections = 0;
-    let requirementConnection = 0;
+    let requirementConnection = 2;
 
-    let conenctionInterval = setInterval(()=>{
+    setInterval(()=>{
         activeConnections = Object.values(client.peer.connections).length;
 
         if(activeConnections >= requirementConnection){
-            clearInterval(conenctionInterval);
             setTimeout(()=>{
-                document.querySelector('.overlay-waiting').remove();
+                document.querySelector('.overlay-waiting').style.display = 'none';
             },300);
            
+        }else{
+            document.querySelector('.overlay-waiting').style.display = 'block';
         }
         
     }, 200);

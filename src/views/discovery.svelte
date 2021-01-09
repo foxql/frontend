@@ -1,18 +1,26 @@
 <script>
     export let client;
+    import {link} from 'svelte-routing';
     import NewDocument from '../components/newDocument.svelte';
-    import NotFound from '../components/notFoundCard.svelte';
     import Searchbox from '../components/searchBox.svelte';
 
     async function getDocuments() {
+        let documentMap = {};
         return new Promise((resolve)=>{
             client.randomDocument({
                 limit : 2,
                 collection : 'entrys',
-                timeOut : 200
+                timeOut : 500  
             },(documents)=>{
-                console.log(documents);
-                resolve(documents)
+                documents.forEach( item => {
+                    if(documentMap[item.documentId] === undefined) {
+                        item.subDocuments = [];
+                        documentMap[item.documentId] = item;
+                    }else{
+                        documentMap[item.documentId].subDocuments.push(item);
+                    }
+                });
+                resolve(documentMap)
             });
         });
     }
@@ -21,12 +29,29 @@
 </script>
 
 <style>
-    .entry-card .card-header{
-        font-size : 15px;
+    .entry-result {
+        background: #f1ebeb5e !important;
+    }
+    .entry-result .card-header{
+        font-family: 'Poppins';
+        text-align: left;
+        line-height: 1;
+        text-transform: none;
     }
 
-    .entry-card .card-body{
-        font-size : 13px;
+    .entry-result .card-body {
+        font-size: 0.83rem;
+        font-family: 'Open Sans';
+    }
+
+    .card-body .sub-content {
+        box-sizing: border-box;
+        margin-top: 10px;
+        background: #cccccc26;
+        width: 90%;
+        position: relative;
+        margin-left: 5%;
+        padding: 0.4rem;
     }
 </style>
 
@@ -35,27 +60,28 @@
 {#await eventPromise}
     loading...
 {:then documents}
-    {#if documents.length <= 0}
-        <NewDocument client = {client} />
-        {:else}
-        
-        {#each documents as document}
-            <div class = "card entry-card">
+        {#each Object.values(documents) as document}
+           <div class = "card entry-result">
                 <div class = "card-header">
-                    {document.title}
+                    <a href = "entry/{document.documentId}/{document.title}" use:link>{document.title}</a>
                 </div>
                 <div class = "card-body">
-                    <p>
-                        {document.content}
-                    </p>
-                </div>
-                <div class = "card-footer">
-                    <button>
-                        Sahiplen
-                    </button>
+                    {document.content}
+
+                    {#if document.subDocuments.length > 0} 
+
+                        {#each document.subDocuments as subDocument} 
+
+                            <div class = "sub-content">
+                                {subDocument.content}
+                            </div>
+
+                        {/each}
+
+                    {/if}
                 </div>
             </div>
         {/each}
 
-    {/if}
+        <NewDocument client = {client} />
 {/await}
