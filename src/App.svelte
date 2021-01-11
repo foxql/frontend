@@ -1,23 +1,43 @@
 <script>
+	export let client;
 	import {Router, Route} from 'svelte-routing';
-	import Routes from './routers.js';
-	import Navbar from './components/navbar.svelte'
 
+	import Routes from './routers.js';
+	import Navbar from './components/navbar.svelte';
 	import Home from './views/home.svelte';
+
+	import Stats from './components/stats.svelte';
 	import Trends from './components/trends.svelte';
 	import Footer from './components/footer.svelte';
-	import Waiting from './components/waiting.svelte';
-	import Stats from './components/stats.svelte';
 
-	export let url = "";
-	export let client;
+	export let url = ''
 </script>
-<Navbar/>
+<style>
+	.left-side {
+		flex-basis: 22%;
+		background:#f9f9f9;
+	}
 
-<Waiting client = {client} />
+	.middle-side {
+		flex-basis: 45%;
+		font-family: 'Roboto', sans-serif;
+	}
+	.right-side {
+		flex-basis: 33%;
+		box-sizing: border-box;
+		font-family: 'Open Sans', sans-serif;
+	}
 
-<div class = "container">
-	<div class ="content">
+</style>
+
+
+<div class = "flex-container h-100">
+	
+	<div class = "left-side flex-item h-100">
+		<Navbar/>
+	</div>
+
+	<div class = "middle-side flex-item h-100">
 		<Router url="{url}">
 			{#each Routes as route} 
 				{#if route.client !== undefined} 
@@ -31,10 +51,11 @@
 			<Route/>
 		</Router>
 	</div>
-	
-	<div class ="right-side">
-		<Trends/>
+
+	<div class = "right-side flex-item h-100 pd-l-2 pd-r-2">
+		<Trends client = {client}/>
 		<Stats client = {client}/>
 		<Footer/>
 	</div>
+
 </div>

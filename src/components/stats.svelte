@@ -8,31 +8,20 @@
 </script>
 
 <style>
-    .stat-card ul li{
+    .stat {
         display: flex;
-        padding: 0 !important;
-        background : #444;
-        color : #eee;
-        margin-bottom:5px;
-        border:0px;
     }
-    .stat-card ul li span{
-        box-sizing: border-box;
-        padding: 0.4rem;
-    }
-    .right-span {
-        margin-left: auto;
-        color : #fff;
-        background : #555;
-    }
+   .right-span {
+        margin-left:auto;
+   }
 </style>
 <div class = "card">
-    <div class = "card-header">
+    <div class = "card-title pd-l-1 pd-t-05 pd-b-05">
         İstatistikler
     </div>
-    <div class = "card-body stat-card">
+    <div class = "card-body">
         <ul>
-            <li>
+            <li class = "pd-1 stat">
                 <span class = "left-span">Aktif Bağlantı</span> 
                 <span class = "right-span">{activeConnectionLength}</span>
             </li>

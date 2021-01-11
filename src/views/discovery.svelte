@@ -1,8 +1,7 @@
 <script>
     export let client;
     import {link} from 'svelte-routing';
-    import NewDocument from '../components/newDocument.svelte';
-    import Searchbox from '../components/searchBox.svelte';
+    import NewDocument from '../components/newEntry.svelte';
 
     async function getDocuments() {
         let documentMap = {};
@@ -55,7 +54,6 @@
     }
 </style>
 
-<Searchbox/>
 
 {#await eventPromise}
     loading...

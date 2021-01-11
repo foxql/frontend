@@ -1,8 +1,12 @@
 <script>
+    export let client;
     export let document;
-    import { DownloadCloudIcon } from 'svelte-feather-icons'
 
-
+    async function handleSave()
+    {
+       client.database.useCollection('webPage').addDoc(document.document);
+       client.peer.socket.emit('newDoc', document.document);
+    }
 </script>
 
 <style>
@@ -20,9 +24,21 @@
         font-size: 0.83rem;
         font-family: 'Open Sans';
     }
+
+    .card-footer {
+        display:flex;
+    }
+    .card-footer button {
+        padding: 0.35rem 0.5rem;
+        border: 0px;
+        background: #555;
+        color: #eee;
+        margin-right: 8px;
+        font-size: 12px;
+    }
 </style>
 
-<div class = "card webpage-result">
+<div class = "card webpage-result" >
     <div class = "card-header">
         {document.document.title}
     </div>
@@ -48,5 +64,13 @@
             </div>
 
         {/if}
+
+        <div class = "card-footer">
+            {#if !client.database.useCollection('webPage').getDoc(document.document.documentId)}
+                <button on:click = "{handleSave}">Sahiplen</button>
+            {/if}
+
+            <button>Paylaş</button>
+        </div>
     </div>
 </div>

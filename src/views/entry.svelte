@@ -3,7 +3,7 @@
     export let title;
     export let id;
 
-    import NewDocument from '../components/newDocument.svelte';
+    import NewDocument from '../components/newEntry.svelte';
 
     async function loadDocuments()
     {

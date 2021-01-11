@@ -1,7 +1,8 @@
 <script>
     export let client;
     export let query;
-    import { SearchIcon } from 'svelte-feather-icons'
+    
+    import { beforeUpdate } from 'svelte';
 
     import EntryCardResult from '../components/entryResultsCard.svelte'
     import WebPageCardResult from '../components/resultWebCard.svelte';
@@ -33,25 +34,16 @@
             results : resultMap,
             count : results.count
         };
+
     }
 
     let searchPromise = searchNetwork();
 
-    async function handleSearch()
-    {
-        query = document.querySelector('.search-query').value;
-        searchPromise = searchNetwork();
-    }
-    
-
+    beforeUpdate(()=>{
+        searchPromise = searchNetwork()
+   });
 
 </script>
-
-<div class = "card search-box">
-    <input type = "text" placeholder = "Özgür, anonim ve sansürsüz internet!" class = "search-query"/>
-    <button on:click="{handleSearch}"><SearchIcon size="16" /></button>
-</div>
-
 
 
 <div class = "card">
@@ -71,7 +63,7 @@
         {/if}
 
         {#if item._collection == 'webPage'}
-            <WebPageCardResult document = {item}/>
+            <WebPageCardResult document = {item} client = {client}/>
         {/if}
     {/each}
 {/await}

@@ -2,7 +2,7 @@
     export let client;
 
     let activeConnections = 0;
-    let requirementConnection = 2;
+    let requirementConnection = 1;
 
     setInterval(()=>{
         activeConnections = Object.values(client.peer.connections).length;

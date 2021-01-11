@@ -1,0 +1,68 @@
+@import './assets/fonts.css';
+@import './assets/reset.css';
+@import './assets/height.css';
+@import './assets/flex.css';
+@import './assets/padding.css';
+@import './assets/button.css';
+
+body {
+    background: rgb(255, 255, 255);
+}
+
+.card  {
+    border : 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.card-title {
+    box-sizing: border-box;
+    font-weight: 600;
+    font-size:17px;
+}
+
+.card-body {
+    box-sizing: border-box;
+}
+
+.card-body p{
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.right-side .card {
+    margin-bottom: 10px;
+    background : rgb(247 249 250);
+    border:0px;
+    border-radius: 10px;
+    margin-top:10px;
+}
+
+.right-side .card .card-title {
+    font-size:16px;
+    border-bottom: 1px solid #eee;
+}
+
+.right-side .card .card-body ul {
+    list-style: none;
+}
+
+.right-side .card .card-body ul li {
+    font-size:14px;
+    box-sizing: border-box;
+    transition: all ease 0.3s;
+    position: relative;
+}
+
+.right-side .card .card-body ul li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.right-side .card .card-body ul li a{
+    text-decoration: none;
+    color : #555;
+}
+
+.right-side .card .card-body ul li:hover {
+    background: rgb(234 237 239);
+}
