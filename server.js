@@ -9,11 +9,10 @@ app.get('*', (req, res) => {
     res.sendFile(__dirname + "/public/index.html")
 })
 
-const port = process.env.PRODUCT_PORT || 3000;
-const host = process.env.PRODUCT_HOST || '0.0.0.0';
+const port = 3000;
 
 
 
-app.listen(port, host, () => {
+app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
