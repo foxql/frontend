@@ -4,8 +4,7 @@
   "scripts": {
     "build": "rollup -c -s",
     "dev": "rollup -c -w",
-    "start": "node server.js",
-    "serve" : "node server.js"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
