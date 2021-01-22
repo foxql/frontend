@@ -4,7 +4,8 @@
   "scripts": {
     "build": "rollup -c -s",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "sirv public",
+    "serve" : "node server.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
@@ -20,6 +21,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "base-64": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "foxql": "0.0.28",
     "marked": "^1.2.7",
     "sirv-cli": "^1.0.0",
