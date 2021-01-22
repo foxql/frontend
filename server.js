@@ -10,9 +10,10 @@ app.get('*', (req, res) => {
 })
 
 const port = process.env.PRODUCT_PORT || 3000;
+const host = process.env.PRODUCT_HOST || '0.0.0.0';
 
 
 
-app.listen(port, process.env.PRODUCT_HOST || '0.0.0.0', () => {
+app.listen(port, host, () => {
   console.log(`App listening on port ${port}`)
 })
