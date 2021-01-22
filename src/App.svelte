@@ -9,18 +9,24 @@
 	import Stats from './components/stats.svelte';
 	import Trends from './components/trends.svelte';
 	import Footer from './components/footer.svelte';
+	import Console from './components/console.svelte';
+
+	import SearchBox from './components/searchBox.svelte';
 
 	export let url = ''
 </script>
 <style>
 	.left-side {
-		flex-basis: 22%;
+		width: 22.1%;
 		background:#f9f9f9;
+		position:fixed;
+		height: 100%;
 	}
 
 	.middle-side {
 		flex-basis: 45%;
 		font-family: 'Roboto', sans-serif;
+		margin-left:22%;
 	}
 	.right-side {
 		flex-basis: 33%;
@@ -33,11 +39,12 @@
 
 <div class = "flex-container h-100">
 	
-	<div class = "left-side flex-item h-100">
+	<div class = "left-side flex-item">
 		<Navbar/>
 	</div>
 
-	<div class = "middle-side flex-item h-100">
+	<div class = "middle-side flex-item">
+		<SearchBox/>
 		<Router url="{url}">
 			{#each Routes as route} 
 				{#if route.client !== undefined} 
@@ -54,6 +61,7 @@
 
 	<div class = "right-side flex-item h-100 pd-l-2 pd-r-2">
 		<Trends client = {client}/>
+		<Console client = {client}/>
 		<Stats client = {client}/>
 		<Footer/>
 	</div>

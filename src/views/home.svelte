@@ -1,11 +1,8 @@
 <script>
     import NewEntry from '../components/newEntry.svelte';
-    import SearchBox from '../components/searchBox.svelte';
 
     export let client;
 </script>
-
-<SearchBox/>
 
 
 <div class = "card pd-1">

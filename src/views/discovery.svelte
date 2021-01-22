@@ -27,43 +27,16 @@
     const eventPromise = getDocuments();
 </script>
 
-<style>
-    .entry-result {
-        background: #f1ebeb5e !important;
-    }
-    .entry-result .card-header{
-        font-family: 'Poppins';
-        text-align: left;
-        line-height: 1;
-        text-transform: none;
-    }
-
-    .entry-result .card-body {
-        font-size: 0.83rem;
-        font-family: 'Open Sans';
-    }
-
-    .card-body .sub-content {
-        box-sizing: border-box;
-        margin-top: 10px;
-        background: #cccccc26;
-        width: 90%;
-        position: relative;
-        margin-left: 5%;
-        padding: 0.4rem;
-    }
-</style>
-
 
 {#await eventPromise}
     loading...
 {:then documents}
         {#each Object.values(documents) as document}
-           <div class = "card entry-result">
-                <div class = "card-header">
+           <div class = "card pd-1">
+                <div class = "card-title pd-b-05">
                     <a href = "entry/{document.documentId}/{document.title}" use:link>{document.title}</a>
                 </div>
-                <div class = "card-body">
+                <div class = "card-body pd-b-05">
                     {document.content}
 
                     {#if document.subDocuments.length > 0} 

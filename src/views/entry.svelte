@@ -4,6 +4,7 @@
     export let id;
 
     import NewDocument from '../components/newEntry.svelte';
+    import ActionButtons from '../components/actionButtons.svelte';
 
     async function loadDocuments()
     {
@@ -13,41 +14,56 @@
             timeOut : 500
         });
 
-        return documents;
+        let documentMap = {};
+
+        /** Consensus! */
+        documents.forEach( doc => {
+            if(documentMap[doc.documentSubId] == undefined ) {
+                doc.recieveCount = 1;
+                documentMap[doc.documentSubId] = doc;
+            }else{
+                documentMap[doc.documentSubId].recieveCount++;
+            }
+        });
+
+
+        return Object.values(documentMap);
     }
 
     const promise = loadDocuments()
 </script>
 
 <style>
-    .entry-result {
-        background: #f1ebeb5e !important;
+    .entry-sub-content {
+        padding: 0.5rem;
+        border: 1px solid #eee;
+        background: rgb(247 249 250);
     }
 
-    .entry-result .card-body {
-        font-size: 0.83rem;
-        font-family: 'Open Sans';
+    .big-title {
+        font-size:1.4rem;
     }
 </style>
 
+<div class = "card pd-1">
+    <div class = "card-title pd-b-05 big-title">{title}</div>
+    {#await promise}
+        loading...
+    {:then documents}
 
-<div class = "card">
-    <h2>{title}</h2>
+        {#each documents as doc} 
+                <div class = "card-body entry-sub-content pd-b-05">
+                    {doc.content}
+
+                    <div class = "card-body-footer">
+                        <ActionButtons client = {client} doc = {doc} collection = 'entrys'></ActionButtons>
+                    </div>
+                </div>
+        {/each}
+
+    {/await}
 </div>
 
 
-{#await promise}
-    loading...
-{:then documents}
 
-    {#each documents as doc} 
-        <div class = "card entry-result">
-            <div class = "card-body">
-                {doc.content}
-            </div>
-        </div>
-    {/each}
-
-{/await}
-
-<NewDocument client = {client} />
+<NewDocument client = {client} title = {title}/>

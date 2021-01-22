@@ -41,7 +41,9 @@
     <div class = "card-body">
         <ul>
             {#if Object.keys(trendList).length <= 0} 
-                    <li class = "pd-1">Şuan gündem boş.</li>
+                    <li class = "pd-1">
+                        Gündem boş :(
+                    </li>
             {:else}
 
             {#each Object.values(trendList) as item}

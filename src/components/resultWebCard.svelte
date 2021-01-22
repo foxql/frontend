@@ -2,47 +2,61 @@
     export let client;
     export let document;
 
-    async function handleSave()
-    {
-       client.database.useCollection('webPage').addDoc(document.document);
-       client.peer.socket.emit('newDoc', document.document);
-    }
 </script>
 
 <style>
-    .webpage-result {
-        background: #f1ebeb5e;
-    }
-    .webpage-result .card-header{
-        font-family: 'Poppins';
-        text-align: left;
-        line-height: 1;
-        text-transform: none;
-    }
-
-    .webpage-result .card-body {
-        font-size: 0.83rem;
-        font-family: 'Open Sans';
-    }
-
-    .card-footer {
-        display:flex;
-    }
-    .card-footer button {
-        padding: 0.35rem 0.5rem;
-        border: 0px;
-        background: #555;
-        color: #eee;
-        margin-right: 8px;
+    .url {
+        color: #555;
         font-size: 12px;
+    }
+
+    .card-slider {
+        width: 100%;
+        overflow-x: auto;
+        position: relative;
+        width: 100%;
+        height: 75px;
+    }
+
+    .slider-container {
+        height: 100%;
+        width: max-content;
+        position: absolute;
+    }
+
+    .slider-item {
+        box-sizing: border-box;
+        background : rgb(234 237 239);
+        margin-right:5px;
+        float:left;
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        border-radius: 10px;
+    }
+
+    .slider-item a {
+        font-size:13px;
+        text-decoration: none;
+    }
+
+    .card-slider::-webkit-scrollbar {
+        width: 5px;
+        height: 10px;
+    }
+    
+    .card-slider::-webkit-scrollbar-thumb {
+        background-color: #131517;
+        border-radius: 4px;
     }
 </style>
 
-<div class = "card webpage-result" >
-    <div class = "card-header">
-        {document.document.title}
+<div class = "card pd-1" >
+    <div class = "card-title pd-b-05">
+        <a href = "{document.document.url}" class = "web-title">{document.document.title}</a>
     </div>
-    <div class = "card-body">
+    <div class = "card-body pd-b-05">
         <p>{document.document.description}</p>
         <p class = "url">
             <a href = "{document.document.url}">{document.document.url}</a>
@@ -52,12 +66,11 @@
 
 
             <div class = "card-slider">
-                <div class = "card-container">
+                <div class = "slider-container">
 
                     {#each document.subResults as item}
-                        <div class = "slider-item">
+                        <div class = "slider-item pd-1">
                             <a href = "{item.document.url}">{item.document.title}</a>
-                            <p>{item.document.description}</p>
                         </div>
                     {/each}
                 </div>
@@ -65,12 +78,5 @@
 
         {/if}
 
-        <div class = "card-footer">
-            {#if !client.database.useCollection('webPage').getDoc(document.document.documentId)}
-                <button on:click = "{handleSave}">Sahiplen</button>
-            {/if}
-
-            <button>Paylaş</button>
-        </div>
     </div>
 </div>

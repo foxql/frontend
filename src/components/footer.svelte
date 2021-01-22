@@ -1,16 +1,13 @@
 <style>
-    .card-body {
-        padding-right:2rem;
-        padding-left:2rem;
-        font-size:13px;
-        text-align:center;
-        color:#555;
+    .card {
+        text-align: center;
+        font-size:14px;
     }
 </style>
-<div class = "card">
+<div class = "card pd-1">
     <div class = "card-body">
         Tüm hakları her yerdedir.
         <br>
-        (c) 2020
+        (c) 2021
     </div>
 </div>

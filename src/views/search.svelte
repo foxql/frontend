@@ -7,15 +7,27 @@
     import EntryCardResult from '../components/entryResultsCard.svelte'
     import WebPageCardResult from '../components/resultWebCard.svelte';
 
+    import Booster from '../helpers/searchBooster.js';
+
     async function searchNetwork()
     {
         let resultMap = {};
-        const results = await client.search({
+        let results = await client.search({
             query : query,
             timeOut : 0
         });
 
+        client.peer.socket.emit('search', query)
+
+
         if(results.count > 0 ) {
+            const booster = new Booster(query, results);
+            booster.setRule({
+                webPage : {
+                    mainPage : 10
+                }
+            })
+            results = booster.boost();  
 
             results.results.forEach(item => {
                 const subDocumentId = item.document.documentSubId;
@@ -45,8 +57,7 @@
 
 </script>
 
-
-<div class = "card">
+<div class = "card pd-1">
     {#await searchPromise}
         <b>{query}</b> sorgulanıyor.. 
     {:then data}

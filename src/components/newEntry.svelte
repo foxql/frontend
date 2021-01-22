@@ -1,5 +1,6 @@
 <script>
     export let client;
+    export let title;
 
     async function handleClick()
     {
@@ -8,9 +9,11 @@
             content : document.querySelector('.entry-content').value
         };
         const add = client.database.useCollection('entrys').addDoc(body);
+        client.publishDocument(body, 'entrys');
 
         if(add) {
             client.peer.socket.emit('newDoc', body);
+            document.querySelector('.entry-content').value = '';
             alert('Başarıyla ekledim!')
         }else{
             alert('Olmadı be agam!')
@@ -79,8 +82,11 @@
 </style>
 
 <div class = "new-document pd-1">
-
-    <input type = "text" placeholder = "Başlık" class = "entry-title pd-05"  minlength="10" maxlength="80"/>
+    {#if typeof title === 'string'}
+        <input type = "text" value = "{title}" class = "entry-title pd-05"  minlength="10" maxlength="80" hidden/>
+        {:else}
+        <input type = "text" placeholder = "Başlık" class = "entry-title pd-05"  minlength="10" maxlength="80"/>
+    {/if}
     <textarea 
         class = "entry-content pd-05"
         placeholder = "Neler oluyor?" 

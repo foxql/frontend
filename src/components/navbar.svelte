@@ -37,8 +37,8 @@
     }
     
 
-    .navbar .nav-item span {
-        margin-right: 12px;
+    .navbar .nav-item a .icon {
+        margin-right: 5px;
     }
 
     .navbar .new-document-btn {
@@ -80,7 +80,8 @@
                 {#if route.hideMenu == undefined} 
                     <div class = "nav-item pd-b-1">
                         <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
-                            <span class = "{route.icon}"></span>{route.name}   
+                            <span class = "{route.icon} icon"></span>
+                            <span class = "text">{route.name}</span>   
                         </a>
                     </div>
                 {/if}
@@ -88,8 +89,9 @@
         {/each}
 
         <div class = "nav-item publish-nav" use:link>
-            <a href = "/" class = "pd-l-2 pd-r-2 pd-t-05 pd-b-05 publish-btn">
-                <span class = "fas fa-paper-plane"></span> Paylaş
+            <a href = "/fox-node" class = "pd-l-2 pd-r-2 pd-t-05 pd-b-05 publish-btn" use:link>
+                <span class = "fab fa-linode icon" style = "font-size: 18px;"></span> 
+                <span class = "text">fox-node</span>
             </a>
          </div>
    

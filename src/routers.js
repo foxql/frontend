@@ -2,6 +2,9 @@ import Discovery from './views/discovery.svelte';
 import Search from './views/search.svelte';
 import Entry from './views/entry.svelte';
 import Home from './views/home.svelte';
+import Profile from './views/profile.svelte';
+import Contribute from './views/contribute.svelte';
+import Node from './views/node.svelte';
 
 export default [
     {
@@ -20,23 +23,16 @@ export default [
     },
     {
         name : 'Profil',
-        path : 'discovery',
-        component : Discovery,
+        path : 'profile',
+        component : Profile,
         icon : 'fas fa-user',
         client : true
     },
     {
-        name : 'Topluluk',
-        path : 'discovery',
-        component : Home,
+        name : 'Katkıda bulun',
+        path : 'contribute',
+        component : Contribute,
         icon : 'fas fa-handshake',
-        client : true
-    },
-    {
-        name : 'Dokümantasyon',
-        path : 'discovery',
-        component : Home,
-        icon : 'fab fa-github',
         client : true
     },
     {
@@ -52,5 +48,12 @@ export default [
         component : Entry,
         hideMenu : true,
         client : true
+    },
+    {
+        name : 'foxnode',
+        path : 'fox-node',
+        component : Node,
+        hideMenu : true,
+        client : false
     }
 ];
