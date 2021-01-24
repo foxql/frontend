@@ -14,6 +14,7 @@
         if(add) {
             client.peer.socket.emit('newDoc', body);
             document.querySelector('.entry-content').value = '';
+            document.querySelector('.entry-title').value = '';
             alert('Başarıyla ekledim!')
         }else{
             alert('Olmadı be agam!')
