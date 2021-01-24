@@ -5,6 +5,7 @@
 
     import NewDocument from '../components/newEntry.svelte';
     import ActionButtons from '../components/actionButtons.svelte';
+    import { beforeUpdate } from 'svelte';
 
     async function loadDocuments()
     {
@@ -30,7 +31,11 @@
         return Object.values(documentMap);
     }
 
-    const promise = loadDocuments()
+    let promise = loadDocuments()
+
+    beforeUpdate(()=>{
+        promise = loadDocuments()
+    });
 </script>
 
 <style>
