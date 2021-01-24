@@ -9,14 +9,29 @@
             client.randomDocument({
                 limit : 2,
                 collection : 'entrys',
-                timeOut : 500  
+                timeOut : 550  
             },(documents)=>{
                 documents.forEach( item => {
-                    if(documentMap[item.documentId] === undefined) {
+                    const subDocumentId = item.subDocumentId;
+                    const documentId = item.documentId;
+                    if(documentMap[documentId] === undefined) {
                         item.subDocuments = [];
-                        documentMap[item.documentId] = item;
+                        item.recieverCount = 1;
+                        documentMap[documentId] = {
+                            entry : item,
+                            subDocumentMap : {}
+                        };
+
+                        documentMap[documentId].subDocumentMap[subDocumentId] = 1;
                     }else{
-                        documentMap[item.documentId].subDocuments.push(item);
+                        documentMap[documentId].entry.recieverCount += 1;
+                        if(documentMap[documentId].subDocumentMap[subDocumentId] == undefined){
+                            documentMap[documentId].subDocumentMap[subDocumentId] = 1;
+                            documentMap[documentId].entry.subDocuments.push(item);
+                        }else{
+                            documentMap[documentId].subDocumentMap[subDocumentId] += 1;
+                        }
+                        
                     }
                 });
                 resolve(documentMap)
@@ -34,14 +49,14 @@
         {#each Object.values(documents) as document}
            <div class = "card pd-1">
                 <div class = "card-title pd-b-05">
-                    <a href = "entry/{document.documentId}/{document.title}" use:link>{document.title}</a>
+                    <a href = "entry/{document.entry.documentId}/{document.entry.title}" use:link>{document.entry.title}</a>
                 </div>
                 <div class = "card-body pd-b-05">
-                    {document.content}
+                    {document.entry.content}
 
-                    {#if document.subDocuments.length > 0} 
+                    {#if document.entry.subDocuments.length > 0} 
 
-                        {#each document.subDocuments as subDocument} 
+                        {#each document.entry.subDocuments as subDocument} 
 
                             <div class = "sub-content">
                                 {subDocument.content}
