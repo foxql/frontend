@@ -24,7 +24,7 @@
 	}
 
 	.middle-side {
-		flex-basis: 45%;
+		flex-basis: 65%;
 		font-family: 'Roboto', sans-serif;
 		margin-left:22%;
 	}

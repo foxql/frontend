@@ -4,13 +4,13 @@
 @import './assets/flex.css';
 @import './assets/padding.css';
 @import './assets/button.css';
+@import './assets//background.css';
 
 body {
     background: rgb(255, 255, 255);
 }
 
 .card  {
-    border : 1px solid #eee;
     box-sizing: border-box;
 }
 
