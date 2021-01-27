@@ -2,14 +2,7 @@
     export let text;
 </script>
 
-<style>
-  .page-header{
-    box-sizing: border-box;
-    border:1px solid #eee;
-  }
-</style>
-
-<div class = "page-header pd-l-1 pd-t-1 pd-b-1">
+<div class = "page-header pd-l-1 pd-t-05 pd-b-05 card-bg-secondary m-t-1 rounded-4 c-white-2">
     <h3>{text}</h3>
 </div>
 

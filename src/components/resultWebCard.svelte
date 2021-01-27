@@ -25,7 +25,6 @@
     }
 
     .slider-item {
-        box-sizing: border-box;
         background : rgb(234 237 239);
         margin-right:5px;
         float:left;

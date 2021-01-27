@@ -29,11 +29,6 @@
 </script>
 
 
-<style>
-
-
-</style>
-
 <div class = "card">
     <div class = "card-title pd-l-1 pd-t-05 pd-b-05">
         Gündem
