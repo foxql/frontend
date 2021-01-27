@@ -16,19 +16,36 @@
 
 <style>
     input {
-        width: 100%;
-        box-sizing: border-box;
-        border:1px solid rgb(235 238 240); 
-        border-radius: 12px;
+        width: 95%;
+        height:100%;
+        background: transparent;
+        border:0px;
         outline: none;
-        background : rgb(235 238 240);
     }
+    .search-box {
+        position: relative;
+        margin-top:10px;
+        display: flex;
+    }
+
+    .search-box .search-icon {
+        position: absolute;
+        right:2%;
+        margin-top:1%;
+        cursor: pointer;
+    }
+    
+    .search-box .search-icon:hover {
+        color : #555;
+    }
+
 </style>
 
-<div class = "card search-box pd-1">
+<div class = "card search-box card-bg-primary rounded-8 pd-t-05 pd-b-05 pd-l-1">
     <input type = "text" 
         placeholder = "Özgür, anonim ve sansürsüz internet!" 
-        class = "pd-05" 
+        class = "pd-05 rounded-4" 
         on:keydown="{handlePress}"
     />
+    <span class = "fa fa-search search-icon"></span>
 </div>

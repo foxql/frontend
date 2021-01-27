@@ -10,7 +10,6 @@
         height: 100%;
         display: flex;
         flex-flow: column wrap;
-        box-sizing: border-box;
     }
 
     .navbar .nav-item {

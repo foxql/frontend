@@ -21,93 +21,54 @@
         }
     }
 
-    async function handleKeyDown(e)
-    {
-        if(e.key !== 'Enter' && e.key != 'Backspace') return;
-
-        this.style.height = this.scrollHeight + 'px';
-    }
-
 </script>
 
 <style>
-
     .new-document {
-       border : 1px solid #eee;
-       box-sizing : border-box;
-       max-height: 250px;
        overflow-y: auto;
+       position: relative;
     }
 
     .new-document input, .new-document textarea {
-        width : 100%;
-        border-radius : 8px;
-        border : 0px;
-        box-sizing : border-box;
-        margin-bottom : 8px;
+        border:0px;
+        width:100%;
+        border:0px;
+        outline : none;
     }
     .new-document input {
-        border : 1px solid #ccc;
-        outline : none;
-        transition : background ease 0.2s;
-    }
-    .new-document input:focus,  .new-document textarea:focus{
-        background : #eee;
-        color : #555;
+        border-bottom: 1px solid #eee;
     }
 
     .new-document textarea {
-        min-height : 80px;
-        outline : none;
-        border : 1px solid #ccc;
+        height:125px;
         resize: horizontal;
-        overflow: hidden;
+        overflow-y: auto;
+        resize: none;
     }
-
-    .btn-list {
-        display: flex;
-    }
-
 
     .entry-submit {
         padding: 0.5rem 1rem;
-        border-radius: 20px;
-        margin-left: auto;
+        width:100%;
     }
 
-
-
-
-
-    
+    .new-document input:focus, .new-document textarea:focus{
+        background: rgb(234 237 239);
+    }
 </style>
 
-<div class = "new-document pd-1">
+<div class = "new-document rounded-8 card-bg-primary m-t-05">
     {#if typeof title === 'string'}
-        <input type = "text" value = "{title}" class = "entry-title pd-05"  minlength="10" maxlength="80" hidden/>
+        <input type = "text" value = "{title}" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80" hidden/>
         {:else}
-        <input type = "text" placeholder = "Başlık" class = "entry-title pd-05"  minlength="10" maxlength="80"/>
+        <input type = "text" placeholder = "Başlık" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80"/>
     {/if}
     <textarea 
-        class = "entry-content pd-05"
+        class = "entry-content pd-1 card-bg-primary"
         placeholder = "Neler oluyor?" 
         minlength="30" 
         maxlength="500"
-        on:keydown="{handleKeyDown}"
     ></textarea>
-    <div class = "btn-list">
-        <button class = "btn btn-primary pd-05">
-            <span class = "fas fa-image"></span>
-        </button>
-
-        <button class = "btn btn-primary pd-05">
-            <span class = "fas fa-link"></span>
-        </button>
-
-
-        <button class = "entry-submit btn" on:click="{handleClick}"> 
-            <span class = "fas fa-square"></span> Paylaş
-        </button>
-    </div>
-
+    <button class = "entry-submit btn" on:click="{handleClick}"> 
+        <span class = "fas fa-comment"></span> Paylaş
+    </button>
 </div>
