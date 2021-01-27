@@ -13,7 +13,17 @@
 
 	import SearchBox from './components/searchBox.svelte';
 
+	import Upcoming from './components/upcoming.svelte';
 	export let url = ''
+
+	let upcomingPageShow = true;
+
+	let params = (new URL(document.location)).search || '';
+	const token = params.split('access=');
+	if(token.length > 1) {
+		upcomingPageShow = false;
+	}
+	
 </script>
 <style>
 	.left-side {
@@ -36,34 +46,39 @@
 
 </style>
 
+{#if upcomingPageShow}
+	<Upcoming/>
+	{:else}
 
-<div class = "flex-container h-100">
+	<div class = "flex-container h-100">
 	
-	<div class = "left-side flex-item">
-		<Navbar/>
+		<div class = "left-side flex-item">
+			<Navbar/>
+		</div>
+	
+		<div class = "middle-side flex-item  pd-l-1 pd-r-1">
+			<SearchBox/>
+			<Router url="{url}">
+				{#each Routes as route} 
+					{#if route.client !== undefined} 
+						<Route path="{route.path}" component={route.component} client = {client}></Route>
+						{:else}
+						<Route path="{route.path}" component={route.component}></Route>
+					{/if}
+					
+				{/each}
+				<Route path="/"><Home client={client}/></Route>
+			</Router>
+		</div>
+	
+		<div class = "right-side flex-item h-100 pd-l-1 pd-r-2">
+			<Trends client = {client}/>
+			<Console client = {client}/>
+			<Stats client = {client}/>
+			<Footer/>
+		</div>
+	
 	</div>
 
-	<div class = "middle-side flex-item">
-		<SearchBox/>
-		<Router url="{url}">
-			{#each Routes as route} 
-				{#if route.client !== undefined} 
-					<Route path="{route.path}" component={route.component} client = {client}></Route>
-					{:else}
-					<Route path="{route.path}" component={route.component}></Route>
-				{/if}
-				
-			{/each}
-			<Route path="/"><Home client={client}/></Route>
-			<Route/>
-		</Router>
-	</div>
+{/if}
 
-	<div class = "right-side flex-item h-100 pd-l-2 pd-r-2">
-		<Trends client = {client}/>
-		<Console client = {client}/>
-		<Stats client = {client}/>
-		<Footer/>
-	</div>
-
-</div>

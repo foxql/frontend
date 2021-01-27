@@ -5,6 +5,9 @@
 @import './assets/padding.css';
 @import './assets/button.css';
 @import './assets/background.css';
+@import './assets/radius.css';
+@import './assets/margin.css';
+@import './assets/color.css';
 
 body {
     background: rgb(255, 255, 255);

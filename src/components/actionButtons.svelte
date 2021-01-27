@@ -35,14 +35,12 @@
 
 <style>
     .action-buttons {
-        box-sizing: border-box;
         display: flex;
         margin-top:8px;
     }
 
     .action-buttons button {
         font-size:13px;
-        box-sizing: border-box;
         border-radius: 8px;
         border: 0px;
         color: #fff;

@@ -2,9 +2,6 @@
     export let document
 </script>
 
-<style>
-</style>
-
 <div class = "card pd-1">
     <div class = "card-title">
         {document.document.title}

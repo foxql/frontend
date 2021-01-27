@@ -16,7 +16,7 @@
         });
 
         let documentMap = {};
-
+        console.log(documents)
         /** Consensus! */
         documents.forEach( doc => {
             if(documentMap[doc.documentSubId] == undefined ) {
