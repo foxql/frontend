@@ -13,10 +13,11 @@
 	import Trends from './components/trends.svelte';
 	import Footer from './components/footer.svelte';
 	import Console from './components/console.svelte';
-
+	import Upcoming from './components/upcoming.svelte';
 	import SearchBox from './components/searchBox.svelte';
 	export let url = ''
-	
+
+	import tokenControl from './helpers/tokenControl.js';
 </script>
 <style>
 	.left-side {
@@ -39,39 +40,41 @@
 
 </style>
 
+	{#if !tokenControl()}
+		<Upcoming/>
+		{:else}
 
-	<div class = "flex-container h-100">
+		<div class = "flex-container h-100">
 	
-		<div class = "left-side flex-item">
-			<Navbar/>
-		</div>
-	
-		<div class = "middle-side flex-item pd-l-1 pd-r-1 pd-b-1">
-			<SearchBox/>
-			<Router url="{url}">
-				{#each Routes as route} 
-					{#if route.client !== undefined} 
-						<Route path="{route.path}" component={route.component} client = {client}></Route>
-						{:else}
-						<Route path="{route.path}" component={route.component}></Route>
-					{/if}
-					
-				{/each}
-				<Route path="/"><Home client={client}/></Route>
-			</Router>
-		</div>
-	
-		{#if !MobileCheck()}
-			<div class = "right-side flex-item pd-l-1 pd-r-1 pd-b-1">
-				<Trends client = {client}/>
-				<Console client = {client}/>
-				<Stats client = {client}/>
-				<Footer/>
+			<div class = "left-side flex-item">
+				<Navbar/>
 			</div>
-		{/if}
-
+		
+			<div class = "middle-side flex-item pd-l-1 pd-r-1 pd-b-1">
+				<SearchBox/>
+				<Router url="{url}">
+					{#each Routes as route} 
+						{#if route.client !== undefined} 
+							<Route path="{route.path}" component={route.component} client = {client}></Route>
+							{:else}
+							<Route path="{route.path}" component={route.component}></Route>
+						{/if}
+						
+					{/each}
+					<Route path="/"><Home client={client}/></Route>
+				</Router>
+			</div>
+		
+			{#if !MobileCheck()}
+				<div class = "right-side flex-item pd-l-1 pd-r-1 pd-b-1">
+					<Trends client = {client}/>
+					<Console client = {client}/>
+					<Stats client = {client}/>
+					<Footer/>
+				</div>
+			{/if}
 	
-	</div>
+		
+		</div>
 
-
-	
+	{/if}
