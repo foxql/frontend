@@ -1,6 +1,7 @@
 <script>
     export let client;
     import {link} from 'svelte-routing';
+    import enums from '../enums/enums.js';
 
     let trendList = {};
 
@@ -31,13 +32,13 @@
 
 <div class = "card">
     <div class = "card-title pd-l-1 pd-t-05 pd-b-05">
-        Gündem
+        {enums.TRENDS}
     </div>
     <div class = "card-body">
         <ul>
             {#if Object.keys(trendList).length <= 0} 
                     <li class = "pd-1">
-                        Gündem boş :(
+                        {enums.TREND_EMPTY}
                     </li>
             {:else}
 

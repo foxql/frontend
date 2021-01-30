@@ -1,29 +1,34 @@
 <script>
     export let client;
-    export let title;
     export let id;
 
     import NewDocument from '../components/newEntry.svelte';
-    import ActionButtons from '../components/actionButtons.svelte';
-    import { beforeUpdate } from 'svelte';
+    import DocumentButtons from '../components/documentButtons.svelte';
+
+    let title = '';
 
     async function loadDocuments()
     {
         let documents = await client.findDocument({  
             ref : id,
             collection : 'entrys',
-            timeOut : 500
+            timeOut : 500,
+            match : {
+                field : 'entryKey'
+            }
         });
 
         let documentMap = {};
-        console.log(documents)
         /** Consensus! */
         documents.forEach( doc => {
-            if(documentMap[doc.documentSubId] == undefined ) {
+
+            title = doc.title;
+
+            if(documentMap[doc.documentId] == undefined ) {
                 doc.recieveCount = 1;
-                documentMap[doc.documentSubId] = doc;
+                documentMap[doc.documentId] = doc;
             }else{
-                documentMap[doc.documentSubId].recieveCount++;
+                documentMap[doc.documentId].recieveCount++;
             }
         });
 
@@ -33,42 +38,28 @@
 
     let promise = loadDocuments()
 
-    beforeUpdate(()=>{
-        promise = loadDocuments()
-    });
 </script>
 
-<style>
-    .entry-sub-content {
-        padding: 0.5rem;
-        border: 1px solid #eee;
-        background: rgb(247 249 250);
-    }
-
-    .big-title {
-        font-size:1.4rem;
-    }
-</style>
-
-<div class = "card pd-1">
-    <div class = "card-title pd-b-05 big-title">{title}</div>
     {#await promise}
         loading...
     {:then documents}
+    <div class = "card pd-1 rounded-8 card-bg-primary pd-1 m-t-1">
+        <div class = "card-title pd-b-05 big-title">{title}</div>
 
         {#each documents as doc} 
-                <div class = "card-body entry-sub-content pd-b-05">
-                    {doc.content}
-
-                    <div class = "card-body-footer">
-                        <ActionButtons client = {client} doc = {doc} collection = 'entrys'></ActionButtons>
+                <div class = "card-body entry-sub-content pd-b-05 flex">
+                    <DocumentButtons
+                        client = {client}
+                        doc = {doc}
+                        collectionName = 'entrys'
+                    />
+                    <div class = "content pd-05">
+                        {doc.content}
                     </div>
                 </div>
         {/each}
-
+    </div>
+    <NewDocument client = {client} title = {title}/>
     {/await}
-</div>
 
 
-
-<NewDocument client = {client} title = {title}/>

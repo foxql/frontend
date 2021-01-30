@@ -10,3 +10,10 @@
     border-radius: 4px;
     margin-right : 8px;
 }
+
+.reset-btn {
+    border:0px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}

@@ -1,5 +1,4 @@
 <script>
-    export let client;
     export let document;
 
 </script>
@@ -51,11 +50,11 @@
     }
 </style>
 
-<div class = "card pd-1" >
+<div class = "card pd-l-1 pd-r-1 pd-t-1 card-bg-primary m-t-1 rounded-8">
     <div class = "card-title pd-b-05">
         <a href = "{document.document.url}" class = "web-title">{document.document.title}</a>
     </div>
-    <div class = "card-body pd-b-05">
+    <div class = "card-body">
         <p>{document.document.description}</p>
         <p class = "url">
             <a href = "{document.document.url}">{document.document.url}</a>

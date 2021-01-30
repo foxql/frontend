@@ -3,36 +3,29 @@ import Search from './views/search.svelte';
 import Entry from './views/entry.svelte';
 import Home from './views/home.svelte';
 import Profile from './views/profile.svelte';
-import Contribute from './views/contribute.svelte';
-import Node from './views/node.svelte';
+
+import enums from './enums/enums.js';
 
 export default [
     {
-        name : 'Anasayfa',
+        name : enums.HOME,
         path : '/',
         component : Home,
         icon : 'fas fa-home',
         client : true
     },
     {
-        name : 'Keşfet',
+        name : enums.DISCOVERY,
         path : 'discovery',
         component : Discovery,
         icon : 'fas fa-globe-europe',
         client : true
     },
     {
-        name : 'Profil',
+        name : enums.PROFILE,
         path : 'profile',
         component : Profile,
         icon : 'fas fa-user',
-        client : true
-    },
-    {
-        name : 'Katkıda bulun',
-        path : 'contribute',
-        component : Contribute,
-        icon : 'fas fa-handshake',
         client : true
     },
     {
@@ -44,16 +37,9 @@ export default [
     },
     {
         name : 'Entry',
-        path : 'entry/:id/:title',
+        path : 'entry/:id',
         component : Entry,
         hideMenu : true,
         client : true
-    },
-    {
-        name : 'foxnode',
-        path : 'fox-node',
-        component : Node,
-        hideMenu : true,
-        client : false
     }
 ];

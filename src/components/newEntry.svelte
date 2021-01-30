@@ -2,6 +2,8 @@
     export let client;
     export let title;
 
+    import enums from '../enums/enums.js';
+
     async function handleClick()
     {
         const body = {
@@ -60,15 +62,15 @@
     {#if typeof title === 'string'}
         <input type = "text" value = "{title}" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80" hidden/>
         {:else}
-        <input type = "text" placeholder = "Başlık" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80"/>
+        <input type = "text" placeholder = "{enums.NEW_ENTRY_TITLE}" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80"/>
     {/if}
     <textarea 
         class = "entry-content pd-1 card-bg-primary"
-        placeholder = "Neler oluyor?" 
+        placeholder = "{enums.NEW_ENTRY_BODY}" 
         minlength="30" 
         maxlength="500"
     ></textarea>
     <button class = "entry-submit btn" on:click="{handleClick}"> 
-        <span class = "fas fa-comment"></span> Paylaş
+        <span class = "fas fa-comment"></span> {enums.NEW_ENTRY_SUBMIT}
     </button>
 </div>

@@ -2,6 +2,9 @@
 	export let client;
 	import {Router, Route} from 'svelte-routing';
 
+	import MobileCheck from './helpers/mobileDeviceCheck.js';
+	
+
 	import Routes from './routers.js';
 	import Navbar from './components/navbar.svelte';
 	import Home from './views/home.svelte';
@@ -12,17 +15,7 @@
 	import Console from './components/console.svelte';
 
 	import SearchBox from './components/searchBox.svelte';
-
-	import Upcoming from './components/upcoming.svelte';
 	export let url = ''
-
-	let upcomingPageShow = true;
-
-	let params = (new URL(document.location)).search || '';
-	const token = params.split('access=');
-	if(token.length > 1) {
-		upcomingPageShow = false;
-	}
 	
 </script>
 <style>
@@ -46,9 +39,6 @@
 
 </style>
 
-{#if upcomingPageShow}
-	<Upcoming/>
-	{:else}
 
 	<div class = "flex-container h-100">
 	
@@ -56,7 +46,7 @@
 			<Navbar/>
 		</div>
 	
-		<div class = "middle-side flex-item  pd-l-1 pd-r-1">
+		<div class = "middle-side flex-item pd-l-1 pd-r-1 pd-b-1">
 			<SearchBox/>
 			<Router url="{url}">
 				{#each Routes as route} 
@@ -71,14 +61,17 @@
 			</Router>
 		</div>
 	
-		<div class = "right-side flex-item h-100 pd-l-1 pd-r-2">
-			<Trends client = {client}/>
-			<Console client = {client}/>
-			<Stats client = {client}/>
-			<Footer/>
-		</div>
+		{#if !MobileCheck()}
+			<div class = "right-side flex-item pd-l-1 pd-r-1 pd-b-1">
+				<Trends client = {client}/>
+				<Console client = {client}/>
+				<Stats client = {client}/>
+				<Footer/>
+			</div>
+		{/if}
+
 	
 	</div>
 
-{/if}
 
+	
