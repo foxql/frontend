@@ -6,6 +6,7 @@
 
     import EntryCardResult from '../components/entryResultsCard.svelte'
     import WebPageCardResult from '../components/resultWebCard.svelte';
+    import enums from '../enums/enums.js';
 
     import Booster from '../helpers/searchBooster.js';
 
@@ -57,11 +58,11 @@
 
 </script>
 
-<div class = "card pd-1">
+<div class = "card pd-l-1 pd-t-1 pd-r-1">
     {#await searchPromise}
-        <b>{query}</b> sorgulanıyor.. 
+        <b>{query}</b> {enums.VIEWS.SEARCH.PROMISE}
     {:then data}
-        <b>{query}</b> sonuçlandı <span style = "float:right;">{data.count}</span>
+        <b>{query}</b> {enums.VIEWS.SEARCH.THEN} <span style = "float:right;">{data.count}</span>
     {/await}
 </div>
 
@@ -74,7 +75,7 @@
         {/if}
 
         {#if item._collection == 'webPage'}
-            <WebPageCardResult document = {item} client = {client}/>
+            <WebPageCardResult document = {item}/>
         {/if}
     {/each}
 {/await}

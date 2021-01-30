@@ -1,5 +1,6 @@
 <script>
     import { navigate } from "svelte-routing";
+    import enums from '../enums/enums.js';
 
     async function handlePress(e)
     {
@@ -43,7 +44,7 @@
 
 <div class = "card search-box card-bg-primary rounded-8 pd-t-05 pd-b-05 pd-l-1">
     <input type = "text" 
-        placeholder = "Özgür, anonim ve sansürsüz internet!" 
+        placeholder = "{enums.SEARCH_BOX_PLACEHOLDER}" 
         class = "pd-05 rounded-4" 
         on:keydown="{handlePress}"
     />

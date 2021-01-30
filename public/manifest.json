@@ -1,0 +1,26 @@
+{
+    "name": "Foxql",
+    "description": "p2p search engine, like twitter.",
+    "short_name": "foxql",
+    "icons": [
+        {
+            "src": "https://foxql.com/images/logo_144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+       {
+          "src": "https://foxql.com/images/logo_192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+       },
+       {
+          "src": "https://foxql.com/images/logo_512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+       }
+    ],
+    "start_url": "https://foxql.com",
+    "display": "standalone",
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF"
+ }

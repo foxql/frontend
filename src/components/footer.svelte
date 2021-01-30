@@ -1,3 +1,6 @@
+<script>
+    import enums from '../enums/enums.js';
+</script>
 <style>
     .card {
         text-align: center;
@@ -6,8 +9,6 @@
 </style>
 <div class = "card pd-1">
     <div class = "card-body">
-        Tüm hakları her yerdedir.
-        <br>
-        (c) 2021
+        {@html enums.FOOTER_TEXT}
     </div>
 </div>

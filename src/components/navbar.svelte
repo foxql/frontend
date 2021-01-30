@@ -87,12 +87,4 @@
             {/if}
         {/each}
 
-        <div class = "nav-item publish-nav" use:link>
-            <a href = "/fox-node" class = "pd-l-2 pd-r-2 pd-t-05 pd-b-05 publish-btn" use:link>
-                <span class = "fab fa-linode icon" style = "font-size: 18px;"></span> 
-                <span class = "text">fox-node</span>
-            </a>
-         </div>
-   
-
 </div>

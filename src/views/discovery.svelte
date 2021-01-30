@@ -1,7 +1,6 @@
 <script>
     export let client;
     import {link} from 'svelte-routing';
-    import NewDocument from '../components/newEntry.svelte';
 
     async function getDocuments() {
         let documentMap = {};
@@ -49,7 +48,7 @@
         {#each Object.values(documents) as document}
            <div class = "card pd-1 card-bg-primary m-t-05 rounded-8">
                 <div class = "card-title pd-b-05">
-                    <a href = "entry/{document.entry.documentId}/{document.entry.title}" use:link>{document.entry.title}</a>
+                    <a href = "entry/{document.entry.documentId}" use:link>{document.entry.title}</a>
                 </div>
                 <div class = "card-body pd-b-05">
                     {document.entry.content}

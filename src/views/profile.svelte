@@ -2,7 +2,8 @@
     export let client;
 
     import Header from '../components/header.svelte'
-    import ActionButtons from '../components/actionButtons.svelte';
+    import CardButtons from '../components/cardButtons.svelte';
+    import enums from '../enums/enums.js';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
 </script>
@@ -14,7 +15,7 @@
 </style>
 
 
-<Header text = 'Profil' />
+<Header text = '{enums.PROFILE}' />
 
 {#each entrys as entry}
 
@@ -24,12 +25,8 @@
         </div>
         <div class = "card-body entry-content">
             {entry.content}
-            <ActionButtons 
-                client = {client} 
-                doc = {entry} 
-                collection = 'entrys'
-                profileActions = {true}
-            />
+
+            <CardButtons client = {client} doc = {entry}/>
         </div>
     </div>
 
