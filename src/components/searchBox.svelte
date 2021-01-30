@@ -17,7 +17,7 @@
 
 <style>
     input {
-        width: 95%;
+        width: 100%;
         height:100%;
         background: transparent;
         border:0px;
@@ -27,12 +27,13 @@
         position: relative;
         margin-top:10px;
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .search-box .search-icon {
         position: absolute;
-        right:2%;
-        margin-top:1%;
+        right:1rem;
         cursor: pointer;
     }
     

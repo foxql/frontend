@@ -1,29 +1,22 @@
 <script>
-    import {AlertOctagonIcon} from 'svelte-feather-icons';
+    
 </script>
 
 <style>
+    
     .card {
-        color : #e61a1a;
-        font-size:15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .card span {
-        position: relative !important;
-        margin-top:0px !important;
-    }
-
-    .center {
+        color : #eee;
         text-align: center;
     }
+
+    .fa-frown {
+        font-size:1.5rem;
+        position: relative;
+    }
+
 </style>
 
-<div class = "card center">
-            <AlertOctagonIcon size = "64"/>
-            <span>
-                Gösterecek hiç bir şey bulamadım. Şuan buralar dutluk!
-            </span>
+<div class = "card card-bg-secondary rounded-8 m-t-1 pd-1">
+    <span class = "far fa-frown"></span><br>
+    <span>Gösterecek hiç bir şey bulamadım.</span>
 </div>

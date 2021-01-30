@@ -1,6 +1,7 @@
 <script>
     export let client;
     import {link} from 'svelte-routing';
+    import NotFoundCard from '../components/notFoundCard.svelte';
 
     async function getDocuments() {
         let documentMap = {};
@@ -45,6 +46,13 @@
 {#await eventPromise}
     loading...
 {:then documents}
+
+        {#if Object.values(documents).length <= 0}
+
+            <NotFoundCard/>
+
+        {/if}
+
         {#each Object.values(documents) as document}
            <div class = "card pd-1 card-bg-primary m-t-05 rounded-8">
                 <div class = "card-title pd-b-05">

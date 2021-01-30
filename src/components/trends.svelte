@@ -7,12 +7,10 @@
 
     client.peer.socket.on('newTrendTopic', (document)=>{
         trendList[document.doc.title] = document;
-        console.log('Trendlere yeni giriş')
     })
 
     client.peer.socket.on('dropTrendTopic', (document)=>{
         delete trendList[document.doc.title]
-        $:trendList = trendList;
     })
 
     client.peer.socket.on('getTrends', (list)=>{
@@ -21,14 +19,26 @@
         list.forEach( doc => {
             trendList[doc.title] = doc;
         });
-
-        $:trendList = trendList;
     })
 
     client.peer.socket.emit('getTrends', true)
 
 </script>
 
+<style>
+.card {
+    margin-bottom: 10px;
+    background : rgb(247 249 250);
+    border:0px;
+    border-radius: 10px;
+    margin-top:10px;
+}
+
+.card .card-title {
+    font-size:16px;
+    border-bottom: 1px solid #eee;
+}
+</style>
 
 <div class = "card">
     <div class = "card-title pd-l-1 pd-t-05 pd-b-05">

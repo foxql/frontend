@@ -1,6 +1,9 @@
 <script>
+
     import {link} from "svelte-routing";
     import Routes from '../routers.js';
+    import MobileCheck from '../helpers/mobileDeviceCheck.js';
+
 </script>
 
 <style>
@@ -77,12 +80,28 @@
         {#each Routes as route} 
         {#if route.hideMenu == undefined}
                 {#if route.hideMenu == undefined} 
-                    <div class = "nav-item pd-b-1">
-                        <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
-                            <span class = "{route.icon} icon"></span>
-                            <span class = "text">{route.name}</span>   
-                        </a>
-                    </div>
+
+                    {#if !MobileCheck() && !route.hideDesktop}
+                        
+                        <div class = "nav-item pd-b-1">
+                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
+                                <span class = "{route.icon} icon"></span>
+                                <span class = "text">{route.name}</span>   
+                            </a>
+                        </div>
+
+                        {:else if MobileCheck()}
+
+                        <div class = "nav-item pd-b-1">
+                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
+                                <span class = "{route.icon} icon"></span>
+                                <span class = "text">{route.name}</span>   
+                            </a>
+                        </div>
+
+
+                    {/if}
+
                 {/if}
             {/if}
         {/each}

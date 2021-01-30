@@ -1,13 +1,20 @@
 export default {
-    HOME : 'Homepage',
+    HOME : 'Share',
     DISCOVERY : 'Discovery',
     PROFILE : 'Profile',
     CONTRIBUTE : 'Contribute',
     VIEWS : {
         HOME : {
-            TITLE : 'Anonym, free and transparent',
-            BODY : `Peer to peer full text search engine that runs on your browser.
-            We're developing FoxQL for bring freedom to internet and make you anonymous.`
+            TITLE : `Don't think, don't be afraid, just share!`,
+            BODY : `
+                <p>
+                    Peer to peer full text search engine that runs on your browser.
+                    We're developing FoxQL for bring freedom to internet and make you anonymous.
+                </p>
+                <p>   
+                    Own the things you want to see. Set the trends.
+                </p>
+            `
         },
         SEARCH : {
             PROMISE : 'Load from peers',

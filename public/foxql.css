@@ -37,41 +37,29 @@ body {
     font-size:14px;
 }
 
-.right-side .card {
-    margin-bottom: 10px;
-    background : rgb(247 249 250);
-    border:0px;
-    border-radius: 10px;
-    margin-top:10px;
-}
 
-.right-side .card .card-title {
-    font-size:16px;
-    border-bottom: 1px solid #eee;
-}
-
-.right-side .card .card-body ul {
+.card .card-body ul {
     list-style: none;
 }
 
-.right-side .card .card-body ul li {
+.card .card-body ul li {
     font-size:14px;
     box-sizing: border-box;
     transition: all ease 0.3s;
     position: relative;
 }
 
-.right-side .card .card-body ul li:last-child {
+.card .card-body ul li:last-child {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;   
 }
 
-.right-side .card .card-body ul li a{
+.card .card-body ul li a{
     text-decoration: none;
     color : #555;
 }
 
-.right-side .card .card-body ul li:hover {
+.card .card-body ul li:hover {
     background: rgb(234 237 239);
 }
 
