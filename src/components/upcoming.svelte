@@ -15,18 +15,20 @@
         width:100%;
         height:100%;
         z-index: 2938;
-        background: #000;
+        background: #fff;
         font-family: 'Roboto';
         padding-top:10rem;
+        padding : 10rem;
     }
 
-    div {
-        text-align: center;
-        background : #f9f9f9c4;
+    .title {
         color : #000;
-        padding:1rem;
         font-weight: 600;
         font-size: 1.2rem;
+    }
+
+    .mikmik {
+        display: flex;
     }
 
     input {
@@ -34,13 +36,13 @@
         padding:0.5rem 1rem;
         margin-top: 1rem;
         border:1px solid #eee;
-        color : #ccc;
+        color : #555;
         background: transparent;
         outline: none;
     }
 
     button {
-        width:100%;
+        width:10%;
         padding : 0.3rem 1rem;
         margin-top:1rem;
         background : #eee;
@@ -54,8 +56,11 @@
 
 <div class = "upcoming-area">
     <div class = "title">
-        Freedom is coming!
+        Have a test key?
     </div>
-    <input type = "text" placeholder = "Your test key"/>
-    <button on:click="{handleKey}">Submit</button>
+    <div class = "mikmik">
+        <input type = "text" placeholder = "Your test key"/>
+        <button on:click="{handleKey}">Submit</button>
+    </div>
+    
 </div>

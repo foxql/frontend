@@ -1,9 +1,7 @@
 <script>
     export let client;
-
-    import Header from '../components/header.svelte'
+    
     import CardButtons from '../components/cardButtons.svelte';
-    import enums from '../enums/enums.js';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
 </script>
@@ -13,9 +11,6 @@
         font-size : 0.9rem;
     }
 </style>
-
-
-<Header text = '{enums.PROFILE}' />
 
 {#each entrys as entry}
 

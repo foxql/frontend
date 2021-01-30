@@ -1,5 +1,5 @@
 export default {
-    HOME : 'Anasayfa',
+    HOME : 'Paylaş',
     DISCOVERY : 'Keşfet',
     PROFILE : 'Profil',
     CONTRIBUTE : 'Katkıda Bulun',
