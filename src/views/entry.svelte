@@ -18,9 +18,14 @@
             }
         });
 
-        documents.push(
-            client.database.useCollection('entrys').getDoc(id)
-        );
+        const myDocument = client.database.useCollection('entrys').getDoc(id);
+
+        if(myDocument){
+            documents.push(
+                myDocument
+            );
+        }
+        
 
         let documentMap = {};
         /** Consensus! */
