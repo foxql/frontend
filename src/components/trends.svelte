@@ -15,12 +15,18 @@
 
     client.peer.socket.on('getTrends', (list)=>{
         if(list.length <= 0) return;
-        list.forEach( doc => {
-            trendList[doc.title] = doc;
+
+        list.sort(function(a, b) {
+            return parseFloat(b.count) - parseFloat(a.count);
+        });
+
+        list.forEach( document => {
+            trendList[document.doc.title] = document;
         });
     })
 
     client.peer.socket.emit('getTrends', true)
+    
 
 </script>
 
