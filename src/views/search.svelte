@@ -1,8 +1,6 @@
 <script>
     export let client;
     export let query;
-    
-    import { beforeUpdate } from 'svelte';
 
     import EntryCardResult from '../components/entryResultsCard.svelte'
     import WebPageCardResult from '../components/resultWebCard.svelte';
@@ -10,19 +8,19 @@
 
     import Booster from '../helpers/searchBooster.js';
 
-    async function searchNetwork()
+    async function searchNetwork(queryString)
     {
         let resultMap = {};
         let results = await client.search({
-            query : query,
+            query : queryString,
             timeOut : 0
         });
 
-        client.peer.socket.emit('search', query)
+        client.peer.socket.emit('search', queryString)
 
 
         if(results.count > 0 ) {
-            const booster = new Booster(query, results);
+            const booster = new Booster(queryString, results);
             booster.setRule({
                 webPage : {
                     mainPage : 10
@@ -50,11 +48,11 @@
 
     }
 
-    let searchPromise = searchNetwork();
+    let searchPromise = searchNetwork(query);
 
-    beforeUpdate(()=>{
-        searchPromise = searchNetwork()
-   });
+    $: {
+        searchPromise = searchNetwork(query)
+    }
 
 </script>
 

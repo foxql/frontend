@@ -15,7 +15,6 @@
 
     client.peer.socket.on('getTrends', (list)=>{
         if(list.length <= 0) return;
-
         list.forEach( doc => {
             trendList[doc.title] = doc;
         });
@@ -53,9 +52,9 @@
             {:else}
 
             {#each Object.values(trendList) as item}
-
+                    
                 <li class = "pd-1">
-                   <a href = "entry/{item.doc.documentId}" use:link>{item.doc.title}</a>
+                   <a href = "entry/{item.doc.documentId}" use:link replace>{item.doc.title}</a>
                 </li>
 
             {/each}
