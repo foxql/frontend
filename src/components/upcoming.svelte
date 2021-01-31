@@ -42,7 +42,6 @@
     }
 
     button {
-        width:10%;
         padding : 0.3rem 1rem;
         margin-top:1rem;
         background : #eee;
@@ -62,5 +61,4 @@
         <input type = "text" placeholder = "Your test key"/>
         <button on:click="{handleKey}">Submit</button>
     </div>
-    
 </div>

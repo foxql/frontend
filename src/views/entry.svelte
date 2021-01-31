@@ -18,6 +18,10 @@
             }
         });
 
+        documents.push(
+            client.database.useCollection('entrys').getDoc(id)
+        );
+
         let documentMap = {};
         /** Consensus! */
         documents.forEach( doc => {
@@ -59,7 +63,10 @@
                 </div>
         {/each}
     </div>
-    <NewDocument client = {client} title = {title}/>
+    {#if documents.length > 0}
+        <NewDocument client = {client} title = {title}/>
+    {/if}
+    
     {/await}
 
 

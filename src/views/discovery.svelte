@@ -44,7 +44,7 @@
 
 
 {#await eventPromise}
-    loading...
+    Loading from peers...
 {:then documents}
 
         {#if Object.values(documents).length <= 0}

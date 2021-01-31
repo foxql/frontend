@@ -115,5 +115,13 @@ body {
         flex-basis: auto !important;
     }
 
+    .upcoming-area {
+        padding : 10rem 1rem!important;
+    }
+
+    .upcoming-area button {
+        width: auto !important;
+    }
+
 
   }

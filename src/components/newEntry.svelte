@@ -3,6 +3,7 @@
     export let title;
 
     import enums from '../enums/enums.js';
+    import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications';
 
     async function handleClick()
     {
@@ -17,12 +18,13 @@
             client.peer.socket.emit('newDoc', body);
             document.querySelector('.entry-content').value = '';
             document.querySelector('.entry-title').value = '';
-            alert('Başarıyla ekledim!')
+            notifier.success('Your think is published', 4000)
         }else{
-            alert('Olmadı be agam!')
+            notifier.danger('Oups!', 5000)
         }
     }
 
+    let n;
 </script>
 
 <style>
@@ -57,7 +59,7 @@
         background: rgb(234 237 239);
     }
 </style>
-
+<NotificationDisplay bind:this={n} />
 <div class = "new-document rounded-8 card-bg-primary m-t-05">
     {#if typeof title === 'string'}
         <input type = "text" value = "{title}" class = "entry-title pd-1 card-bg-primary"  minlength="10" maxlength="80" hidden/>

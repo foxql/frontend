@@ -18,5 +18,5 @@
 
 <div class = "card card-bg-secondary rounded-8 m-t-1 pd-1">
     <span class = "far fa-frown"></span><br>
-    <span>Gösterecek hiç bir şey bulamadım.</span>
+    <span>I couldn't find anything to show.</span>
 </div>
