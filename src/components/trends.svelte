@@ -55,7 +55,7 @@
             {#each Object.values(trendList) as item}
 
                 <li class = "pd-1">
-                   <a href = "entry/{item.doc.documentId}/{item.doc.title}" use:link>{item.doc.title}</a>
+                   <a href = "entry/{item.doc.documentId}" use:link>{item.doc.title}</a>
                 </li>
 
             {/each}
