@@ -13,7 +13,7 @@
         let resultMap = {};
         let results = await client.search({
             query : queryString,
-            timeOut : 0
+            timeOut : 350
         });
 
         client.peer.socket.emit('search', queryString)
