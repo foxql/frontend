@@ -31,5 +31,6 @@ export default {
     NEW_ENTRY_TITLE : 'Title',
     NEW_ENTRY_BODY : 'What do you think?',
     NEW_ENTRY_SUBMIT : 'Share',
-    ACTIONS : 'Last actions'
+    ACTIONS : 'Last actions',
+    DOCUMENTATION : 'Documentation'
 }
