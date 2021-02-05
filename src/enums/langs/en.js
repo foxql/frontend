@@ -3,6 +3,7 @@ export default {
     DISCOVERY : 'Discovery',
     PROFILE : 'Profile',
     CONTRIBUTE : 'Contribute',
+    SHARE : 'Share',
     VIEWS : {
         HOME : {
             TITLE : `Don't think, don't be afraid, just share!`,
@@ -29,5 +30,6 @@ export default {
     ACTIVE_CONNECTIONS : 'Active Connections',
     NEW_ENTRY_TITLE : 'Title',
     NEW_ENTRY_BODY : 'What do you think?',
-    NEW_ENTRY_SUBMIT : 'Share'
+    NEW_ENTRY_SUBMIT : 'Share',
+    ACTIONS : 'Last actions'
 }

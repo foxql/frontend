@@ -3,31 +3,39 @@
     import {link} from 'svelte-routing';
     import enums from '../enums/enums.js';
 
-    let trendList = {};
+    const countryList = {
+        tr : 'turkey',
+        usa : 'united-states' 
+    };
 
-    client.peer.socket.on('newTrendTopic', (document)=>{
-        trendList[document.doc.title] = document;
-    })
+    let targetCountry = localStorage.getItem('country') || false;
 
-    client.peer.socket.on('dropTrendTopic', (document)=>{
-        delete trendList[document.doc.title]
-    })
+    if(!targetCountry) {
+        localStorage.setItem('country', 'usa')
+        targetCountry = 'usa';
+    }
+
+    const countryName = countryList[targetCountry];
+
+    let trendList = [];
 
     client.peer.socket.on('getTrends', (list)=>{
-        if(list.length <= 0) return;
-
-        list.sort(function(a, b) {
-            return parseFloat(b.count) - parseFloat(a.count);
-        });
-
-        list.forEach( document => {
-            trendList[document.doc.title] = document;
-        });
+        trendList = list;
     })
 
-    client.peer.socket.emit('getTrends', true)
-    
+    client.peer.socket.emit('getTrends', countryName)
 
+    function changeCountry()
+    {
+        const currentCountry = localStorage.getItem('country') || 'usa';
+        if(currentCountry == 'usa') {
+            localStorage.setItem('country', 'tr')
+        }else{
+            localStorage.setItem('country', 'usa')
+        }
+
+        window.document.location.href = window.document.location.href
+    }
 </script>
 
 <style>
@@ -43,24 +51,40 @@
     font-size:16px;
     border-bottom: 1px solid #eee;
 }
+
+.country-select-btn:hover {
+    cursor: pointer;
+    color : #6625bd;
+    transition: color ease 0.2s;
+}
+.upper {
+    text-transform: uppercase;
+}
 </style>
 
 <div class = "card">
-    <div class = "card-title pd-l-1 pd-t-05 pd-b-05">
-        {enums.TRENDS}
+    <div class = "card-title pd-l-1 pd-t-05 pd-b-05 flex">
+        <div>
+            {enums.TRENDS} 
+            <span class = "fa fa-fire"></span>
+        </div>
+        <div class = "f-right m-r-1 country-select-btn" on:click="{changeCountry}">
+            <span class = "upper">{targetCountry}</span>
+            <span class = "fa fa-angle-double-down"></span>
+        </div>
     </div>
     <div class = "card-body">
         <ul>
-            {#if Object.keys(trendList).length <= 0} 
+            {#if trendList.length <= 0} 
                     <li class = "pd-1">
                         {enums.TREND_EMPTY}
                     </li>
             {:else}
 
-            {#each Object.values(trendList) as item}
+            {#each trendList as term}
                     
                 <li class = "pd-1">
-                   <a href = "entry/{item.doc.documentId}" use:link replace>{item.doc.title}</a>
+                   <a href = "search/{term}" use:link replace>{term}</a>
                 </li>
 
             {/each}

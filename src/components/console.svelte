@@ -2,6 +2,7 @@
     export let client;
     import {link} from 'svelte-routing';
 
+    import enums from '../enums/enums.js';
 
     const listenerName = 'actionList';
 
@@ -26,7 +27,7 @@
 
 <div class = "card card-bg-primary m-t-1 rounded-8">
     <div class = "card-title pd-l-1 pd-t-05 pd-b-05">
-        Actions
+        {enums.ACTIONS}
     </div>
     <div class = "card-body">
         <ul>

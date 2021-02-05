@@ -3,6 +3,7 @@ export default {
     DISCOVERY : 'Keşfet',
     PROFILE : 'Profil',
     CONTRIBUTE : 'Katkıda Bulun',
+    SHARE : 'Paylaş',
     VIEWS : {
         HOME : {
             TITLE : 'Anonim, Özgür Ve Şeffaf',
@@ -25,5 +26,6 @@ export default {
     ACTIVE_CONNECTIONS : 'Aktif Bağlantı',
     NEW_ENTRY_TITLE : 'Başlık',
     NEW_ENTRY_BODY : 'Neler oluyor?',
-    NEW_ENTRY_SUBMIT : 'Paylaş'
+    NEW_ENTRY_SUBMIT : 'Paylaş',
+    ACTIONS : 'Son hareketler'
 }

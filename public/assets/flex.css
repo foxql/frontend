@@ -15,6 +15,10 @@
     justify-content: center;
 }
 
+.f-right {
+    margin-left : auto;
+}
+
 .flex-container {
     display: -ms-flexbox;
     display: -webkit-flex;

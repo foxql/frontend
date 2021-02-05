@@ -1,7 +1,7 @@
 import Discovery from './views/discovery.svelte';
 import Search from './views/search.svelte';
 import Entry from './views/entry.svelte';
-import Home from './views/home.svelte';
+import Share from './views/share.svelte';
 import Profile from './views/profile.svelte';
 import Trends from './views/trends.svelte';
 
@@ -9,10 +9,10 @@ import enums from './enums/enums.js';
 
 export default [
     {
-        name : enums.HOME,
-        path : '/',
-        component : Home,
-        icon : 'fas fa-paper-plane',
+        name : enums.TRENDS,
+        path : 'trends',
+        component : Trends,
+        icon : 'fa fa-fire-alt',
         client : true,
         hideDesktop : false
     },
@@ -49,11 +49,11 @@ export default [
         hideDesktop : false
     },
     {
-        name : enums.TRENDS,
-        path : 'trends',
-        component : Trends,
-        icon : 'fa fa-fire-alt',
+        name : enums.SHARE,
+        path : '/share',
+        component : Share,
+        icon : 'fas fa-paper-plane',
         client : true,
-        hideDesktop : true
+        hideDesktop : false
     }
 ];
