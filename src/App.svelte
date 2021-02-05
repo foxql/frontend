@@ -13,6 +13,8 @@
 	import Footer from './components/footer.svelte';
 	import Console from './components/console.svelte';
 	import SearchBox from './components/searchBox.svelte';
+	import Socials from './components/socials.svelte';
+
 	export let url = ''
 
 </script>
@@ -62,6 +64,7 @@
 				<div class = "right-side flex-item pd-l-1 pd-r-1 pd-b-1">
 					<Console client = {client}/>
 					<Stats client = {client}/>
+					<Socials/>
 					<Footer/>
 				</div>
 			{/if}
