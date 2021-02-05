@@ -4,6 +4,7 @@ import Entry from './views/entry.svelte';
 import Share from './views/share.svelte';
 import Profile from './views/profile.svelte';
 import Trends from './views/trends.svelte';
+import ExtensionNewEntry from './views/extensionNewEntry.svelte';
 
 import enums from './enums/enums.js';
 
@@ -55,5 +56,14 @@ export default [
         icon : 'fas fa-paper-plane',
         client : true,
         hideDesktop : false
-    }
+    },
+    {
+        name : 'extension-entry',
+        path : '/extension-entry',
+        component : ExtensionNewEntry,
+        icon : 'fas fa-paper-plane',
+        client : true,
+        hideDesktop : false,
+        hideMenu : true
+    },
 ];
