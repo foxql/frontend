@@ -27,5 +27,6 @@ export default {
     NEW_ENTRY_TITLE : 'Başlık',
     NEW_ENTRY_BODY : 'Neler oluyor?',
     NEW_ENTRY_SUBMIT : 'Paylaş',
-    ACTIONS : 'Son hareketler'
+    ACTIONS : 'Son hareketler',
+    DOCUMENTATION : 'Dokümantasyon'
 }

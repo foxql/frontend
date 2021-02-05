@@ -8,10 +8,5 @@
     import NewEntry from '../components/newEntry.svelte';
 </script>
 
-<style>
-    body {
-        background : transparent !important;
-    }
-</style>
 
 <NewEntry client = {client}/>
