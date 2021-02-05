@@ -1,9 +1,15 @@
 <script>
-
     import {link} from "svelte-routing";
     import Routes from '../routers.js';
     import MobileCheck from '../helpers/mobileDeviceCheck.js';
 
+    let path = window.document.location.pathname.replace('/','')
+
+    function handlerNavbarClick()
+    {
+        path =  this.href.split('/')[3];
+    }
+    
 </script>
 
 <style>
@@ -38,6 +44,12 @@
         transition: all ease 0.5s;
     }
     
+    .active {
+        background: #131517;
+        color: #eee !important;
+        border-radius: 20px;
+        transition: all ease 0.5s;
+    }
 
     .navbar .nav-item a .icon {
         margin-right: 5px;
@@ -70,11 +82,10 @@
     }
 
 </style>
-
 <div class = "navbar pd-l-3 pd-t-1 pd-r-3">
 
     <div class = "nav-item pd-l-05 pd-b-1 nav-logo" use:link>
-       <a href = "/" use:link class = "pd-l-05 pd-r-05" >F</a>
+       <a href = "/" use:link class = "pd-l-05 pd-r-05" on:click="{handlerNavbarClick}">F</a>
     </div>
 
         {#each Routes as route} 
@@ -84,16 +95,15 @@
                     {#if !MobileCheck() && !route.hideDesktop}
                         
                         <div class = "nav-item pd-b-1">
-                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
+                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05 {route.path.replace('/','') == path ? 'active' : ''}" use:link on:click="{handlerNavbarClick}">
                                 <span class = "{route.icon} icon"></span>
                                 <span class = "text">{route.name}</span>   
                             </a>
                         </div>
 
                         {:else if MobileCheck()}
-
                         <div class = "nav-item pd-b-1">
-                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05" use:link>
+                            <a href = "{route.path}" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05 {route.path.replace('/','') == path ? 'active' : ''}" use:link on:click="{handlerNavbarClick}">
                                 <span class = "{route.icon} icon"></span>
                                 <span class = "text">{route.name}</span>   
                             </a>

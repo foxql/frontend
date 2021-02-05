@@ -4,6 +4,7 @@
 
     import EntryCardResult from '../components/entryResultsCard.svelte'
     import WebPageCardResult from '../components/resultWebCard.svelte';
+    import NewEntry from '../components/newEntry.svelte';
     import enums from '../enums/enums.js';
 
     import Booster from '../helpers/searchBooster.js';
@@ -67,15 +68,22 @@
 {#await searchPromise}
     ...
 {:then data}
-    {#each Object.values(data.results) as item}
-        {#if item._collection == 'entrys'}
-            <EntryCardResult document = {item}/>
-        {/if}
+    {#if Object.values(data.results).length > 0}
+            {#each Object.values(data.results) as item}
+                {#if item._collection == 'entrys'}
+                    <EntryCardResult document = {item}/>
+                {/if}
 
-        {#if item._collection == 'webPage'}
-            <WebPageCardResult document = {item}/>
-        {/if}
-    {/each}
+                {#if item._collection == 'webPage'}
+                    <WebPageCardResult document = {item}/>
+                {/if}
+            {/each}
+        {:else}
+
+        <NewEntry client = {client} title = {query}/>
+
+
+    {/if}
 {/await}
 
 
