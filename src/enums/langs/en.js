@@ -6,15 +6,20 @@ export default {
     SHARE : 'Share',
     VIEWS : {
         HOME : {
-            TITLE : `Don't think, don't be afraid, just share!`,
+            TITLE : 'Anonymous, Free And Transparent',
             BODY : `
-                <p>
-                    Peer to peer full text search engine that runs on your browser.
-                    We're developing FoxQL for bring freedom to internet and make you anonymous.
-                </p>
-                <p>   
-                    Own the things you want to see. Set the trends.
-                </p>
+            <p>
+                It is a peer-to-peer (p2p) search engine running on the browser.
+                There is no managerial staff based on content.
+                Users decide on their own choice what data will be in circulation.
+            </p>
+            <p>
+                In a possible scenario, <b> foxql </b> may only censor on an interface basis, but the data will always remain on the network.
+                Other search engines created by the community may continue to present the data in circulation to users.
+            </p>
+            <p>
+                You can vote on what you want people to reach and clone them into your own computer.
+            </p>
             `
         },
         SEARCH : {
