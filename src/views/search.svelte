@@ -6,6 +6,7 @@
     import WebPageCardResult from '../components/resultWebCard.svelte';
     import NewEntry from '../components/newEntry.svelte';
     import enums from '../enums/enums.js';
+    import NotFoundCard from '../components/notFoundCard.svelte';
 
     import Booster from '../helpers/searchBooster.js';
 
@@ -79,9 +80,8 @@
                 {/if}
             {/each}
         {:else}
-
+        <NotFoundCard/>
         <NewEntry client = {client} title = {query}/>
-
 
     {/if}
 {/await}
