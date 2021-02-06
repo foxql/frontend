@@ -9,11 +9,11 @@
 	import Navbar from './components/navbar.svelte';
 
 	import Stats from './components/stats.svelte';
-	import Trends from './components/trends.svelte';
 	import Footer from './components/footer.svelte';
 	import Console from './components/console.svelte';
 	import SearchBox from './components/searchBox.svelte';
 	import Socials from './components/socials.svelte';
+	import Share from './views/share.svelte';
 
 	export let url = ''
 
@@ -56,7 +56,7 @@
 						{/if}
 						
 					{/each}
-					<Route path="/"><Trends client={client}/></Route>
+					<Route path="/"><Share client={client}/></Route>
 				</Router>
 			</div>
 		

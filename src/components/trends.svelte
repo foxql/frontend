@@ -65,7 +65,7 @@
 <div class = "card">
     <div class = "card-title pd-l-1 pd-t-05 pd-b-05 flex">
         <div>
-            {enums.TRENDS} 
+            {enums.TRENDS} (twitter.com)
             <span class = "fa fa-fire"></span>
         </div>
         <div class = "f-right m-r-1 country-select-btn" on:click="{changeCountry}">
