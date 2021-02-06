@@ -2,6 +2,7 @@
     export let client;
     import {link} from 'svelte-routing';
     import NotFoundCard from '../components/notFoundCard.svelte';
+    import SearchBox from '../components/searchBox.svelte';
 
     async function getDocuments() {
         let documentMap = {};
@@ -46,7 +47,7 @@
 {#await eventPromise}
     Loading from peers...
 {:then documents}
-
+    <SearchBox/>
         {#if Object.values(documents).length <= 0}
 
             <NotFoundCard/>
