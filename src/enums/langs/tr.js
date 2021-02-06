@@ -28,5 +28,14 @@ export default {
     NEW_ENTRY_BODY : 'Neler oluyor?',
     NEW_ENTRY_SUBMIT : 'Paylaş',
     ACTIONS : 'Son hareketler',
-    DOCUMENTATION : 'Dokümantasyon'
+    DOCUMENTATION : 'Dokümantasyon',
+    NOT_FOUND : {
+        TITLE : 'Aşağıda ki nedenlerden herhangi biri yüzünden, bunu gösteremiyoruz.',
+        LIST : ` 
+            <li>Bu içeriği paylaşan kişi şuan aktif olmayabilir.</li>
+            <li>İçerik size çok uzak bir kullanıcı tarafından paylaşılmış olabilir.</li>
+            <li>Diğer kullanıcılar bu içerikten rahatsız oldukları için sahiplenmeyi kabul etmemiş olabilirler.</li>
+        `,
+        FOOTER : 'Bilgi vererek insanlara yardımcı olabilirsin.'
+    }
 }

@@ -32,5 +32,14 @@ export default {
     NEW_ENTRY_BODY : 'What do you think?',
     NEW_ENTRY_SUBMIT : 'Share',
     ACTIONS : 'Last actions',
-    DOCUMENTATION : 'Documentation'
+    DOCUMENTATION : 'Documentation',
+    NOT_FOUND : {
+        TITLE : 'We cannot show this for any of the following reasons.',
+        LIST : ` 
+            <li> The person sharing this content may not be active at the moment. </li>
+            <li> Content may have been shared by a remote user. </li>
+            <li> Other users may not have accepted this content because they are uncomfortable with it. </li>
+        `,
+        FOOTER : 'You can help people by giving information.'
+    }
 }

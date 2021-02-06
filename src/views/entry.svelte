@@ -3,6 +3,7 @@
     export let id;
     import NewDocument from '../components/newEntry.svelte';
     import DocumentButtons from '../components/documentButtons.svelte';
+    import NotFoundCard from '../components/notFoundCard.svelte';
 
     let title = '';
 
@@ -72,7 +73,12 @@
             {/each}
         </div>
         <NewDocument client = {client} title = {title}/>
+        {:else}
+        <NotFoundCard/>
+        <NewDocument client = {client}/>
     {/if}
+    
+
     
     
     {/await}
