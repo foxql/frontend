@@ -9,9 +9,9 @@ export default {
             TITLE : 'Anonymous, Free And Transparent',
             BODY : `
             <p>
-                It is a peer-to-peer (p2p) search engine running on the browser.
-                There is no managerial staff based on content.
-                Users decide on their own choice what data will be in circulation.
+                Fox is a browser based p2p(peer to peer) search engine.
+                There is no staff group that manage content.
+                Users will able to decide which data stay in circulation.
             </p>
             <p>
                 In a possible scenario, <b> foxql </b> may only censor on an interface basis, but the data will always remain on the network.
