@@ -11,7 +11,6 @@
 	import Stats from './components/stats.svelte';
 	import Footer from './components/footer.svelte';
 	import Console from './components/console.svelte';
-	import SearchBox from './components/searchBox.svelte';
 	import Socials from './components/socials.svelte';
 	import Share from './views/share.svelte';
 
@@ -46,7 +45,6 @@
 			</div>
 		
 			<div class = "middle-side flex-item pd-l-1 pd-r-1 pd-b-1">
-				<SearchBox/>
 				<Router url="{url}">
 					{#each Routes as route} 
 						{#if route.client !== undefined} 
