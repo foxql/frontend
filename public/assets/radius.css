@@ -13,3 +13,10 @@
 .rounded-16 {
     border-radius: 16px;
 }
+
+.rounded-r-t-8 {
+    border-top-right-radius: 8px;
+}
+.rounded-r-b-8 {
+    border-bottom-right-radius: 8px;
+}

@@ -46,5 +46,17 @@ export default {
             <li> Other users may not have accepted this content because they are uncomfortable with it. </li>
         `,
         FOOTER : 'You can help people by giving information.'
+    },
+    CENSORED : {
+        PERSON : '(Talking about a person) ',
+        POLITICIAN : '(Talks about a politician)',
+        COMPANY : '(Talks about a company)',
+        SEXUAL : '(It talks about a sexual content)',
+        INSULT : '(Insulting)',
+        POLITICIAL_PARTY : '(Talks about a political party)'
+    },
+    NOTIFICATION : {
+        UPVOTE : 'Cloned into your device',
+        DOWNVOTE : 'Document deleted from device'
     }
 }

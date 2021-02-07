@@ -3,6 +3,9 @@
     import {link} from 'svelte-routing';
     import NotFoundCard from '../components/notFoundCard.svelte';
     import SearchBox from '../components/searchBox.svelte';
+    import Header from '../components/header.svelte';
+
+    import enums from '../enums/enums.js';
 
     async function getDocuments() {
         let documentMap = {};
@@ -19,7 +22,7 @@
                         item.subDocuments = [];
                         item.recieverCount = 1;
                         documentMap[documentId] = {
-                            entry : item,
+                            entry : client.censored(item),
                             subDocumentMap : {}
                         };
 
@@ -28,7 +31,7 @@
                         documentMap[documentId].entry.recieverCount += 1;
                         if(documentMap[documentId].subDocumentMap[subDocumentId] == undefined){
                             documentMap[documentId].subDocumentMap[subDocumentId] = 1;
-                            documentMap[documentId].entry.subDocuments.push(item);
+                            documentMap[documentId].entry.subDocuments.push(client.censored(item));
                         }else{
                             documentMap[documentId].subDocumentMap[subDocumentId] += 1;
                         }
@@ -43,7 +46,9 @@
     const eventPromise = getDocuments();
 </script>
 
+<Header content = "{enums.DISCOVERY}"/>
 
+<div class = "pd-l-1 pd-r-1">
 {#await eventPromise}
     Loading from peers...
 {:then documents}
@@ -77,3 +82,4 @@
             </div>
         {/each}
 {/await}
+</div>

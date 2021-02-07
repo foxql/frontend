@@ -44,7 +44,7 @@
 				<Navbar/>
 			</div>
 		
-			<div class = "middle-side flex-item pd-l-1 pd-r-1 pd-b-1">
+			<div class = "middle-side flex-item pd-b-1">
 				<Router url="{url}">
 					{#each Routes as route} 
 						{#if route.client !== undefined} 

@@ -4,12 +4,19 @@
 
     import MobileCheck from '../helpers/mobileDeviceCheck';
     import Console from '../components/console.svelte';
+
+    import Header from '../components/header.svelte';
+    import enums from '../enums/enums.js';
 </script>
 
-{#if MobileCheck()}
-    <Console client = {client}/>
-{/if}
+<Header content = "{enums.TRENDS}"/>
 
-<div class = "card rounded-8 card-bg-primary m-t-1">
-    <Trends client = {client}/>
+<div class = "pd-l-1 pd-r-1">
+    {#if MobileCheck()}
+        <Console client = {client}/>
+    {/if}
+
+    <div class = "card rounded-8 card-bg-primary m-t-1">
+        <Trends client = {client}/>
+    </div>
 </div>

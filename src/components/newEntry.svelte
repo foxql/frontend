@@ -18,9 +18,9 @@
             client.peer.socket.emit('newDoc', body);
             document.querySelector('.entry-content').value = '';
             document.querySelector('.entry-title').value = '';
-            notifier.success('Your think is published', 1200)
+            notifier.success('Your think is published', 1500)
         }else{
-            notifier.danger('Oups!', 1200)
+            notifier.danger('Oups!', 1500)
         }
     }
 

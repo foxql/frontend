@@ -3,6 +3,10 @@
     export let doc;
     export let collectionName;
 
+    import enums from '../enums/enums.js';
+    import { notifier } from '@beyonk/svelte-notifications';
+
+
     let recieveCount = doc.recieveCount;
 
     const collection = client.database.useCollection(collectionName);
@@ -25,6 +29,7 @@
             collection.addDoc(doc);
             recieveCount++;
             documentIsSaved = true;
+            notifier.success(enums.NOTIFICATION.UPVOTE, 1200)
         }
     }
 
@@ -35,6 +40,7 @@
             collection.deleteDoc(documentRef);
             recieveCount--;
             documentIsSaved = false;
+            notifier.danger(enums.NOTIFICATION.DOWNVOTE, 1200)
         }
     }
 
@@ -43,7 +49,6 @@
     if(documentIsSaved){
         recieveCount++;
     }
-
 
 </script>
 
@@ -66,7 +71,6 @@
 
 
 </style>
-
 
 <div class = "action-buttons flex fdirection-column pd-05 f-all-center">
     <button class  = "fa fa-chevron-up reset-btn {documentIsSaved ? 'active' : ''}" on:click="{handleUp}"></button>

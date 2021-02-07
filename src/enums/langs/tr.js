@@ -46,5 +46,17 @@ export default {
             <li>Diğer kullanıcılar bu içerikten rahatsız oldukları için sahiplenmeyi kabul etmemiş olabilirler.</li>
         `,
         FOOTER : 'Bilgi vererek insanlara yardımcı olabilirsin.'
+    },
+    CENSORED : {
+        PERSON : '(Bir kişiden bahsediyor) ',
+        POLITICIAN : '(Bir politikacıdan bahsediyor)',
+        COMPANY : '(Bir şirketten bahsediyor)',
+        SEXUAL : '(Cinsel bir içerikten bahsediyor)',
+        INSULT : '(Argo konuşuyor)',
+        POLITICIAL_PARTY : '(Siyasi bir oluşum)'
+    },
+    NOTIFICATION : {
+        UPVOTE : 'Cihazınıza klonlandı.',
+        DOWNVOTE : 'Cihazdan kaldırıldı'
     }
 }

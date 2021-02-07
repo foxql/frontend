@@ -8,11 +8,6 @@
         color : #555;
     }
 
-    .fa-frown {
-        font-size:1.5rem;
-        position: relative;
-    }
-
     ul {
         list-style: none;
     }

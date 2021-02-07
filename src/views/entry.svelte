@@ -4,6 +4,9 @@
     import NewDocument from '../components/newEntry.svelte';
     import DocumentButtons from '../components/documentButtons.svelte';
     import NotFoundCard from '../components/notFoundCard.svelte';
+    import { NotificationDisplay } from '@beyonk/svelte-notifications';
+    import Header from '../components/header.svelte';
+    
 
     let title = '';
 
@@ -50,15 +53,19 @@
         promise = loadDocuments(id)
     }
 
+    let n;
 </script>
+
+<NotificationDisplay bind:this={n} />
+
     {#await promise}
         loading...
     {:then documents}
 
     {#if documents.length > 0}
+    <Header content = "{title}"/>
+    <div class = "pd-l-1 pd-r-1">
         <div class = "card pd-1 rounded-8 card-bg-primary pd-1 m-t-1">
-            <div class = "card-title pd-b-05 big-title">{title}</div>
-
             {#each documents as doc} 
                     <div class = "card-body entry-sub-content pd-b-05 flex">
                         <DocumentButtons
@@ -73,14 +80,12 @@
             {/each}
         </div>
         <NewDocument client = {client} title = {title}/>
+    </div>
         {:else}
-        <NotFoundCard/>
-        <NewDocument client = {client}/>
+        <div class = "pd-l-1 pd-r-1">
+            <NotFoundCard/>
+            <NewDocument client = {client}/>
+        </div>
     {/if}
     
-
-    
-    
     {/await}
-
-
