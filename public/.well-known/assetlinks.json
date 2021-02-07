@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "com.foxql.twa",
+                   "sha256_cert_fingerprints": ["F6:84:AB:7E:67:92:D9:22:52:7D:78:A8:8A:E1:C4:1D:85:2A:C6:91:8B:10:51:25:C7:91:63:03:02:E9:F0:AD"] }
+    }]
