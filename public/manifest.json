@@ -22,5 +22,7 @@
     "start_url": "https://foxql.com",
     "display": "standalone",
     "theme_color": "#FFFFFF",
-    "background_color": "#FFFFFF"
+    "background_color": "#FFFFFF",
+    "orientation": "portrait",
+    "categories": ["social", "open-source", "p2p", "anonym", "media", "search"]
  }
