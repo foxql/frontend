@@ -2,6 +2,8 @@
     export let client;
     
     import CardButtons from '../components/cardButtons.svelte';
+    import Header from '../components/header.svelte';
+    import enums from '../enums/enums.js';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
 </script>
@@ -12,7 +14,12 @@
     }
 </style>
 
-{#each entrys as entry}
+<Header content = "{enums.PROFILE}"/>
+
+
+
+<div class = "pd-l-1 pd-r-1">
+    {#each entrys as entry}
 
     <div class = "card pd-1 doc-{entry.documentId} card-bg-primary m-t-1 rounded-8">
         <div class = "card-title pd-b-05">
@@ -25,7 +32,8 @@
         </div>
     </div>
 
-{/each}
+    {/each}
+</div>
 
 
 
