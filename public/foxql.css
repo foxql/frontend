@@ -130,5 +130,9 @@ body::-webkit-scrollbar {
         display: none;
     }
 
+    .page-header-container {
+        padding : 0px !important;
+    }
+
 
   }
