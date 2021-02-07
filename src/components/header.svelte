@@ -1,8 +1,17 @@
 <script>
-    export let text;
+    export let content;
 </script>
 
-<div class = "page-header pd-l-1 pd-t-05 pd-b-05 card-bg-secondary m-t-1 rounded-4 c-white-2">
-    <h3>{text}</h3>
+<style>
+    .page-header {
+        font-weight: 600;
+        font-size:1.1rem;
+    }
+</style>
+
+<div class = "pd-r-1 page-header-container">
+    <div class = "card sidebar-bg-primary pd-1 page-header">
+        {content}
+    </div>
 </div>
 
