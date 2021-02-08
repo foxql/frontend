@@ -58,5 +58,15 @@ export default {
     NOTIFICATION : {
         UPVOTE : 'Cihazınıza klonlandı.',
         DOWNVOTE : 'Cihazdan kaldırıldı'
-    }
+    },
+    INFORMATIONS : [
+        {
+            type : 'info',
+            text : `Oyladığın attığın paylaşımlar cihazına klonlanır. Bu şekilde paylaşımlar daha fazla insana ulaşabilir.`
+        },
+        {
+            type : 'success',
+            text : `Sansürlü içeriklere oy verirsen profil kısmında sansürsüz olarak görüntüleyebilirsin.`
+        }
+    ]
 }

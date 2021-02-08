@@ -66,6 +66,10 @@ body::-webkit-scrollbar {
     background: rgb(234 237 239);
 }
 
+.text-center {
+    text-align: center;
+}
+
 
 
 @media screen and (max-width: 992px) {
