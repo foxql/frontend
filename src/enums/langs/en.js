@@ -58,5 +58,15 @@ export default {
     NOTIFICATION : {
         UPVOTE : 'Cloned into your device',
         DOWNVOTE : 'Document deleted from device'
-    }
+    },
+    INFORMATIONS : [
+        {
+            type : 'info',
+            text : `The shares you voted on are cloned to your device. In this way, posts can reach more people.`
+        },
+        {
+            type : 'success',
+            text : `If you vote for censored content, you can view it uncensored in the profile section.`
+        }
+    ]
 }

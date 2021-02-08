@@ -33,7 +33,7 @@
         let documentMap = {};
         /** Consensus! */
         documents.forEach( doc => {
-
+            doc = client.censored(doc);
             title = doc.title;
 
             if(documentMap[doc.documentId] == undefined ) {

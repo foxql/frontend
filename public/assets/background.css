@@ -14,3 +14,11 @@
 .card-bg-warning {
     background: #e07b24;
 }
+
+.card-bg-info {
+    background : #989fe6;
+}
+
+.card-bg-success {
+    background : #81c392;
+}

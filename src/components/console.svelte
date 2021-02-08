@@ -10,8 +10,18 @@
 
     client.peer.socket.emit(listenerName, true)
     client.peer.socket.on(listenerName, (list)=>{
+        list.filter(item => {
+            if(item.type === 'new-document'){
+                item.document = client.censored(item.document)
+            }
+            if(item.type === 'new-search'){
+                item = client.censored(item)
+            }
+            return item;
+        });
         actions = list
     })
+
 
     $:actions = actions
 
