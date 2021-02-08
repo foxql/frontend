@@ -20,7 +20,7 @@
        }
     ],
     "start_url": "https://foxql.com",
-    "display": "standalone",
+    "display": "fullscreen",
     "theme_color": "#b7e5f4",
     "background_color": "#b7e5f4",
     "orientation": "portrait",
