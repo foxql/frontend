@@ -120,7 +120,7 @@
 
         {#if !MobileCheck()}
             <div class = "nav-item pd-b-1">
-                <a href = "https://boraozer.github.io/foxql" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05">
+                <a href = "https://foxql.github.io/foxql" class = "pd-l-1 pd-r-2 pd-t-05 pd-b-05">
                     <span class = "fab fa-github icon"></span>
                     <span class = "text">{enums.DOCUMENTATION}</span>   
                 </a>
