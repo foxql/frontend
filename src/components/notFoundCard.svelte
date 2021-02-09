@@ -12,6 +12,16 @@
         list-style: none;
     }
 
+    @media screen and (max-width: 992px) {
+        .card-title {
+            font-size:15px;
+        }
+
+        .card-body, .card-footer {
+            font-size:14px;
+        }
+    }
+
 </style>
 
 <div class = "card card-bg-primary rounded-8 m-t-1 pd-1">
@@ -24,6 +34,6 @@
         </ul>
     </div>
     <div class = "card-footer pd-05 flex f-all-center">
-        <span class = "fa fa-bomb"></span> {enums.NOT_FOUND.FOOTER}
+        {enums.NOT_FOUND.FOOTER}
     </div>
 </div>

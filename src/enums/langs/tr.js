@@ -62,7 +62,7 @@ export default {
     INFORMATIONS : [
         {
             type : 'info',
-            text : `Oyladığın attığın paylaşımlar cihazına klonlanır. Bu şekilde paylaşımlar daha fazla insana ulaşabilir.`
+            text : `Oyladığın paylaşımlar cihazına klonlanır. Bu şekilde paylaşımlar daha fazla insana ulaşabilir.`
         },
         {
             type : 'success',
