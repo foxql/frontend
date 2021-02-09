@@ -6,6 +6,6 @@ const countrys = {
     tr : tr
 };
 
-const currentCountry = localStorage.getItem('country') || 'usa';
+const currentCountry = localStorage.getItem('country') || 'tr';
 
 export default countrys[currentCountry];

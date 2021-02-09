@@ -19,8 +19,6 @@
             timeOut : 350
         });
 
-        client.peer.socket.emit('search', queryString)
-
 
         if(results.count > 0 ) {
             const booster = new Booster(queryString, results);
@@ -41,6 +39,7 @@
                     resultMap[subDocumentId].subResults.push(item);
                 }
             });
+            client.peer.socket.emit('search', queryString)
         }
 
 

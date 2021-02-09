@@ -13,6 +13,14 @@
         navigate(`search/${query}`, {replace : false });
     }
 
+    function handleClick()
+    {
+        const value = document.querySelector('.search-input').value || '';
+        if(value.trim().length <= 0) { return }
+
+        navigate(`search/${value}`, {replace : false });
+    }
+
 </script>
 
 <style>
@@ -46,8 +54,8 @@
 <div class = "card search-box card-bg-primary rounded-8 pd-t-05 pd-b-05 pd-l-1">
     <input type = "text" 
         placeholder = "{enums.SEARCH_BOX_PLACEHOLDER}" 
-        class = "pd-05 rounded-4" 
+        class = "pd-05 rounded-4 search-input" 
         on:keydown="{handlePress}"
     />
-    <span class = "fa fa-search search-icon"></span>
+    <span class = "fa fa-search search-icon" on:click="{handleClick}"></span>
 </div>
