@@ -45,10 +45,6 @@
     }
 
     documentControl();
-    
-    if(documentIsSaved){
-        recieveCount++;
-    }
 
 </script>
 
