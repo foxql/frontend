@@ -7,12 +7,6 @@ const client = new foxql();
 
 client.censored = censoredFilter;
 
-client.peer.use('socketOptions', {
-    host : '127.0.0.1',
-    port : 3000,
-    protocol : 'http'
-});
-
 client.pushEvents([
 	'onSearch',
 	'onRandom',
