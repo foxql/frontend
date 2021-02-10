@@ -444,6 +444,7 @@ export default {
   "sikmek":"INSULT",
   "sikmem":"INSULT",
   "sikmiler":"INSULT",
+  "sikmis" : "INSULT",
   "sikmisligim":"INSULT",
   "siksem":"INSULT",
   "sikseydin":"INSULT",
