@@ -23,7 +23,7 @@ function filter(string)
     const stringArray = string.split(' ');
     const termLength = stringArray.length;
 
-    if(termLength <= 1){
+    if(termLength <= 0){
         return string;
     }
 

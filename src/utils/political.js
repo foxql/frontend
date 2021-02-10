@@ -7,5 +7,6 @@ export default {
     "akepe" : "POLITICIAL_PARTY",
     "cehape" : "POLITICIAL_PARTY",
     "hedepe" : "POLITICIAL_PARTY",
-    "zhp" : "POLITICIAL_PARTY"
+    "zhp" : "POLITICIAL_PARTY",
+    "tayyip" : "POLITICIAN"
 }
