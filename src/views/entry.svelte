@@ -44,8 +44,11 @@
             }
         });
 
-
-        return Object.values(documentMap);
+        let oneDimensionalResults = Object.values(documentMap);
+        oneDimensionalResults.sort((a,b)=>{
+            return b.recieveCount - a.recieveCount;
+        });
+        return oneDimensionalResults;
     }
     let promise = loadDocuments(id);
 
