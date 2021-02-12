@@ -8,5 +8,10 @@ export default {
     "cehape" : "POLITICIAL_PARTY",
     "hedepe" : "POLITICIAL_PARTY",
     "zhp" : "POLITICIAL_PARTY",
-    "tayyip" : "POLITICIAN"
+    "tayyip" : "POLITICIAN",
+    "akppp" : 'POLITICIAL_PARTY',
+    "ak parti" : "POLITICIAL_PARTY",
+    "cumhuriyet halk partisi" : "POLITICIAL_PARTY",
+    "ak part" : "POLITICIAL_PARTY",
+    "recep tayyip erdogan" : "POLITICIAN"
 }
