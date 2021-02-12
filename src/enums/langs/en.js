@@ -71,7 +71,7 @@ export default {
     ],
     ENTRY_SHARE : {
         COPIE_PROCESS : 'Sharing link is being created',
-        COPIE_DONE : 'Document saved on your device',
+        COPIE_DONE : 'Share link copied',
         DOCUMENT_CLONED : 'Document saved on your device'
     }
 }

@@ -73,7 +73,7 @@ export default {
     ],
     ENTRY_SHARE : {
         COPIE_PROCESS : 'Paylaşım bağlantısı yaratılıyor',
-        COPIE_DONE : 'Entry cihazınıza kayıt edildi',
+        COPIE_DONE : 'Paylaşım bağlantısı kopyalandı',
         DOCUMENT_CLONED : 'Entry cihazınıza kayıt edildi'
     }
 }
