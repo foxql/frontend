@@ -16,11 +16,18 @@
         background : #1DA1F2;
         color : #fff;
     }
+
 </style>
 <div class = "card pd-1 card-bg-primary m-t-1 rounded-8 ">
     <div class = "card-body flex f-all-center">
         <a href = "https://github.com/foxql/foxql" class = "github-btn pd-l-1 pd-r-1 pd-t-05 pd-b-05 rounded-4 m-r-1">Github</a>
         <a href = "https://discord.gg/8djcRrV2fV" class = "discord-btn pd-l-1 pd-r-1 pd-t-05 pd-b-05 rounded-4 m-r-1">Discord</a>
         <a href = "https://twitter.com/foxqlcom" class = "twitter-btn pd-l-1 pd-r-1 pd-t-05 pd-b-05 rounded-4 m-r-1">Twitter</a>
+    </div>
+</div>
+
+<div class = "card pd-1 card-bg-primary m-t-1 rounded-8 ">
+    <div class = "card-body flex f-all-center">
+        <a href="https://www.patreon.com/bePatron?u=44466481" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
     </div>
 </div>
