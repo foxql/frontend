@@ -3,9 +3,16 @@
     import enums from '../enums/enums.js';
     import Header from '../components/header.svelte';
     import AlertBox from '../components/alertBox.svelte';
+    import Meta from '../components/meta.svelte';
+
+    let metadata = {
+        title : enums.SHARE
+    };
 
     export let client;
 </script>
+
+<Meta {metadata} />
 
 <Header content = "{enums.SHARE}"/>
 

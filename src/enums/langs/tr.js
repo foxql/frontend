@@ -1,6 +1,8 @@
 export default {
     HOME : 'Paylaş',
     DISCOVERY : 'Keşfet',
+    DISCOVERY_DESCRIPTION : 'Foxql ile bilinmeyeni keşfet!',
+    TRENDS_DESCRIPTION : 'Gündem hakkında korkmadan paylaş!',
     PROFILE : 'Profil',
     CONTRIBUTE : 'Katkıda Bulun',
     SHARE : 'Paylaş',

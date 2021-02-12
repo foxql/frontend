@@ -7,7 +7,17 @@
 
     import Header from '../components/header.svelte';
     import enums from '../enums/enums.js';
+
+    import Meta from '../components/meta.svelte';
+
+    let metadata = {
+        title : enums.TRENDS,
+        description : enums.TRENDS_DESCRIPTION
+    };
+
 </script>
+
+<Meta {metadata} />
 
 <Header content = "{enums.TRENDS}"/>
 
