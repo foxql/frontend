@@ -70,5 +70,10 @@ export default {
             type : 'success',
             text : `Sansürlü içeriklere oy verirsen profil kısmında sansürsüz olarak görüntüleyebilirsin.`
         }
-    ]
+    ],
+    ENTRY_SHARE : {
+        COPIE_PROCESS : 'Paylaşım bağlantısı yaratılıyor',
+        COPIE_DONE : 'Entry cihazınıza kayıt edildi',
+        DOCUMENT_CLONED : 'Entry cihazınıza kayıt edildi'
+    }
 }

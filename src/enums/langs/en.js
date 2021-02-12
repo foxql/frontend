@@ -68,5 +68,10 @@ export default {
             type : 'success',
             text : `If you vote for censored content, you can view it uncensored in the profile section.`
         }
-    ]
+    ],
+    ENTRY_SHARE : {
+        COPIE_PROCESS : 'Sharing link is being created',
+        COPIE_DONE : 'Document saved on your device',
+        DOCUMENT_CLONED : 'Document saved on your device'
+    }
 }

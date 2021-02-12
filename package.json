@@ -27,6 +27,7 @@
     "foxql": "0.0.41",
     "marked": "^1.2.7",
     "sirv-cli": "^1.0.0",
-    "svelte-routing": "^1.4.2"
+    "svelte-routing": "^1.4.2",
+    "utf8": "^3.0.0"
   }
 }
