@@ -5,6 +5,7 @@ import Share from './views/share.svelte';
 import Profile from './views/profile.svelte';
 import Trends from './views/trends.svelte';
 import ExtensionNewEntry from './views/extensionNewEntry.svelte';
+import SharedEntry from './views/sharedEntry.svelte';
 
 import enums from './enums/enums.js';
 
@@ -66,4 +67,11 @@ export default [
         hideDesktop : false,
         hideMenu : true
     },
+    {
+        name : 'shared-entry',
+        path : '/shared/:encodedDocument',
+        component : SharedEntry,
+        client : true,
+        hideMenu : true
+    }
 ];

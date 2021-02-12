@@ -5,6 +5,7 @@
 
     import enums from '../enums/enums.js';
     import { notifier } from '@beyonk/svelte-notifications';
+    import ShareButton from '../components/shareButton.svelte';
 
 
     let recieveCount = doc.recieveCount;
@@ -72,4 +73,6 @@
     <button class  = "fa fa-chevron-up reset-btn {documentIsSaved ? 'active' : ''}" on:click="{handleUp}"></button>
     <span>{recieveCount}</span>
     <button class = "fa fa-chevron-down reset-btn {documentIsSaved === false ? 'active' : ''}" on:click="{handleDown}"></button>
+    <hr>
+    <ShareButton {doc}/>
 </div>

@@ -19,6 +19,7 @@ body::-webkit-scrollbar {
 .card  {
     box-sizing: border-box;
     word-break: break-word;
+    position: relative;
 }
 
 .card-title {
