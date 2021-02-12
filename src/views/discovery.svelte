@@ -4,8 +4,13 @@
     import NotFoundCard from '../components/notFoundCard.svelte';
     import SearchBox from '../components/searchBox.svelte';
     import Header from '../components/header.svelte';
-
+    import Meta from '../components/meta.svelte';
     import enums from '../enums/enums.js';
+
+    let metadata = {
+        title : enums.DISCOVERY,
+        description : enums.DISCOVERY_DESCRIPTION
+    };
 
     async function getDocuments() {
         let documentMap = {};
@@ -45,6 +50,8 @@
 
     const eventPromise = getDocuments();
 </script>
+
+<Meta {metadata} />
 
 <Header content = "{enums.DISCOVERY}"/>
 

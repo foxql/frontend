@@ -4,9 +4,16 @@
     import CardButtons from '../components/cardButtons.svelte';
     import Header from '../components/header.svelte';
     import enums from '../enums/enums.js';
+    import Meta from '../components/meta.svelte';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
+
+    let metadata = {
+        title : enums.PROFILE
+    };
 </script>
+
+<Meta {metadata} />
 
 <style>
     .entry-content {

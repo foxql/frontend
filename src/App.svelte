@@ -14,9 +14,18 @@
 	import Socials from './components/socials.svelte';
 	import Share from './views/share.svelte';
 
+	import Meta from './components/meta.svelte';
+
+	let metadata = {
+		title : 'foxql',
+		description : 'Peer to peer full text search engine running in your browser. we building for anonymous and freedom internet.'
+	};
+
 	export let url = ''
 
 </script>
+
+<Meta {metadata} />
 
 <style>
 	.left-side {

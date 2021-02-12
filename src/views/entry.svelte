@@ -6,9 +6,18 @@
     import NotFoundCard from '../components/notFoundCard.svelte';
     import { NotificationDisplay } from '@beyonk/svelte-notifications';
     import Header from '../components/header.svelte';
+    import Meta from '../components/meta.svelte'
+
     
 
     let title = '';
+
+    let metadata = {
+        title : '',
+        description : ''
+    };
+
+
 
     async function loadDocuments(documentRef)
     {
@@ -35,6 +44,8 @@
         documents.forEach( doc => {
             doc = client.censored(doc);
             title = doc.title;
+            metadata.title = title;
+            metadata.description = doc.content;
 
             if(documentMap[doc.documentId] == undefined ) {
                 doc.recieveCount = 1;
@@ -58,6 +69,8 @@
 
     let n;
 </script>
+
+<Meta {metadata}/>
 
 <NotificationDisplay bind:this={n} />
 
