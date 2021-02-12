@@ -1,6 +1,6 @@
 import App from './App.svelte';
-
 import foxql from 'foxql';
+
 import censoredFilter from './helpers/censoredFilter.js';
 
 const client = new foxql();
