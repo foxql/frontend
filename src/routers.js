@@ -6,6 +6,7 @@ import Profile from './views/profile.svelte';
 import Trends from './views/trends.svelte';
 import ExtensionNewEntry from './views/extensionNewEntry.svelte';
 import SharedEntry from './views/sharedEntry.svelte';
+import Room from './views/room.svelte';
 
 import enums from './enums/enums.js';
 
@@ -71,6 +72,13 @@ export default [
         name : 'shared-entry',
         path : '/shared/:encodedDocument',
         component : SharedEntry,
+        client : true,
+        hideMenu : true
+    },
+    {
+        name : 'room',
+        path : '/room/:encodedRoomName',
+        component : Room,
         client : true,
         hideMenu : true
     }

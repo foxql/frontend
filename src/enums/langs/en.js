@@ -73,5 +73,14 @@ export default {
         COPIE_PROCESS : 'Sharing link is being created',
         COPIE_DONE : 'Share link copied',
         DOCUMENT_CLONED : 'Document saved on your device'
+    },
+    CHAT_ROOM : {
+        MODAL_TITLE : 'Create a new discussion channel',
+        MODAL_DESC : `Create a real-time discussion channel to post content in a new topic.
+        Vote messages you like and deliver them to others by clone them to your device`,
+        MODAL_BUTTON : 'Create',
+        CREATE_ROOM_BUTTON : 'New Discussion Channel',
+        SEND_BUTTON : 'Send',
+        YOUR_MESSAGES : 'Message content ...'
     }
 }

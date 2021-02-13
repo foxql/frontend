@@ -75,5 +75,14 @@ export default {
         COPIE_PROCESS : 'Paylaşım bağlantısı yaratılıyor',
         COPIE_DONE : 'Paylaşım bağlantısı kopyalandı',
         DOCUMENT_CLONED : 'Entry cihazınıza kayıt edildi'
+    },
+    CHAT_ROOM : {
+        MODAL_TITLE : 'Yeni bir tartışma kanalı oluştur',
+        MODAL_DESC : `Yeni bir başlığa içerik girmek için gerçek zamanlı bir tartışma kanalı oluştur.
+        Beğendiğin mesajları oylayarak cihazına klonla başkalarına ulaştır.`,
+        MODAL_BUTTON : 'Oluştur',
+        CREATE_ROOM_BUTTON : 'Yeni Tartışma Kanalı',
+        SEND_BUTTON : 'Gönder',
+        YOUR_MESSAGES : 'Mesaj içeriği...'
     }
 }
