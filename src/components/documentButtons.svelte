@@ -2,6 +2,7 @@
     export let client;
     export let doc;
     export let collectionName;
+    export let hideHeart;
 
     import enums from '../enums/enums.js';
     import { notifier } from '@beyonk/svelte-notifications';
@@ -73,6 +74,10 @@
     <button class  = "fa fa-chevron-up reset-btn {documentIsSaved ? 'active' : ''}" on:click="{handleUp}"></button>
     <span>{recieveCount}</span>
     <button class = "fa fa-chevron-down reset-btn {documentIsSaved === false ? 'active' : ''}" on:click="{handleDown}"></button>
+    
+    {#if hideHeart == undefined}
     <hr>
-    <ShareButton {doc}/>
+        <ShareButton {doc}/>
+    {/if}
+    
 </div>
