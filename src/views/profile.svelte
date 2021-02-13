@@ -2,9 +2,9 @@
     export let client;
     
     import CardButtons from '../components/cardButtons.svelte';
-    import Header from '../components/header.svelte';
     import enums from '../enums/enums.js';
     import Meta from '../components/meta.svelte';
+    import CreateChatRoomBtn from '../components/createChatRoomBtn.svelte';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
 
@@ -19,9 +19,22 @@
     .entry-content {
         font-size : 0.9rem;
     }
+    .page-header {
+        font-weight: 600;
+        font-size:1.1rem;
+    }
 </style>
 
-<Header content = "{enums.PROFILE}"/>
+
+<div class = "pd-r-1 page-header-container">
+    <div class = "card sidebar-bg-primary pd-1 page-header flex f-all-center">
+        {enums.PROFILE}
+        <div class = "f-right">
+            <CreateChatRoomBtn />
+        </div>
+    </div>
+</div>
+
 
 
 
