@@ -8,7 +8,7 @@
     import Header from '../components/header.svelte';
     import Meta from '../components/meta.svelte'
 
-    
+    const collection = client.database.useCollection('entrys');
 
     let title = '';
 
@@ -30,13 +30,14 @@
             }
         });
 
-        const myDocument = client.database.useCollection('entrys').getDoc(documentRef);
+        const myDocument = collection.getDoc(documentRef);
 
         if(myDocument){
             documents.push(
                 myDocument
             );
         }
+        
         
 
         let documentMap = {};
@@ -46,12 +47,18 @@
             title = doc.title;
             metadata.title = title;
             metadata.description = doc.content;
+            const documentId = doc.documentId;
 
-            if(documentMap[doc.documentId] == undefined ) {
-                doc.recieveCount = myDocument ? 0 : 1;
-                documentMap[doc.documentId] = doc;
-            }else{
-                documentMap[doc.documentId].recieveCount++;
+            if(documentMap[documentId] == undefined ) {
+                doc.recieveCount = 0;
+                documentMap[documentId] = doc;
+            }
+           
+            documentMap[documentId].recieveCount++;
+            
+
+            if(collection.getDoc(documentRef)) {
+                documentMap[documentId].recieveCount++;
             }
         });
 
