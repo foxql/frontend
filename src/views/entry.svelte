@@ -48,7 +48,7 @@
             metadata.description = doc.content;
 
             if(documentMap[doc.documentId] == undefined ) {
-                doc.recieveCount = 1;
+                doc.recieveCount = myDocument ? 0 : 1;
                 documentMap[doc.documentId] = doc;
             }else{
                 documentMap[doc.documentId].recieveCount++;
