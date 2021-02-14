@@ -29,9 +29,6 @@
 <div class = "pd-r-1 page-header-container">
     <div class = "card sidebar-bg-primary pd-1 page-header flex f-all-center">
         {enums.PROFILE}
-        <div class = "f-right">
-            <CreateChatRoomBtn />
-        </div>
     </div>
 </div>
 
