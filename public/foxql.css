@@ -8,6 +8,7 @@
 @import './assets/radius.css';
 @import './assets/margin.css';
 @import './assets/color.css';
+@import './assets/label.css';
 
 body {
     background: rgb(255, 255, 255);
@@ -23,9 +24,9 @@ body::-webkit-scrollbar {
 }
 
 .card-title {
-    box-sizing: border-box;
-    font-weight: 600;
-    font-size:17px;
+    box-sizing : border-box;
+    font-weight : 600;
+    font-size : 1.2rem;
 }
 
 .card-title a {
@@ -35,11 +36,12 @@ body::-webkit-scrollbar {
 
 .card-body {
     box-sizing: border-box;
+    font-size:0.9rem;
 }
 
 .card-body p{
     margin-bottom:8px;
-    font-size:14px;
+    font-size:13px;
 }
 
 
