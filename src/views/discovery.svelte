@@ -13,38 +13,23 @@
     };
 
     async function getDocuments() {
-        let documentMap = {};
-        return new Promise((resolve)=>{
-            client.randomDocument({
-                limit : 2,
-                collection : 'entrys',
-                timeOut : 550  
-            },(documents)=>{
-                documents.forEach( item => {
-                    const subDocumentId = item.subDocumentId;
-                    const documentId = item.documentId;
-                    if(documentMap[documentId] === undefined) {
-                        item.subDocuments = [];
-                        item.recieverCount = 1;
-                        documentMap[documentId] = {
-                            entry : client.censored(item),
-                            subDocumentMap : {}
-                        };
+        const queryObject = {
+            limit : 2,
+            collection : 'entrys'
+        };
 
-                        documentMap[documentId].subDocumentMap[subDocumentId] = 1;
-                    }else{
-                        documentMap[documentId].entry.recieverCount += 1;
-                        if(documentMap[documentId].subDocumentMap[subDocumentId] == undefined){
-                            documentMap[documentId].subDocumentMap[subDocumentId] = 1;
-                            documentMap[documentId].entry.subDocuments.push(client.censored(item));
-                        }else{
-                            documentMap[documentId].subDocumentMap[subDocumentId] += 1;
-                        }
-                        
-                    }
-                });
-                resolve(documentMap)
-            });
+        const query = await client.sendEvent(queryObject, {
+            timeOut : 1000, // destroy 1.2s listener
+            peerListener : 'onRandom'
+        });
+
+        if(query.count <= 0) {
+            return [];
+        }
+
+        return query.results.filter((item)=> {
+            item.doc = client.censored(item.doc);
+            return item;    
         });
     }
 
@@ -60,31 +45,19 @@
     Loading from peers...
 {:then documents}
     <SearchBox/>
-        {#if Object.values(documents).length <= 0}
+        {#if documents.length <= 0}
 
             <NotFoundCard/>
 
         {/if}
 
-        {#each Object.values(documents) as document}
+        {#each documents as item}
            <div class = "card pd-1 card-bg-primary m-t-05 rounded-8">
                 <div class = "card-title pd-b-05">
-                    <a href = "entry/{document.entry.documentId}" use:link>{document.entry.title}</a>
+                    <a href = "entry/{item.doc.documentId}" use:link>{item.doc.title}</a>
                 </div>
                 <div class = "card-body pd-b-05">
-                    {document.entry.content}
-
-                    {#if document.entry.subDocuments.length > 0} 
-
-                        {#each document.entry.subDocuments as subDocument} 
-
-                            <div class = "sub-content">
-                                {subDocument.content}
-                            </div>
-
-                        {/each}
-
-                    {/if}
+                    {item.doc.content}
                 </div>
             </div>
         {/each}

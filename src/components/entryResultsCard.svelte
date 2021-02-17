@@ -1,5 +1,6 @@
 <script>
-    export let document;
+    export let data;
+    let document = data.doc;
     import {link} from 'svelte-routing';
 </script>
 

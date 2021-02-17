@@ -3,57 +3,44 @@
     export let query;
 
     import EntryCardResult from '../components/entryResultsCard.svelte'
-    import WebPageCardResult from '../components/resultWebCard.svelte';
     import NewEntry from '../components/newEntry.svelte';
     import enums from '../enums/enums.js';
     import NotFoundCard from '../components/notFoundCard.svelte';
     import Header from '../components/header.svelte';
-
-    import Booster from '../helpers/searchBooster.js';
+    import SearchBox from '../components/searchBox.svelte';
 
     async function searchNetwork(queryString)
     {
-        let resultMap = {};
-        let results = await client.search({
+        const queryObject = {
             query : queryString,
-            timeOut : 350
+            collection : 'entrys'
+        };
+
+        const query = await client.sendEvent(queryObject, {
+            timeOut : 1200, // destroy 1.2s listener
+            peerListener : 'onSearch'
         });
 
-
-        if(results.count > 0 ) {
-            const booster = new Booster(queryString, results);
-            booster.setRule({
-                webPage : {
-                    mainPage : 10
-                }
-            })
-            results = booster.boost();  
-
-            results.results.forEach(item => {
-                const subDocumentId = item.document.documentSubId;
-                item.document = client.censored(item.document)
-                if(resultMap[subDocumentId] === undefined){
-                    item.subResults = [];
-                    resultMap[subDocumentId] = item;
-                }else{
-                    resultMap[subDocumentId].subResults.push(item);
-                }
-            });
-            client.peer.socket.emit('search', queryString)
+        if(query.count <= 0){
+            return [];
         }
+        let results = query.results;
 
+        results.sort((a,b)=>{
+            return new Date(b.doc.score) - new Date(a.doc.score);
+        });
 
-        return {
-            results : resultMap,
-            count : results.count
-        };
+        return results.map(item => {
+            item.doc.document = client.censored(item.doc.document)
+            return item;
+        });
 
     }
 
     let searchPromise = searchNetwork(query);
 
-    $: {
-        searchPromise = searchNetwork(query)
+    $ : {
+        searchPromise = searchNetwork(query);
     }
 
 </script>
@@ -65,24 +52,18 @@
     {/await}
 
 <div class = "pd-l-1 pd-r-1">
+    <SearchBox/>
     {#await searchPromise}
-        ...
-    {:then data}
-        {#if Object.values(data.results).length > 0}
-                {#each Object.values(data.results) as item}
-                    {#if item._collection == 'entrys'}
-                        <EntryCardResult document = {item}/>
-                    {/if}
-
-                    {#if item._collection == 'webPage'}
-                        <WebPageCardResult document = {item}/>
-                    {/if}
+        loading...
+    {:then results}
+        {#if results.length > 0}
+                {#each results as item}
+                    <EntryCardResult data = {item}/>
                 {/each}
             {:else}
             <NotFoundCard/>
-            <NewEntry client = {client} title = {query}/>
-
         {/if}
+        <NewEntry client = {client} title = {query}/>
     {/await}
 </div>
 

@@ -1,15 +1,18 @@
 <script>
     export let client;
-    export let doc;
+    export let data;
     export let collectionName;
     export let hideHeart;
+
+    let doc = data.doc;
 
     import enums from '../enums/enums.js';
     import { notifier } from '@beyonk/svelte-notifications';
     import ShareButton from '../components/shareButton.svelte';
 
 
-    let recieveCount = doc.recieveCount;
+
+    let recieveCount = data.count;
 
     const collection = client.database.useCollection(collectionName);
     const documentRef = doc[collection.ref];
