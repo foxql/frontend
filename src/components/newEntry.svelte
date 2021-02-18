@@ -29,7 +29,6 @@
     function handleChangeTitle()
     {
         const length = this.value.trim().length;
-        console.log(length)
         if(length>=4 && length<=80){
             this.style.borderColor = "#b7d8b7";
         }else{
@@ -40,7 +39,6 @@
     function handleChangeContent()
     {
         const length = this.value.trim().length;
-        console.log(length)
         if(length>=20 && length<=500){
             this.style.borderColor = "#b7d8b7";
         }else{

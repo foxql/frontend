@@ -8,62 +8,12 @@
     import Header from '../components/header.svelte';
     import Meta from '../components/meta.svelte'
 
-    const collection = client.database.useCollection('entrys');
-
     let title = '';
 
     let metadata = {
         title : '',
         description : ''
     };
-
-    /**let documents = await client.findDocument({  
-            ref : documentRef,
-            collection : 'entrys',
-            timeOut : 500,
-            match : {
-                field : 'entryKey'
-            }
-        });
-
-        const myDocument = collection.getDoc(documentRef);
-
-        if(myDocument){
-            documents.push(
-                myDocument
-            );
-        }
-        
-        
-
-        let documentMap = {};
-
-        documents.forEach( doc => {
-            doc = client.censored(doc);
-            title = doc.title;
-            metadata.title = title;
-            metadata.description = doc.content;
-            const documentId = doc.documentId;
-
-            if(documentMap[documentId] == undefined ) {
-                doc.recieveCount = 0;
-                documentMap[documentId] = doc;
-            }
-           
-            documentMap[documentId].recieveCount++;
-            
-
-            if(collection.getDoc(documentRef)) {
-                documentMap[documentId].recieveCount++;
-            }
-        });
-
-        let oneDimensionalResults = Object.values(documentMap);
-        oneDimensionalResults.sort((a,b)=>{
-            return b.recieveCount - a.recieveCount;
-        });
-        return oneDimensionalResults;*/
-
 
     async function loadDocuments(documentRef)
     {

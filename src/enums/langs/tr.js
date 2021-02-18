@@ -68,7 +68,7 @@ export default {
         },
         {
             type : 'success',
-            text : `Sansürlü içeriklere oy verirsen profil kısmında sansürsüz olarak görüntüleyebilirsin.`
+            text : `Sevdiğin içerikleri paylaşmak için kalp butonunu kullanabilirsin.`
         }
     ],
     ENTRY_SHARE : {

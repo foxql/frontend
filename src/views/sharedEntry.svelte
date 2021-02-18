@@ -3,8 +3,6 @@
     export let client;
     let document;
 
-    const windowLocation =  window.document.location;
-
     encodedDocument = encodedDocument.replace(/foxql_slash/gi, '/')
     
     let metadata = {
@@ -17,6 +15,7 @@
     import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications';
     import enums from '../enums/enums.js';
     import Meta from '../components/meta.svelte'
+    import { navigate } from 'svelte-routing';
 
     const bytes = base64.decode(encodedDocument);
     const decodedString = utf8.decode(bytes);
@@ -28,19 +27,14 @@
         const documentId = document.documentId || '';
 
         if(!targetIndex.getDoc(documentId)) {
-            const add = targetIndex.addDoc({
-                title : document.title,
-                content : document.content 
-            });
+            const add = targetIndex.addDoc(document);
 
             if(add) {
                 notifier.success(enums.ENTRY_SHARE.DOCUMENT_CLONED, 1200)
             }
         }
 
-        window.document.location.href = windowLocation.origin+'/entry/'+document.documentId;
-
-
+        navigate('entry/'+document.documentId);
 
     }catch(err)
     {

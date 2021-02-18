@@ -4,7 +4,6 @@
     import CardButtons from '../components/cardButtons.svelte';
     import enums from '../enums/enums.js';
     import Meta from '../components/meta.svelte';
-    import CreateChatRoomBtn from '../components/createChatRoomBtn.svelte';
 
     let entrys = Object.values(client.database.useCollection('entrys').documents);
 
@@ -27,7 +26,7 @@
 
 
 <div class = "pd-r-1 page-header-container">
-    <div class = "card sidebar-bg-primary pd-1 page-header flex f-all-center">
+    <div class = "card sidebar-bg-primary pd-1 page-header">
         {enums.PROFILE}
     </div>
 </div>

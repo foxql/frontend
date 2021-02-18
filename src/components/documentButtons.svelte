@@ -10,8 +10,6 @@
     import { notifier } from '@beyonk/svelte-notifications';
     import ShareButton from '../components/shareButton.svelte';
 
-
-
     let recieveCount = data.count;
 
     const collection = client.database.useCollection(collectionName);
