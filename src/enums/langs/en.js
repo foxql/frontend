@@ -66,7 +66,7 @@ export default {
         },
         {
             type : 'success',
-            text : `If you vote for censored content, you can view it uncensored in the profile section.`
+            text : `You can use the heart button to share the content you liked.`
         }
     ],
     ENTRY_SHARE : {
