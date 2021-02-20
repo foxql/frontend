@@ -48,9 +48,6 @@
 
         return results.map(item => {
             const filter = client.censored(item.doc);
-            if(filter.censored){
-                return false;
-            }
             item.doc = filter.document
             return item;
         });
