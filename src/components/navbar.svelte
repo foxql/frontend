@@ -14,16 +14,6 @@
 
     let showedNavbar = true
 
-    if(MobileCheck()) {
-        document.body.addEventListener('click', ()=>{
-            const activeElementType = document.activeElement.tagName;
-            if(activeElementType == 'INPUT' || activeElementType == 'TEXTAREA'){
-                showedNavbar = false
-            }else{
-                showedNavbar = true
-            }
-        }); 
-    }
     
 </script>
 
