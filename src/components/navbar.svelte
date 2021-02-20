@@ -11,6 +11,19 @@
     }
 
     import enums from '../enums/enums.js';
+
+    let showedNavbar = true
+
+    if(MobileCheck()) {
+        document.body.addEventListener('click', ()=>{
+            const activeElementType = document.activeElement.tagName;
+            if(activeElementType == 'INPUT' || activeElementType == 'TEXTAREA'){
+                showedNavbar = false
+            }else{
+                showedNavbar = true
+            }
+        }); 
+    }
     
 </script>
 
@@ -83,8 +96,12 @@
         margin-top:30px;
     }
 
+    .hidden {
+        display:none !important;
+    }
+
 </style>
-<div class = "navbar pd-l-3 pd-t-1 pd-r-3">
+<div class = "navbar pd-l-3 pd-t-1 pd-r-3 {showedNavbar ? '' : 'hidden'}">
 
     <div class = "nav-item pd-l-05 pd-b-1 nav-logo" use:link>
        <a href = "/" use:link class = "pd-l-05 pd-r-05" on:click="{handlerNavbarClick}">F</a>
