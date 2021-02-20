@@ -39,7 +39,7 @@
             return new Date(a.doc.createDate) - new Date(b.doc.createDate);
         });
 
-        const firstEntry = results[0].doc;
+        const firstEntry = client.censored(results[0].doc);
 
         title = firstEntry.title;
         metadata.title = title;
