@@ -14,12 +14,12 @@
 
     async function getDocuments() {
         const queryObject = {
-            limit : 2,
+            limit : 20,
             collection : 'entrys'
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 1000, // destroy 1.2s listener
+            timeOut : 1500, // destroy 1.2s listener
             peerListener : 'onRandom'
         });
 
