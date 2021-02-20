@@ -13,18 +13,27 @@ for(let word in filterMap) {
 
 const filter = new wordReplace({
     words : filterMap,
-    maxDepth : 4
+    maxDepth : 1
 });
 
 
 export default (document)=> {
+    let censored = false;
 
     for(let key in document) {
         const value = document[key];
         if(typeof value == 'string') {
-            document[key] = filter.begin(value);
+            const result = filter.begin(value);
+            document[key] = result.orginalText;
+            if(result.replaced && !censored){
+                censored = true;
+            }
         }
     }
 
-    return document;
+    return {
+        document,
+        censored
+
+    };
 }

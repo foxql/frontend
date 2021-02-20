@@ -28,7 +28,13 @@
         }
 
         return query.results.filter((item)=> {
-            item.doc = client.censored(item.doc);
+            const filter = client.censored(item.doc);
+            if(!filter.censored) {
+                item.doc = filter.document;
+            }else{
+                return false;
+            }
+            
             return item;    
         });
     }

@@ -39,7 +39,7 @@
             return new Date(a.doc.createDate) - new Date(b.doc.createDate);
         });
 
-        const firstEntry = client.censored(results[0].doc);
+        const firstEntry = client.censored(results[0].doc).document;
 
         title = firstEntry.title;
         metadata.title = title;
@@ -47,7 +47,11 @@
         
 
         return results.map(item => {
-            item.doc = client.censored(item.doc)
+            const filter = client.censored(item.doc);
+            if(filter.censored){
+                return false;
+            }
+            item.doc = filter.document
             return item;
         });
     }
