@@ -1,7 +1,6 @@
 export default {
   "abaza":"INSULT",
   "abazan":"INSULT",
-  "ag":"INSULT",
   "ahmak":"INSULT",
   "am":"INSULT",
   "amarim":"INSULT",
