@@ -55,7 +55,8 @@ export default {
         COMPANY : '(Bir şirketten bahsediyor)',
         SEXUAL : '(Cinsel bir içerikten bahsediyor)',
         INSULT : '(Argo konuşuyor)',
-        POLITICIAL_PARTY : '(Siyasi bir oluşum)'
+        POLITICIAL_PARTY : '(Siyasi bir oluşum)',
+        RACISM : "(Irkçılık yapılıyor olabilir)"
     },
     NOTIFICATION : {
         UPVOTE : 'Cihazınıza klonlandı.',

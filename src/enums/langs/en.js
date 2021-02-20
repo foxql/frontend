@@ -53,7 +53,8 @@ export default {
         COMPANY : '(Talks about a company)',
         SEXUAL : '(It talks about a sexual content)',
         INSULT : '(Insulting)',
-        POLITICIAL_PARTY : '(Talks about a political party)'
+        POLITICIAL_PARTY : '(Talks about a political party)',
+        RACISM : "(There may be racism)"
     },
     NOTIFICATION : {
         UPVOTE : 'Cloned into your device',

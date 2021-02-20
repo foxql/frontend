@@ -583,5 +583,9 @@ export default {
   "ziksiiin":"INSULT",
   "ziksiin":"INSULT",
   "zulliyetini":"INSULT",
-  "zviyetini":"INSULT"
+  "zviyetini":"INSULT",
+  "nigger" : "RACISM",
+  "nigga" : "RACISM",
+  "niggi" : "RACISM",
+  "ngger" : "RACISM"
 }
