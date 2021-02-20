@@ -30,7 +30,7 @@
             return new Date(b.doc.score) - new Date(a.doc.score);
         });
 
-        return results.map(item => {
+        return results.filter(item => {
             const filter = client.censored(item.doc.document);
             if(filter.censored){
                 return false;
