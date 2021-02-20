@@ -34,7 +34,10 @@
             }
         }
 
-        navigate('entry/'+document.documentId);
+        setTimeout(()=>{
+            navigate('entry/'+document.documentId);
+        },300);
+       
 
     }catch(err)
     {
