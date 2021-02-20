@@ -13,7 +13,7 @@ for(let word in filterMap) {
 
 const filter = new wordReplace({
     words : filterMap,
-    maxDepth : 5
+    maxDepth : 4
 });
 
 
