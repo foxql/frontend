@@ -31,7 +31,11 @@
         });
 
         return results.map(item => {
-            item.doc.document = client.censored(item.doc.document)
+            const filter = client.censored(item.doc.document);
+            if(filter.censored){
+                return false;
+            }
+            item.doc.document = filter.document
             return item;
         });
 
