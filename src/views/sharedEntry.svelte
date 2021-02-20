@@ -36,7 +36,7 @@
 
         setTimeout(()=>{
             navigate('entry/'+document.documentId);
-        },300);
+        },500);
        
 
     }catch(err)

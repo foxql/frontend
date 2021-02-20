@@ -9,6 +9,7 @@
     import Meta from '../components/meta.svelte'
 
     let title = '';
+    let firstTime = true;
 
     let metadata = {
         title : '',
@@ -26,7 +27,7 @@
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 800, // destroy 1.2s listener
+            timeOut : 1500, // destroy 1.2s listener
             peerListener : 'onDocumentByRef'
         });
 
@@ -44,8 +45,9 @@
         title = firstEntry.title;
         metadata.title = title;
         metadata.description = firstEntry.content;
-        
-
+    
+        console.log(results)
+        firstTime = false;
         return results.map(item => {
             const filter = client.censored(item.doc);
             item.doc = filter.document
@@ -53,10 +55,13 @@
         });
     }
 
-    let promise = loadDocuments(id);
+    let promise = loadDocuments(id)
 
     $ : {
-        promise = loadDocuments(id)
+        if(!firstTime){
+            promise = loadDocuments(id)
+        }
+        
     }
 
     let n;
