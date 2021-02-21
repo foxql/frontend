@@ -8,17 +8,18 @@ export default {
     SHARE : 'Paylaş',
     VIEWS : {
         HOME : {
-            TITLE : 'Anonim, Özgür Ve Şeffaf',
+            TITLE : 'Özgür Ve Şeffaf',
             BODY : `
             <p>
-                Tarayıcı üzerinde çalışan eşler arası(p2p) bir arama motorudur.
-                İçerik bazında herhangi bir yönetici kadrosu yoktur.
-                Kullanıcılar kendi seçimleriyle dolaşımda kalacak verilerin ne olduğuna karar verir.
+                Tamamen tarayıcınızda çalışan eşler arası bir sosyal ağdır.
+                Üyelik veya kurulum gerektirmez.
             </p>
             <p>
-                Olası bir senaryoda <b>foxql</b> yalnızca arayüz bazında sansür uygulayabilir, ancak veri her zaman ağ üzerinde bulunmaya devam eder.
-                Topluluk tarafında oluşturulmuş diğer arama motorları dolaşımda ki veriyi kullanıcılara sunmaya devam edebilir.
+                İçerik bazında herhangi bir yönetici kadrosu yoktur. Kullanıcılar kendi seçimleriyle dolaşımda kalacak verilerin ne olduğuna karar verir.
             </p>
+            <p>Nasıl kullanılır?
+
+            İnsanlara ulaşmasını istediğiniz içerikleri oylayarak klonlayın ve ... sadece paylaşın. Bu kadar!</p>
             <p>
                 İnsanlara ulaşmasını istediğiniz şeyleri oylayarak kendi bilgisayarına klonlayabilirsin.
             </p>

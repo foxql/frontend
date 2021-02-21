@@ -6,16 +6,16 @@ export default {
     SHARE : 'Share',
     VIEWS : {
         HOME : {
-            TITLE : 'Anonymous, Free And Transparent',
+            TITLE : 'Free And Transparent',
             BODY : `
             <p>
-                Fox is a browser based p2p(peer to peer) search engine.
-                There is no staff group that manage content.
-                Users will able to decide which data stay in circulation.
+                FoxQL is a social network that runs on your browser as peer to peer. It does not require any setup or registration
             </p>
             <p>
-                In a possible scenario, <b> foxql </b> may only censor on an interface basis, but the data will always remain on the network.
-                Other search engines created by the community may continue to present the data in circulation to users.
+                There is no magement stuff for checking the content. Users can decide which topics and content will stay in foxql cycle
+            </p>
+            <p>
+                Decide the content that you would like to share with people. Then just clone the content via voting. That's all!
             </p>
             <p>
                 You can vote on what you want people to reach and clone them into your own computer.
