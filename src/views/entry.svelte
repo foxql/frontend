@@ -29,11 +29,11 @@
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 250,
+            timeOut : 200,
             peerListener : 'onDocumentByRef'
         });
-
         if(query.count <= 0){
+            searching = false;
             return [];
         }
         let results = query.results;
