@@ -17,7 +17,7 @@
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 1400, // destroy 1.2s listener
+            timeOut : 250, // destroy 1.2s listener
             peerListener : 'onSearch'
         });
 
