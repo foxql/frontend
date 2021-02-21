@@ -71,8 +71,18 @@
 				<div class = "right-side flex-item pd-l-1 pd-r-1 pd-b-1">
 					<Console client = {client}/>
 					<Stats client = {client}/>
+					<iframe src="https://discord.com/widget?id=794045139252936725&theme=dark"
+						width="350"
+						height="250"
+						allowtransparency="true"
+						frameborder="0" 
+						sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+						title = "discord"
+						class = "m-t-1"
+						></iframe>
 					<Socials/>
 					<Footer/>
+					<div class = "m-t-1 card" style = "height:20px;"></div>
 				</div>
 			{/if}
 	
