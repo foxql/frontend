@@ -13,17 +13,11 @@
         list = list.filter(item => {
             if(item.type === 'new-document'){
                 const filter = client.censored(item.document);
-                if(filter.censored){
-                    return false;
-                }
                 item.document = filter.document;
             }
             if(item.type === 'new-search'){
                 const filter = client.censored(item);
-                if(filter.censored){
-                    return false;
-                }
-                item = client.censored(item)
+                item = filter.document;
             }
             return item;
         });
