@@ -19,7 +19,7 @@
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 300, 
+            timeOut : 600, 
             peerListener : 'onRandom'
         });
 
