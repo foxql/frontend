@@ -14,7 +14,7 @@
 
     async function getDocuments() {
         const queryObject = {
-            limit : 8,
+            limit : 20,
             collection : 'entrys'
         };
 
@@ -26,7 +26,7 @@
         if(query.count <= 0) {
             return [];
         }
-        
+        console.log(query.results)
         return query.results.filter((item)=> {
             const filter = client.censored(item.doc);
             if(!filter.censored) {
