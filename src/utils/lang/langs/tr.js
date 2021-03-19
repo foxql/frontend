@@ -50,8 +50,20 @@ const app = {
     SEARCH_PROMISE : 'Cevap bekliyor...',
     CACHED_NEW_ENTRYS : 'Yeni içerikler klonlandı ve dağıtım için hazırlandı.',
     TITLE_MIN_LENGTH : 'Başlık en az 4 karakter olmalı',
-    CONTENT_MIN_LENGTH : 'İçerik en az 20 karakter olmalı'
+    CONTENT_MIN_LENGTH : 'İçerik en az 20 karakter olmalı',
+    CONTENT_ADDED : 'İçerik paylaşıldı ve klonlandı.',
+    CONTENT_NOT_ADDED : 'İçerik paylaşılamadı.'
 }
+
+const censored = {
+    PERSON : '(Bir kişiden bahsediyor) ',
+    POLITICIAN : '(Bir politikacıdan bahsediyor)',
+    COMPANY : '(Bir şirketten bahsediyor)',
+    SEXUAL : '(Cinsel bir içerikten bahsediyor)',
+    INSULT : '(Argo konuşuyor)',
+    POLITICIAL_PARTY : '(Siyasi bir oluşum)',
+    RACISM : "(Irkçılık yapılıyor olabilir)"
+};
 
 export default {
     LANDING  : landing,
@@ -59,5 +71,6 @@ export default {
     NAVBAR : navbar,
     INFO_CARD : infoCards,
     NEW_ENTRY : newEntry,
-    APP : app
+    APP : app,
+    CENSORED : censored
 }

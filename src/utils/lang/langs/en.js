@@ -50,8 +50,20 @@ const app = {
     SEARCH_PROMISE : 'Running...',
     CACHED_NEW_ENTRYS : 'New content has been cloned and prepared for distribution.',
     TITLE_MIN_LENGTH : 'Title must be at least 4 characters',
-    CONTENT_MIN_LENGTH : 'Content must be at least 20 characters'
+    CONTENT_MIN_LENGTH : 'Content must be at least 20 characters',
+    CONTENT_ADDED : 'Content shared and cloned.',
+    CONTENT_NOT_ADDED : 'Content could not be shared.'
 }
+
+const censored = {
+    PERSON : '(Talking about a person) ',
+    POLITICIAN : '(Talks about a politician)',
+    COMPANY : '(Talks about a company)',
+    SEXUAL : '(It talks about a sexual content)',
+    INSULT : '(Insulting)',
+    POLITICIAL_PARTY : '(Talks about a political party)',
+    RACISM : "(There may be racism)"
+};
 
 export default {
     LANDING  : landing,
@@ -59,5 +71,6 @@ export default {
     NAVBAR : navbar,
     INFO_CARD : infoCards,
     NEW_ENTRY : newEntry,
-    APP : app
+    APP : app,
+    CENSORED : censored
 }

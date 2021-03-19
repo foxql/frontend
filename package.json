@@ -18,6 +18,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@foxql/word-replace": "^1.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "foxql": "^1.0.2",

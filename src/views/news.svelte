@@ -12,9 +12,6 @@
 
 
     client.peer.socket.on(listenerName, (list)=>{
-        list = list.filter(item => {
-            return item;
-        });
         actions = list;
     })
 
