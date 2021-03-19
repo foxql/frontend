@@ -1,9 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<title>Foxql</title>
+    <meta name="description" content="P2P social network. Does not require membership.">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="FoxQL">
     <meta name="msapplication-TileImage" content=".images/logo_144.png">
@@ -11,17 +15,18 @@
     <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="https://foxql.com/logo-144.png">
 
-    <base href="/">
-    <link rel="stylesheet" href="foxql.css">
-    
-    <link rel='stylesheet' href='/build/bundle.css'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	<base href="/" target="_blank">
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel="stylesheet" href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css'>
+	<link rel='stylesheet' href='/global.css'>
+	<link rel='stylesheet' href='/build/bundle.css'>
 
 	<script defer src='/build/bundle.js'></script>
 </head>
+
 <body>
- 
-    <script>
+
+	<script>
         if ('serviceWorker' in navigator) {
          window.addEventListener('load', function () {
           navigator.serviceWorker.register('service-worker.js').then(function (registration) {
@@ -35,15 +40,14 @@
         } else {
          console.log('service worker is not supported');
         }
-       </script>
-       <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SBT4HFXTF"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+	</script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-3SBT4HFXTF"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-        gtag('config', 'G-3SBT4HFXTF');
-        </script>
+	gtag('config', 'G-3SBT4HFXTF');
+	</script>
 </body>
 </html>

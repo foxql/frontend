@@ -1,0 +1,69 @@
+.box {
+    color : #ccc;
+    background: rgb(0 0 0 / 30%);
+    padding : 1rem;
+    border-radius : 8px;
+    margin-bottom : 1rem;
+    position: relative;
+}
+
+.box-title {
+    font-size : 1.4rem;
+    font-weight : 600;
+    margin-bottom : 1rem;;
+}
+
+.box-content {
+    word-break: break-word;
+    position: relative;
+}
+
+.box-title a {
+    color : #ccc;
+}
+
+.btn-container {
+    align-items : center;
+    justify-content : center;
+    position: absolute;
+    right : 1rem;
+    top : 0rem;
+}
+
+.btn-container button {
+    font-size : 1.4rem;
+    background : transparent;
+    cursor : pointer;
+    transition : color 0.5s ease;
+    text-align: center;
+    width:100%;
+}
+
+
+.box-primary {
+    border-bottom : 4px solid #ccc;
+    border-right : 2px solid #ccc;
+}
+
+.box-danger {
+    border-bottom: 4px solid #a50909;
+    border-right: 2px solid #a50909;
+}
+
+.box-danger .title {
+    font-size:1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .box-title {
+        font-size : 1rem;
+        margin-bottom:0.5rem;
+    }
+
+    .box-content {
+        font-size : 0.9rem;
+    }
+}

@@ -1,96 +1,136 @@
+{#await promise}
+    <Loading/>
+{:then data}
+    {#if data.count <= 0}
+
+           <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
+
+        {:else}
+
+            <div class = "box">
+                <div class = "box-title">
+                    {title}
+                </div>
+            
+ 
+
+            {#each data.results as item}
+
+                    <div class = "box-content">
+                        <BtnContainer doc = {item.doc} client = {client} />
+                        {@html xssReplace(item.doc.content).replace(/\n/g, "<br />")}
+                    </div>
+            {/each}
+
+        </div>
+
+    {/if}
+    
+    <div class = "box box-primary">
+        {#if title == ''}
+            <NewEntryForm height = '100' client = {client}/>
+            {:else}
+            <NewEntryForm height = '100' title = {title} client = {client}/>
+        {/if}
+    </div>
+{/await}
+
+
 <script>
     export let client;
     export let id;
-    import NewDocument from '../components/newEntry.svelte';
-    import DocumentButtons from '../components/documentButtons.svelte';
-    import NotFoundCard from '../components/notFoundCard.svelte';
-    import { NotificationDisplay } from '@beyonk/svelte-notifications';
-    import Header from '../components/header.svelte';
-    import Meta from '../components/meta.svelte'
+    export let entryKey;
 
     let title = '';
 
-    let metadata = {
-        title : '',
-        description : ''
-    };
-    let entrys = [];
-    let searching = true;
-    async function loadDocuments(documentRef)
-    {
-        searching = true;
-        entrys = [];
+    import Loading from '../components/box/loading.svelte';
+    import NewEntryForm from '../components/form/newEntry.svelte';
+    import BtnContainer from '../components/box/btnContainer.svelte';
+    import InfoBox from '../components/box/infoBox.svelte';
+    import lang from '../utils/lang'
+    import { notifier } from '@beyonk/svelte-notifications'
+
+    import xssReplace from '../utils/xss'
+
+    const collection = client.database.useCollection('entrys');
+
+    async function query() {
+
+        let clonedDocuments = false;
+
         const queryObject = {
-            ref : documentRef,
+            ref : id,
             collection : 'entrys',
             match : {
-                field : 'entryKey'
+                field : 'entryKey',
+                value : 'parent-key'
             }
         };
 
-        const query = await client.sendEvent(queryObject, {
-            timeOut : 500,
-            peerListener : 'onDocumentByRef'
-        });
-        if(query.count <= 0){
-            searching = false;
-            return [];
+         /** Search on my index */
+
+         let documentPool = []
+        const findInIndexs = collection.indexs['entryKey'][entryKey] || false;
+        if(findInIndexs) {
+            Object.keys(findInIndexs).forEach((ref)=>{
+                documentPool.push(
+                    collection.getDoc(ref)
+                );
+            })
         }
-        let results = query.results;
 
-        results.sort((a,b)=>{
-            return new Date(a.doc.createDate) - new Date(b.doc.createDate);
+        /** Search on my index */
+
+        let send = await client.sendEvent(queryObject, {
+            timeOut : 450, // destroy 1.2s listener
+            peerListener : 'onDocumentByRef',
+            documentPool : documentPool
         });
 
-        const firstEntry = client.censored(results[0].doc).document;
-        title = firstEntry.title;
-        metadata.title = title;
-        metadata.description = firstEntry.content;
-        results = results.filter(item => {
-            const filter = client.censored(item.doc);
-            item.doc = filter.document
-            return item;
-        });
-        entrys = results;
-        searching = false;
+        if(send.count > 0) {
+            title = send.results[0].doc.title;
+
+            send.results.sort((a,b)=>{
+                return new Date(a.doc.createDate) - new Date(b.doc.createDate);
+            });
+
+            send.results.forEach((item)=>{
+                const doc = item.doc;
+
+                const documentId = doc.documentId;
+
+                if(collection.documents[documentId] == undefined) {
+                    clonedDocuments = true;
+
+                    collection.addDoc(doc)
+                }
+                
+            }); 
+
+
+            if(clonedDocuments) {
+                notifier.success(lang.APP.CACHED_NEW_ENTRYS)
+            }
+
+        }
+
+        return send;
     }
 
-    $ : {
-        loadDocuments(id)
-    } 
-
-    let n;
+    const promise = query();
 </script>
 
-<Meta {metadata}/>
-<NotificationDisplay bind:this={n} />
-{#if entrys.length <= 0}
-    {#if searching}
-        <Header content = "Loading from peers..."/>
-        {:else}
-        <div class = "pd-l-1 pd-r-1">
-            <NotFoundCard/>
-            <NewDocument client = {client}/>
-        </div>
-    {/if}
+<style>
+    .box-title {
+        margin-bottom : 8px;
+        font-size : 1.2rem;
+    }
 
-    {:else}
-        <Header content = "{title}"/>
-        <div class = "pd-l-1 pd-r-1">
-            <div class = "card pd-1 rounded-8 card-bg-primary pd-1 m-t-1">
-                {#each entrys as item} 
-                        <div class = "card-body entry-sub-content pd-b-05 flex">
-                            <DocumentButtons
-                                client = {client}
-                                data = {item}
-                                collectionName = 'entrys'
-                            />
-                            <div class = "content pd-05">
-                                {item.doc.content}
-                            </div>
-                        </div>
-                {/each}
-            </div>
-            <NewDocument client = {client} title = {title}/>
-        </div>
-{/if}
+    .box-content {
+        padding : 1rem;
+        padding-bottom : 1.5rem;
+        background: #00000026;
+        margin-bottom : 8px;
+        border-radius : 4px;
+    }
+</style>

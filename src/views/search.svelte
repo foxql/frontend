@@ -1,74 +1,95 @@
+{#await searchPromise}
+    <div class = "box box-primary search-header">
+        <b>
+            {queryString} 
+        </b>
+        
+        <div class = "right-side">
+            {lang.APP.SEARCH_PROMISE}
+        </div>
+    </div>
+
+    <Loading/>
+
+    {:then results} 
+    <div class = "box box-primary search-header">
+        <b>
+            {queryString} 
+        </b>
+    
+        <div class = "right-side">
+            {results.length} {lang.APP.RESULTS}
+        </div>
+    </div>
+
+    {#if results.length > 0}
+            {#each results as item}
+                <EntryBox  data = {{
+                    doc : item.doc.document
+                }} client = {client} />
+            {/each}
+        {:else}
+            
+        <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
+
+    {/if}
+    
+{/await}
+
+
 <script>
+    export let queryString;
     export let client;
-    export let query;
 
-    import EntryCardResult from '../components/entryResultsCard.svelte'
-    import NewEntry from '../components/newEntry.svelte';
-    import enums from '../enums/enums.js';
-    import NotFoundCard from '../components/notFoundCard.svelte';
-    import Header from '../components/header.svelte';
-    import SearchBox from '../components/searchBox.svelte';
+    import EntryBox from '../components/box/entryBox.svelte';
+    import Loading from '../components/box/loading.svelte';
+    import InfoBox from '../components/box/infoBox.svelte';
+    import lang from '../utils/lang';
 
-    async function searchNetwork(queryString)
-    {
+
+    async function searchNetwork(qString) {
+
         const queryObject = {
-            query : queryString,
+            query : qString,
             collection : 'entrys'
         };
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 250, // destroy 1.2s listener
+            timeOut : 400, 
             peerListener : 'onSearch'
         });
 
         if(query.count <= 0){
             return [];
         }
+
         let results = query.results;
 
         results.sort((a,b)=>{
             return new Date(b.doc.score) - new Date(a.doc.score);
         });
 
-        return results.filter(item => {
-            const filter = client.censored(item.doc.document);
-            if(filter.censored){
-                return false;
-            }
-            item.doc.document = filter.document
-            return item;
-        });
-
+        return results;
     }
 
-    let searchPromise = searchNetwork(query);
+    let searchPromise = searchNetwork(queryString);
 
     $ : {
-        searchPromise = searchNetwork(query);
+        searchPromise = searchNetwork(queryString);
     }
 
 </script>
 
-    {#await searchPromise}
-        <Header content = "{enums.VIEWS.SEARCH.PROMISE}"/>
-    {:then data}
-        <Header content = "{query} {enums.VIEWS.SEARCH.THEN}"/>
-    {/await}
 
-<div class = "pd-l-1 pd-r-1">
-    <SearchBox/>
-    {#await searchPromise}
-        loading...
-    {:then results}
-        {#if results.length > 0}
-                {#each results as item}
-                    <EntryCardResult data = {item}/>
-                {/each}
-            {:else}
-            <NotFoundCard/>
-        {/if}
-        <NewEntry client = {client} title = {query}/>
-    {/await}
-</div>
+<style>
+    .search-header {
+        display:flex;
+    }
+    .right-side {
+        margin-left:auto;
+    }
 
-
+    .box b {
+        margin-right : 1rem;
+    }
+</style>
