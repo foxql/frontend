@@ -24,8 +24,8 @@ const packageJSON = JSON.parse(fs.readFileSync(path.join(projectRoot, "package.j
 packageJSON.devDependencies = Object.assign(packageJSON.devDependencies, {
   "svelte-check": "^1.0.0",
   "svelte-preprocess": "^4.0.0",
-  "@rollup/plugin-typescript": "^6.0.0",
-  "typescript": "^3.9.3",
+  "@rollup/plugin-typescript": "^8.0.0",
+  "typescript": "^4.0.0",
   "tslib": "^2.0.0",
   "@tsconfig/svelte": "^1.0.0"
 })
@@ -65,7 +65,7 @@ rollupConfig = rollupConfig.replace(`'src/main.js'`, `'src/main.ts'`)
 // Add preprocessor
 rollupConfig = rollupConfig.replace(
   'compilerOptions:',
-  'preprocess: sveltePreprocess(),\n\t\t\tcompilerOptions:'
+  'preprocess: sveltePreprocess({ sourceMap: !production }),\n\t\t\tcompilerOptions:'
 );
 
 // Add TypeScript
@@ -104,7 +104,7 @@ if (!argv[2]) {
 }
 
 // Adds the extension recommendation
-fs.mkdirSync(path.join(projectRoot, ".vscode"))
+fs.mkdirSync(path.join(projectRoot, ".vscode"), { recursive: true })
 fs.writeFileSync(path.join(projectRoot, ".vscode", "extensions.json"), `{
   "recommendations": ["svelte.svelte-vscode"]
 }
