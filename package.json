@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c -s",
     "dev": "rollup -c -w",
-    "start": "sirv public"
+    "start": "node server.js"
   },
   "devDependencies": {
     "@beyonk/svelte-notifications": "^3.1.0",
@@ -18,6 +18,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "foxql": "^1.0.2",
     "marked": "^2.0.1",
     "sirv-cli": "^1.0.0",
