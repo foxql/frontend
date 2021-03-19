@@ -7,10 +7,17 @@
     import { link } from "svelte-routing";
 
     import BtnContainer from './btnContainer.svelte';
+    import censoreFilter from '../../utils/censore'
 
     import xssReplace from '../../utils/xss'
 
     const document = data.doc;
+
+    let clonedDocument = censoreFilter(JSON.parse(
+        JSON.stringify(
+            document
+        )
+    )).document;
 
     const documentId = document.documentId;
     const entryKey = document.entryKey;
@@ -18,12 +25,12 @@
 
 <div class = "box box-primary" in:fade>
         <div class = "box-title">
-            <a href = "entry/{documentId}/{entryKey}" use:link>{document.title}</a>
+            <a href = "entry/{documentId}/{entryKey}" use:link>{clonedDocument.title}</a>
         </div>
     
         <div class = "box-content"> 
            <p>
-            {@html xssReplace(document.content).replace(/\n/g, "<br />")}
+            {@html xssReplace(clonedDocument.content).replace(/\n/g, "<br />")}
            </p>
         </div>
 

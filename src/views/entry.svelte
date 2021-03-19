@@ -9,7 +9,7 @@
 
             <div class = "box">
                 <div class = "box-title">
-                    {title}
+                    {showingTitle}
                 </div>
             
  
@@ -18,7 +18,7 @@
 
                     <div class = "box-content">
                         <BtnContainer doc = {item.doc} client = {client} />
-                        {@html xssReplace(item.doc.content).replace(/\n/g, "<br />")}
+                        {@html xssReplace(censoreFilter(JSON.parse(JSON.stringify(item.doc))).document.content).replace(/\n/g, "<br />")}
                     </div>
             {/each}
 
@@ -42,6 +42,7 @@
     export let entryKey;
 
     let title = '';
+    let showingTitle = '';
 
     import Loading from '../components/box/loading.svelte';
     import NewEntryForm from '../components/form/newEntry.svelte';
@@ -49,6 +50,7 @@
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang'
     import { notifier } from '@beyonk/svelte-notifications'
+    import censoreFilter from '../utils/censore';
 
     import xssReplace from '../utils/xss'
 
@@ -88,7 +90,10 @@
         });
 
         if(send.count > 0) {
+            let firstContent = censoreFilter(JSON.parse(JSON.stringify(send.results[0].doc))).document;
+
             title = send.results[0].doc.title;
+            showingTitle = firstContent.title;
 
             send.results.sort((a,b)=>{
                 return new Date(a.doc.createDate) - new Date(b.doc.createDate);
@@ -96,7 +101,6 @@
 
             send.results.forEach((item)=>{
                 const doc = item.doc;
-
                 const documentId = doc.documentId;
 
                 if(collection.documents[documentId] == undefined) {

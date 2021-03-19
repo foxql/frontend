@@ -40,19 +40,22 @@
             return false;
         }
 
-        const add = collection.addDoc({
+        let doc = {
             title : title,
             content : content,
             createDate : new Date()
-        })
+        };
+
+        const add = collection.addDoc(doc)
 
 
         if(add){
-            notifier.success('İçerik paylaşıldı', 1200)
+            notifier.success(lang.APP.CONTENT_ADDED, 1200)
             document.querySelector('.title-input').value = '';
             document.querySelector('textarea').value = '';
+            client.peer.socket.emit('newDoc', doc);
         }else{
-            notifier.danger('Paylaşılamadı')
+            notifier.danger(lang.APP.CONTENT_NOT_ADDED, 1200)
         }
 
 
