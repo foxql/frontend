@@ -28,15 +28,22 @@
         {lang.APP.DOCUMENTS}
     </div>
     <div class = "box-content">
-        {#each Object.values(client.database.useCollection('entrys').documents) as doc}
-            <EntryBox 
-                client = {client} 
-                data = {{
-                    doc : doc
-                }}
-                hiding = {true}
-            />
-        {/each}
+
+        {#await promise}
+            loading broo
+            {:then documents}
+
+            {#each documents as doc}
+                <EntryBox 
+                    client = {client} 
+                    data = {{
+                        doc : doc
+                    }}
+                    hiding = {true}
+                />
+            {/each}
+
+        {/await}
     </div>
 </div>
 
@@ -66,6 +73,13 @@
 
 
     let dbSize = formatBytes(JSON.stringify(client.database))
+
+    async function loadItems()
+    {
+        return Object.values(client.database.useCollection('entrys').documents);
+    }
+
+    let promise = loadItems();
 </script>
 
 <style>
