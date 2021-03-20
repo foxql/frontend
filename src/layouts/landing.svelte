@@ -6,6 +6,11 @@
     
     import lang from '../utils/lang'
 
+    function handleWhitePaper()
+    {
+        alert(lang.LANDING.WHITEPAPER_ALERT)
+    }
+
 </script>
 
 <style>
@@ -55,6 +60,23 @@
     }
 
 
+    .landing-button-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom:1rem;
+    }
+
+    .landing-button-container button{
+
+        padding : 0.5rem 1rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size:1rem;
+        background : #fffc;
+
+    }
+
+
 </style>
 
 <div class = "container">
@@ -67,4 +89,8 @@
     </div>
 
     <Navbar/> 
+
+    <div class = "landing-button-container">
+        <button  on:click="{handleWhitePaper}">WhitePaper</button>
+    </div>
 </div>
