@@ -3,7 +3,8 @@ const landing = {
     RIGHT_PARAGRAPH : `Üyelik yok, takip yok, influencer yok. Sadece içerik var. Devrimsel bir sosyal ağ deneyimi!`,
     DOCUMENT_TITLE : 'Merhaba',
     TEXTAREA_PLACEHOLDER : 'Merhaba başlığı için bir şeyler paylaş ve bir foxql kullanıcısı ol!',
-    FORM_BUTTON : 'Paylaş ve Giriş Yap'
+    FORM_BUTTON : 'Paylaş ve Giriş Yap',
+    WHITEPAPER_ALERT : 'Hazırlığımız henüz tamamlanmadı, pek yakında yayınlanmış olacak.'
 }
 
 const notification  = {

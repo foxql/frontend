@@ -3,7 +3,8 @@ const landing = {
     RIGHT_PARAGRAPH : `No membership, no tracking, no influencer. There is only content. A revolutionary social networking experience!`,
     DOCUMENT_TITLE : 'Hello',
     TEXTAREA_PLACEHOLDER : 'Share something for the hello header and become a foxql user!',
-    FORM_BUTTON : 'Share And Login'
+    FORM_BUTTON : 'Share And Login',
+    WHITEPAPER_ALERT : 'Our preparation is not complete yet, it will be published soon.'
 }
 
 const notification  = {
