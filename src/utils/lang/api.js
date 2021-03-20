@@ -4,7 +4,7 @@ export default async ()=> {
 
     try {
 
-        const request = await fetch('http://ip-api.com/json');
+        const request = await fetch('https://ip-api.com/json');
 
         const json = await request.json();
 
