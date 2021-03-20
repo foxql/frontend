@@ -20,7 +20,7 @@
 <style>
 	:global(.toasts) {
 		bottom: 50px !important;
-		top : auto;
+		top : auto !important;
 	}
 </style>
 
