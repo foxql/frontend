@@ -19,8 +19,14 @@
 
 <style>
 	:global(.toasts) {
-		bottom: 50px !important;
+		bottom: 10px !important;
 		top : auto !important;
+	}
+
+	@media screen and (max-width: 992px) {
+		:global(.toasts) {
+			bottom: 50px !important;
+		}
 	}
 </style>
 
