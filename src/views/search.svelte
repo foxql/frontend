@@ -1,40 +1,49 @@
-{#await searchPromise}
-    <div class = "box box-primary search-header">
-        <b>
-            {queryString} 
-        </b>
-        
-        <div class = "right-side">
-            {lang.APP.SEARCH_PROMISE}
-        </div>
-    </div>
+<div class = "box search-box">
+    <SearchBox />
+</div>
 
-    <Loading/>
+{#if typeof queryString == 'string'}
 
-    {:then results} 
-    <div class = "box box-primary search-header">
-        <b>
-            {queryString} 
-        </b>
-    
-        <div class = "right-side">
-            {results.length} {lang.APP.RESULTS}
-        </div>
-    </div>
+        {#await searchPromise}
+            <div class = "box box-primary search-header">
+                <b>
+                    {queryString} 
+                </b>
+                
+                <div class = "right-side">
+                    {lang.APP.SEARCH_PROMISE}
+                </div>
+            </div>
 
-    {#if results.length > 0}
-            {#each results as item}
-                <EntryBox  data = {{
-                    doc : item.doc.document
-                }} client = {client} />
-            {/each}
-        {:else}
-            
-        <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
+            <Loading/>
 
-    {/if}
-    
+            {:then results} 
+            <div class = "box box-primary search-header">
+                <b>
+                    {queryString} 
+                </b>
+
+                <div class = "right-side">
+                    {results.length} {lang.APP.RESULTS}
+                </div>
+            </div>
+
+            {#if results.length > 0}
+                    {#each results as item}
+                        <EntryBox  data = {{
+                            doc : item.doc.document
+                        }} client = {client} />
+                    {/each}
+                {:else}
+                    
+                <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
+
+            {/if}
+
 {/await}
+
+{/if}
+
 
 
 <script>
@@ -45,10 +54,10 @@
     import Loading from '../components/box/loading.svelte';
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang';
+    import SearchBox from '../components/form/searchBox.svelte'
 
 
     async function searchNetwork(qString) {
-
         const queryObject = {
             query : qString,
             collection : 'entrys'
@@ -91,5 +100,15 @@
 
     .box b {
         margin-right : 1rem;
+    }
+
+    .search-box {
+        display:none;
+    }
+
+    @media screen and (max-width: 992px) {
+        .search-box {
+            display:block;
+        }
     }
 </style>

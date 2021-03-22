@@ -33,5 +33,9 @@ export default [
     {
         path : '/search/:queryString',
         component : Search
+    },
+    {
+        path : '/search',
+        component : Search
     }
 ];

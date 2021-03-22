@@ -20,6 +20,12 @@
             <span class = "fa fa-paper-plane"></span>
         </a>
     </div>
+
+    <div class = "nav-item {currentPage == 'search' ? 'active' : ''}">
+        <a href = "/search" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-search"></span>
+        </a>
+    </div>
 </div>
 
 <script>
@@ -39,7 +45,7 @@
     .navbar {
         display: none;
         width: 100%;
-        padding :0.5rem 2rem;   
+        padding :0.5rem 1rem;   
         background: #1a1f27; 
         position: fixed;
         left : 0px;
