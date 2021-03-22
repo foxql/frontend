@@ -18,14 +18,8 @@
             </a>
         </div>
     
-        <div class = "nav-search-box">
-           <input 
-                type = "text" 
-                placeholder = "{lang.NAVBAR.SEARCH_INPUT_PLACEHOLDER}"
-                on:keydown="{handleKeydown}"
-                class = 'search-input'
-            />
-           <span class = "fa fa-search search-icon"></span>
+        <div class = "search-box">
+            <SearchBox/>
         </div>
 
         <div class = "nav-item langs">
@@ -44,25 +38,15 @@
 </div>
 
 <script>
-    import { link, navigate } from "svelte-routing";
+    import { link } from "svelte-routing";
     import lang from '../../utils/lang';
     import changeLang from '../../utils/lang/change.js'
+    import SearchBox from '../form/searchBox.svelte';
 
     function handleClick ()
     {
         const target = this.dataset.lang;
         changeLang(target)
-    }
-
-    function handleKeydown(e)
-    {
-        if(e.key === 'Enter') {
-            const query = this.value.trim()
-            if(query === '') {
-                return false;
-            }
-            navigate('search/'+query)
-        }
     }
 
 </script>
@@ -115,23 +99,10 @@
         width : 32px;
     }
 
-    .navbar .nav-search-box {
-        display: flex;
-        align-items: center;
+    .navbar .search-box {
         width:47%;
         position: relative;
         margin-left: 1rem;
-    }
-
-    .navbar .nav-search-box .search-icon {
-        position: absolute;
-        right:10px;
-    }
-
-    .navbar .nav-search-box input {
-        padding:0.5rem 1rem;
-        border-radius: 15px;
-        width:100%;
     }
 
     .langs {
