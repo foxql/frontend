@@ -50,6 +50,6 @@
     }
 
     .not-active {
-        color: #b53939;
+        color: #675555;
     }
 </style>
