@@ -117,5 +117,6 @@
         background: #3f86c3;
         color: #eee;
         border-radius: 4px;
+        cursor: pointer;
    }
 </style>
