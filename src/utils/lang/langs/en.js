@@ -53,7 +53,9 @@ const app = {
     TITLE_MIN_LENGTH : 'Title must be at least 4 characters',
     CONTENT_MIN_LENGTH : 'Content must be at least 20 characters',
     CONTENT_ADDED : 'Content shared and cloned.',
-    CONTENT_NOT_ADDED : 'Content could not be shared.'
+    CONTENT_NOT_ADDED : 'Content could not be shared.',
+    NEXT : 'Next',
+    PREV : 'Prev'
 }
 
 const censored = {

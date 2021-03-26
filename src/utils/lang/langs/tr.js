@@ -53,7 +53,9 @@ const app = {
     TITLE_MIN_LENGTH : 'Başlık en az 4 karakter olmalı',
     CONTENT_MIN_LENGTH : 'İçerik en az 20 karakter olmalı',
     CONTENT_ADDED : 'İçerik paylaşıldı ve klonlandı.',
-    CONTENT_NOT_ADDED : 'İçerik paylaşılamadı.'
+    CONTENT_NOT_ADDED : 'İçerik paylaşılamadı.',
+    NEXT : 'İleri',
+    PREV : 'Geri'
 }
 
 const censored = {
