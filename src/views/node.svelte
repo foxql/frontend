@@ -22,42 +22,50 @@
     </div>
 </div>
 
-
 <div class = "box" in:fade>
     <div class = "box-title">
         {lang.APP.DOCUMENTS}
     </div>
     <div class = "box-content">
         {#each showingDocuments as doc}
-            <EntryBox 
-                client = {client} 
-                data = {{
-                    doc : doc
-                }}
-                hiding = {true}
-            />
+        <div class = "box box-primary" in:fade>
+            <div class = "box-title">
+                <a href = "entry/{doc.documentId}/{doc.entryKey}" use:link>{doc.title}</a>
+            </div>
+
+            <div class = "box-content"> 
+                <p>
+                    {doc.content}
+                </p>
+            </div>
+
+            <BtnContainer client = {client} doc = {doc} hide = {true}/>
+        </div>
+
         {/each}
     </div>
 </div>
 
-{#if showMore }
-    <button class = "show-more" on:click="{handleShowMore}" in:fade>
-        Devamını Göster
+<div class = "button-group">
+    <button class = "prev" on:click="{handlePrev}" in:fade>
+        <span class = "fa fa-angle-left"></span> Geri
     </button>
-{/if}
-
-
+    <button class = "next" on:click="{handleNext}" in:fade>
+        İleri <span class = "fa fa-angle-right"></span>
+    </button>
+</div>
 
 <script>
     export let client;
     import { fade } from 'svelte/transition';
-    import EntryBox from '../components/box/entryBox.svelte';
+    import { link } from "svelte-routing";
     import lang from '../utils/lang';
+    import BtnContainer from '../components/box/btnContainer.svelte';
 
-    let limit = 5;
+    let perPage = 5;
+    let offset = 0;
 
     function formatBytes(str, decimals = 2) {
-
         var b = str.match(/[^\x00-\xff]/g);
         const bytes =  (str.length + (!b ? 0: b.length)); 
 
@@ -72,21 +80,37 @@
         return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     } 
 
-
     let dbSize = formatBytes(JSON.stringify(client.database))
 
     let allDocuments = Object.values(client.database.useCollection('entrys').documents);
-    let showingDocuments = allDocuments.splice(0, limit);
+    let showingDocuments = allDocuments.slice(0, perPage);
+    let documentLength = allDocuments.length;
 
-    let showMore = allDocuments.length > limit ? true : false;
-
-    function handleShowMore()
+    function changeView()
     {
-        showingDocuments = showingDocuments.concat(allDocuments.splice(0, limit))
+        showingDocuments = allDocuments.slice(offset, offset + perPage);
+    }
 
-        if(allDocuments.length <= 0) {
-            showMore = false
+    function handleNext()
+    {
+        if( (offset + perPage) > documentLength){
+            return false;
         }
+
+        offset += perPage;
+
+        changeView();
+    }
+
+    function handlePrev()
+    {
+        if(offset <= 0){
+            return false;
+        }
+
+        offset -= perPage;
+        
+        changeView();
     }
 
 </script>
@@ -111,12 +135,28 @@
        color : #e6bf60;
    }
 
-   .show-more {
+   .button-group {
+        display: flex;
+        width:100%;
+        padding : 0.4rem;
+   }
+
+   .button-group .next {
+        margin-left:auto;
+        border-bottom: 2px solid #981f1f;
+        border-right: 2px solid #981f1f;
+   }
+
+   .button-group .prev {
+        border-bottom: 2px solid #981f1f;
+        border-left: 2px solid #981f1f;
+   }
+
+   .button-group button {
         padding: 0.4rem 1rem;
-        width: 100%;
-        background: #3f86c3;
-        color: #eee;
         border-radius: 4px;
+        background: #161922;
+        color: #eee;
         cursor: pointer;
    }
 </style>
