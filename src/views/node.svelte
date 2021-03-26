@@ -28,24 +28,23 @@
         {lang.APP.DOCUMENTS}
     </div>
     <div class = "box-content">
-
-        {#await promise}
-            loading broo
-            {:then documents}
-
-            {#each documents as doc}
-                <EntryBox 
-                    client = {client} 
-                    data = {{
-                        doc : doc
-                    }}
-                    hiding = {true}
-                />
-            {/each}
-
-        {/await}
+        {#each showingDocuments as doc}
+            <EntryBox 
+                client = {client} 
+                data = {{
+                    doc : doc
+                }}
+                hiding = {true}
+            />
+        {/each}
     </div>
 </div>
+
+{#if showMore }
+    <button class = "show-more" on:click="{handleShowMore}" in:fade>
+        Devamını Göster
+    </button>
+{/if}
 
 
 
@@ -53,7 +52,9 @@
     export let client;
     import { fade } from 'svelte/transition';
     import EntryBox from '../components/box/entryBox.svelte';
-    import lang from '../utils/lang'
+    import lang from '../utils/lang';
+
+    let limit = 5;
 
     function formatBytes(str, decimals = 2) {
 
@@ -74,12 +75,20 @@
 
     let dbSize = formatBytes(JSON.stringify(client.database))
 
-    async function loadItems()
+    let allDocuments = Object.values(client.database.useCollection('entrys').documents);
+    let showingDocuments = allDocuments.splice(0, limit);
+
+    let showMore = allDocuments.length > limit ? true : false;
+
+    function handleShowMore()
     {
-        return Object.values(client.database.useCollection('entrys').documents);
+        showingDocuments = showingDocuments.concat(allDocuments.splice(0, limit))
+
+        if(allDocuments.length <= 0) {
+            showMore = false
+        }
     }
 
-    let promise = loadItems();
 </script>
 
 <style>
@@ -90,7 +99,7 @@
    .stat {
        display: flex;
        padding : 0.5rem 1rem;
-       background: #1516196b;
+       background: #1619226b;
        margin-bottom : 0.4rem;
        align-items: center;
    }
@@ -102,4 +111,11 @@
        color : #e6bf60;
    }
 
+   .show-more {
+        padding: 0.4rem 1rem;
+        width: 100%;
+        background: #3f86c3;
+        color: #eee;
+        border-radius: 4px;
+   }
 </style>
