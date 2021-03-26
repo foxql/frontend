@@ -48,10 +48,10 @@
 
 <div class = "button-group">
     <button class = "prev" on:click="{handlePrev}" in:fade>
-        <span class = "fa fa-angle-left"></span> Geri
+        <span class = "fa fa-angle-left"></span> {lang.APP.PREV}
     </button>
     <button class = "next" on:click="{handleNext}" in:fade>
-        İleri <span class = "fa fa-angle-right"></span>
+        {lang.APP.NEXT} <span class = "fa fa-angle-right"></span>
     </button>
 </div>
 
