@@ -24,15 +24,15 @@
 </script>
 
 <div class = "box box-primary" in:fade>
-        <div class = "box-title">
-            <a href = "entry/{documentId}/{entryKey}" use:link>{clonedDocument.title}</a>
-        </div>
-    
-        <div class = "box-content"> 
-           <p>
-            {@html xssReplace(clonedDocument.content).replace(/\n/g, "<br />")}
-           </p>
-        </div>
+    <div class = "box-title">
+        <a href = "entry/{documentId}/{entryKey}" use:link>{clonedDocument.title}</a>
+    </div>
 
-        <BtnContainer client = {client} doc = {document} hide = {hiding}/>
+    <div class = "box-content"> 
+        <p>
+        {@html xssReplace(clonedDocument.content).replace(/\n/g, "<br />")}
+        </p>
+    </div>
+
+    <BtnContainer client = {client} doc = {document} hide = {hiding}/>
 </div>
