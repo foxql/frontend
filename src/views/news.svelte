@@ -19,7 +19,7 @@
             if(item.type == 'new-document') {
                 const doc = item.document;
                 if(collection.documents[doc.documentId] === undefined) {
-                    collection.addDoc(doc)
+                    //collection.addDoc(doc)
                     dedectedNewDocument = true;
                 }
             }
@@ -27,7 +27,7 @@
 
 
         if(dedectedNewDocument) {
-            notifier.success(lang.APP.CACHED_NEW_ENTRYS, 1200)
+            //notifier.success(lang.APP.CACHED_NEW_ENTRYS, 1200)
         }
 
         actions = list;
