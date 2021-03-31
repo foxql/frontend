@@ -58,6 +58,8 @@
 
     async function query() {
 
+        let clonedDocuments = false;
+
         const queryObject = {
             ref : id,
             collection : 'entrys',
@@ -96,6 +98,23 @@
             send.results.sort((a,b)=>{
                 return new Date(a.doc.createDate) - new Date(b.doc.createDate);
             });
+
+            send.results.forEach((item)=>{
+                const doc = item.doc;
+                const documentId = doc.documentId;
+
+                if(collection.documents[documentId] == undefined) {
+                    clonedDocuments = true;
+
+                    collection.addDoc(doc)
+                }
+                
+            }); 
+
+
+            if(clonedDocuments) {
+                notifier.success(lang.APP.CACHED_NEW_ENTRYS)
+            }
 
         }
 
