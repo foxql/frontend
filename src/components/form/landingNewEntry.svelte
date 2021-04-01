@@ -27,11 +27,12 @@
         display:flex;
         align-items: center;
         flex-direction: column;
+        margin-top:1rem;
     }
 
     .section-item2 img {
-        width : 75%;
-        margin-bottom:10px;
+        width : 80%;
+        margin-bottom:1rem;
     }
     
 
