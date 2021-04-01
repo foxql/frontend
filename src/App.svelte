@@ -5,7 +5,7 @@
 
 	import { NotificationDisplay } from '@beyonk/svelte-notifications'
 
-	const storage = localStorage.getItem('foxql-storage') || false;
+	const storage = localStorage.getItem('landing') || false;
 
 	let themes = { // These are the defaults
 		danger: '#712829',
