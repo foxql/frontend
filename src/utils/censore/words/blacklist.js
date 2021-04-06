@@ -535,7 +535,6 @@ export default {
     "yarak":"INSULT",
     "yaraksiz":"INSULT",
     "yaraktr":"INSULT",
-    "yaram":"INSULT",
     "yaraminbasi":"INSULT",
     "yaramn":"INSULT",
     "yararmorospunun":"INSULT",
