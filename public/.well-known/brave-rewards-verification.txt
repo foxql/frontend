@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: foxql.com
+Token: db93426b713ddc443a252a8dd4cf7d07b67a4421216fe094cee0f2760018cae9
