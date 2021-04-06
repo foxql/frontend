@@ -6,9 +6,9 @@
     
     import lang from '../utils/lang'
 
-    function handleWhitePaper()
+    function handleLitePaper()
     {
-        alert(lang.LANDING.WHITEPAPER_ALERT)
+        window.location.href = 'https://github.com/foxql/foxql/wiki/LitePaper-(TR)'
     }
 
 </script>
@@ -91,6 +91,6 @@
     <Navbar/> 
 
     <div class = "landing-button-container">
-        <button  on:click="{handleWhitePaper}">WhitePaper</button>
+        <button  on:click="{handleLitePaper}">LitePaper</button>
     </div>
 </div>
