@@ -48,16 +48,6 @@
             documentPool : myDocuments.slice(0, 5)
         });
 
-        /*if(results.count > 0){
-            results.results.forEach(item => {
-                const doc = item.doc;
-                const refId = doc[indexRef] || 'notfound';
-                if(index.documents[refId] === undefined){
-                    index.addDoc(doc)
-                }
-            });
-        }*/
-
         return results;
     }
 
