@@ -70,7 +70,7 @@
         const query = await client.sendEvent(queryObject, {
             timeOut : 400, 
             peerListener : 'onSearch',
-            documentPool : collection.search(qString)
+            documentPool : searchOnMyIndexs
         });
 
         if(query.count <= 0){
