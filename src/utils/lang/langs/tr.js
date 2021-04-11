@@ -55,7 +55,10 @@ const app = {
     CONTENT_ADDED : 'İçerik paylaşıldı ve klonlandı.',
     CONTENT_NOT_ADDED : 'İçerik paylaşılamadı.',
     NEXT : 'İleri',
-    PREV : 'Geri'
+    PREV : 'Geri',
+    WALLET_ADDRESS : 'Cüzdan Adresi',
+    WALLET_ADDRESS_PLACEHOLDER : 'Tron ağında geçerli bir cüzdan adresi.',
+    WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.'
 }
 
 const censored = {
