@@ -1,6 +1,8 @@
 import App from './App.svelte';
 import {foxql} from 'foxql';
 import langApi from './utils/lang/api'
+import lang from './utils/lang'
+import { notifier } from '@beyonk/svelte-notifications'
 
 const client = new foxql();
 
@@ -29,6 +31,26 @@ client.use('documentLengthInterval', {
 
 client.open();
 
+const collection = client.database.useCollection('entrys');
+
+client.peer.socket.on('actionList', (list)=>{
+    let dedectedNewDocument = false;
+    list.forEach(item => {
+        if(item.type == 'new-document') {
+            const doc = item.document;
+            if(collection.documents[doc.documentId] === undefined) {
+                collection.addDoc(doc)
+                dedectedNewDocument = true;
+            }
+        }
+    });
+
+    if(dedectedNewDocument) {
+        notifier.success(lang.APP.CACHED_NEW_ENTRYS, 1200)
+    }
+})
+
+client.peer.socket.emit('actionList', true)
 
 window.client = client;
 

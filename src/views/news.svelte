@@ -3,47 +3,24 @@
     import EntryBox from '../components/box/entryBox.svelte';
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang'
-    import { notifier } from '@beyonk/svelte-notifications'
-
-    const listenerName = 'actionList';
-
-    client.peer.socket.emit(listenerName, true)
-
-    let actions = [];
 
     const collection = client.database.useCollection('entrys');
+    client.peer.socket.emit('actionList', true)
 
-    client.peer.socket.on(listenerName, (list)=>{
-        let dedectedNewDocument = false;
-        list.forEach(item => {
-            if(item.type == 'new-document') {
-                const doc = item.document;
-                if(collection.documents[doc.documentId] === undefined) {
-                    collection.addDoc(doc)
-                    dedectedNewDocument = true;
-                }
-            }
-        });
+    let actions = Object.values(collection.documents).sort((a, b)=>{
+        return new Date(b.createDate) - new Date(a.createDate);
+    }).slice(0,10)
 
-
-        if(dedectedNewDocument) {
-            notifier.success(lang.APP.CACHED_NEW_ENTRYS, 1200)
-        }
-
-        actions = list;
-    })
-
+    console.log(actions)
 </script>
 
 
 {#if actions.length > 0}
 
     {#each actions as item}
-        {#if item.type === 'new-document'}
-            <EntryBox  data = {{
-                doc : item.document
-            }} client = {client} />
-        {/if}
+        <EntryBox  data = {{
+            doc : item
+        }} client = {client} />
 
     {/each}
 
