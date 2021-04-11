@@ -1,5 +1,21 @@
 <div class = "box" in:fade>
     <div class = "box-title">
+        {lang.APP.WALLET_ADDRESS}
+    </div>
+    <div class = "box-content wallet-form-container">
+        <input 
+            type = "text" 
+            placeholder = "{lang.APP.WALLET_ADDRESS_PLACEHOLDER}" 
+            value = "{localStorage.getItem('fql-wallet-address') || ''}"
+            class = "wallet-address-input"/>
+        <button class = "wallet-save-btn" on:click="{handleSaveWalletAddress}">
+            <i class = "fa fa-check"></i>
+        </button>
+    </div>
+</div>
+
+<div class = "box" in:fade>
+    <div class = "box-title">
         {lang.APP.NODE_STATS}
     </div>
     <div class = "box-content">
@@ -61,6 +77,7 @@
     import { link } from "svelte-routing";
     import lang from '../utils/lang';
     import BtnContainer from '../components/box/btnContainer.svelte';
+    import {notifier} from '@beyonk/svelte-notifications'
 
     let perPage = 5;
     let offset = 0;
@@ -113,6 +130,16 @@
         changeView();
     }
 
+
+    function handleSaveWalletAddress()
+    {
+        const address = document.querySelector('.wallet-address-input').value;
+        if(address.trim().length > 0) {
+            localStorage.setItem('fql-wallet-address', address.trim())
+            notifier.success(lang.APP.WALLET_ADDRESS_SAVED, 1200)
+        }
+    }
+
 </script>
 
 <style>
@@ -158,5 +185,39 @@
         background: #161922;
         color: #eee;
         cursor: pointer;
+   }
+
+   .wallet-form-container {
+       display:flex;
+   }
+
+   .wallet-address-input {
+       width: 90%;
+       padding:0.4rem 1rem;
+       border-top-left-radius: 8px;
+       border-bottom-left-radius: 8px;
+       background : #ccc;
+       color : #555;
+   }
+
+
+   .wallet-save-btn {
+        width : 10%;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background : #393e46;
+        color: #eee;
+        cursor: pointer;
+   }
+
+
+   @media screen and (max-width: 992px) {
+        .wallet-save-btn {
+            width : 20%;
+        }
+
+        .wallet-address-input {
+            width: 80%;
+        }
    }
 </style>

@@ -55,7 +55,10 @@ const app = {
     CONTENT_ADDED : 'Content shared and cloned.',
     CONTENT_NOT_ADDED : 'Content could not be shared.',
     NEXT : 'Next',
-    PREV : 'Prev'
+    PREV : 'Prev',
+    WALLET_ADDRESS : 'Wallet Address',
+    WALLET_ADDRESS_PLACEHOLDER : 'A valid wallet address in the Tron network.',
+    WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.'
 }
 
 const censored = {
