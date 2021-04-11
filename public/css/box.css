@@ -10,7 +10,8 @@
 .box-title {
     font-size : 1.4rem;
     font-weight : 600;
-    margin-bottom : 1rem;;
+    margin-bottom : 1rem;
+    padding-right:1.4rem;
 }
 
 .box-content {
@@ -61,7 +62,7 @@
     .box-title {
         font-size : 1rem;
         margin-bottom:0.5rem;
-        padding-right: 1rem;
+        padding-right: 1.5rem;
     }
 
     .box-content {

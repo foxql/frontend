@@ -8,7 +8,7 @@ const landing = {
 }
 
 const notification  = {
-    MIN_CONTENT_LENGTH : 'You must enter at least 20 characters.',
+    MIN_CONTENT_LENGTH : 'You must enter at least 2 characters.',
     DOCUMENT_ADDED : 'Document successfully created',
     REDIRECT : 'Redirecting...',
     DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
@@ -50,8 +50,8 @@ const app = {
     RESULTS : 'Results',
     SEARCH_PROMISE : 'Running...',
     CACHED_NEW_ENTRYS : 'New content has been cloned and prepared for distribution.',
-    TITLE_MIN_LENGTH : 'Title must be at least 4 characters',
-    CONTENT_MIN_LENGTH : 'Content must be at least 20 characters',
+    TITLE_MIN_LENGTH : 'Title must be at least 2 characters',
+    CONTENT_MIN_LENGTH : 'Content must be at least 1 characters',
     CONTENT_ADDED : 'Content shared and cloned.',
     CONTENT_NOT_ADDED : 'Content could not be shared.',
     NEXT : 'Next',

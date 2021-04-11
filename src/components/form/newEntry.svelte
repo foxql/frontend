@@ -30,12 +30,12 @@
         const title = document.querySelector('.title-input').value.trim();
         const content = document.querySelector('textarea').value.trim();
 
-        if(title.length < 4) {
+        if(title.length < 2) {
             notifier.danger(lang.APP.TITLE_MIN_LENGTH, 1400)
             return false;
         }
 
-        if(content.length < 20) {
+        if(content.length < 1) {
             notifier.danger(lang.APP.CONTENT_MIN_LENGTH, 1400)
             return false;
         }

@@ -11,7 +11,6 @@
         return new Date(b.createDate) - new Date(a.createDate);
     }).slice(0,10)
 
-    console.log(actions)
 </script>
 
 

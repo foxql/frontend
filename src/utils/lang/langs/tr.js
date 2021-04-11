@@ -8,7 +8,7 @@ const landing = {
 }
 
 const notification  = {
-    MIN_CONTENT_LENGTH : 'En az 20 karakter girmelisiniz.',
+    MIN_CONTENT_LENGTH : 'En az 1 karakter girmelisiniz.',
     DOCUMENT_ADDED : 'Doküman başarı ile oluşturuldu',
     REDIRECT : 'Yönlendiriliyorsunuz...',
     DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
@@ -50,8 +50,8 @@ const app = {
     RESULTS : 'Sonuç',
     SEARCH_PROMISE : 'Cevap bekliyor...',
     CACHED_NEW_ENTRYS : 'Yeni içerikler klonlandı ve dağıtım için hazırlandı.',
-    TITLE_MIN_LENGTH : 'Başlık en az 4 karakter olmalı',
-    CONTENT_MIN_LENGTH : 'İçerik en az 20 karakter olmalı',
+    TITLE_MIN_LENGTH : 'Başlık en az 2 karakter olmalı',
+    CONTENT_MIN_LENGTH : 'İçerik en az 1 karakter olmalı',
     CONTENT_ADDED : 'İçerik paylaşıldı ve klonlandı.',
     CONTENT_NOT_ADDED : 'İçerik paylaşılamadı.',
     NEXT : 'İleri',
