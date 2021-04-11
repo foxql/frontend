@@ -56,6 +56,8 @@
     import lang from '../utils/lang';
     import SearchBox from '../components/form/searchBox.svelte'
 
+    const collection = client.database.useCollection('entrys');
+
 
     async function searchNetwork(qString) {
         const queryObject = {
@@ -63,9 +65,12 @@
             collection : 'entrys'
         };
 
+        const searchOnMyIndexs = collection.search(qString);
+
         const query = await client.sendEvent(queryObject, {
             timeOut : 400, 
-            peerListener : 'onSearch'
+            peerListener : 'onSearch',
+            documentPool : collection.search(qString)
         });
 
         if(query.count <= 0){
