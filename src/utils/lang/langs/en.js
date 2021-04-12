@@ -33,6 +33,10 @@ const infoCards = {
     NEWS_NOT_FOUND : {
         title : "We couldn't find anything to show. 😢",
         content : 'Nothing shared recently, I wish someone shared something 🧐'
+    },
+    TRENDS_EMPTY : {
+        title : 'Trend list is empty now 😭',
+        content : 'You can fill this list by sharing something 🙏'
     }
 }
 

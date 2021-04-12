@@ -33,6 +33,10 @@ const infoCards = {
     NEWS_NOT_FOUND : {
         title : 'Gösterecek bir şey bulamadık. 😢',
         content : 'Yakın zaman içinde paylaşılan bir şey yok, keşke birileri bir şeyler paylaşsa 🧐'
+    },
+    TRENDS_EMPTY : {
+        title : 'Trend listesi şuan boş 😭',
+        content : 'Bir şeyler paylaşarak bu listenin dolmasını sağlayabilirsin 🙏'
     }
 }
 
