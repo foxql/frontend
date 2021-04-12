@@ -20,7 +20,8 @@ const navbar = {
     SEARCH_INPUT_PLACEHOLDER : 'Ne verim abime?',
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
-    NEWS : 'Olaylar'
+    NEWS : 'Olaylar',
+    TRENDS : 'Gündem'
 }
 
 const infoCards = {
@@ -58,7 +59,8 @@ const app = {
     PREV : 'Geri',
     WALLET_ADDRESS : 'Cüzdan Adresi',
     WALLET_ADDRESS_PLACEHOLDER : 'Tron ağında geçerli bir cüzdan adresi.',
-    WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.'
+    WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.',
+    TRENDS : 'Gündem'
 }
 
 const censored = {

@@ -56,7 +56,7 @@
     .navbar {
         display: flex;
         width: 100%;
-        padding : 1rem 5rem;    
+        padding : 1rem 0rem;    
         background: #1a1f27; 
         position: fixed;
         left : 0px;

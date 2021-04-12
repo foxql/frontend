@@ -8,6 +8,14 @@
             <a href = "/news" use:link on:click="{handleNavItem}">
                 <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS}</a>
         </div>
+
+        <div class = "nav-item {currentPage == 'trends' ? 'active' : ''}">
+            <a href = "/news" use:link on:click="{handleNavItem}">
+                <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>
+        </div>
+
+
+
     </div>
 {/if}
 

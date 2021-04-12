@@ -365,7 +365,6 @@ export default {
     "sictigim":"INSULT",
     "siecem":"INSULT",
     "sicarsin":"INSULT",
-    "sie":"INSULT",
     "sik":"INSULT",
     "sikdi":"INSULT",
     "sikdigim":"INSULT",
