@@ -8,7 +8,14 @@
 
     function handleLitePaper()
     {
-        window.location.href = 'https://github.com/foxql/foxql/wiki/LitePaper-(TR)'
+        const dedectedLang = localStorage.getItem('lang') || 'en';
+        if(dedectedLang === 'tr') {
+            window.location.href = 'https://github.com/foxql/foxql/wiki/LitePaper-(TR)'
+        }else{
+            window.location.href = 'https://github.com/foxql/foxql/wiki/LitePaper-(EN)' 
+        }
+
+        
     }
 
 </script>
