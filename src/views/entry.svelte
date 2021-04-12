@@ -56,12 +56,12 @@
 
     const collection = client.database.useCollection('entrys');
 
-    async function query() {
+    async function query(documentId, key) {
 
         let clonedDocuments = false;
 
         const queryObject = {
-            ref : id,
+            ref : documentId,
             collection : 'entrys',
             match : {
                 field : 'entryKey',
@@ -72,7 +72,7 @@
          /** Search on my index */
 
          let documentPool = []
-        const findInIndexs = collection.indexs['entryKey'][entryKey] || false;
+        const findInIndexs = collection.indexs['entryKey'][key] || false;
         if(findInIndexs) {
             Object.keys(findInIndexs).forEach((ref)=>{
                 documentPool.push(
@@ -121,7 +121,12 @@
         return send;
     }
 
-    const promise = query();
+    let promise = query(id, entryKey);
+
+    $ : {
+        promise = query(id, entryKey)
+    }
+
 </script>
 
 <style>

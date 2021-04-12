@@ -8,6 +8,14 @@
             <a href = "/news" use:link on:click="{handleNavItem}">
                 <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS}</a>
         </div>
+
+        <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
+            <a href = "/trends" use:link on:click="{handleNavItem}">
+                <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>
+        </div>
+
+
+
     </div>
 {/if}
 
@@ -20,7 +28,8 @@
     let visibleArray = [
         '',
         'home',
-        'news'
+        'news',
+        'trends'
     ];
 
     let currentPage = 'home';
@@ -91,11 +100,20 @@
         color: #e0c49b;
     }
 
+    .home-navbar-trend-link {
+        display:none;
+    }
+
     @media screen and (max-width: 992px) {
 
         .nav-item {
             font-size: 0.8rem;
         }
+
+        .home-navbar-trend-link {
+            display: block;
+        }
+
 
     }
 </style>

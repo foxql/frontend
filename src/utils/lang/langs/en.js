@@ -11,7 +11,8 @@ const notification  = {
     MIN_CONTENT_LENGTH : 'You must enter at least 2 characters.',
     DOCUMENT_ADDED : 'Document successfully created',
     REDIRECT : 'Redirecting...',
-    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
+    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı',
+    TRENDS_REFRESH : 'Trend list refreshed'
 }
 
 const navbar = {
@@ -20,7 +21,8 @@ const navbar = {
     SEARCH_INPUT_PLACEHOLDER : 'Search any content!',
     LANGS : 'Languages',
     DISCOVERY : 'Discovery',
-    NEWS : 'Events'
+    NEWS : 'Events',
+    TRENDS : 'Trends'
 }
 
 const infoCards = {
@@ -58,7 +60,8 @@ const app = {
     PREV : 'Prev',
     WALLET_ADDRESS : 'Wallet Address',
     WALLET_ADDRESS_PLACEHOLDER : 'A valid wallet address in the Tron network.',
-    WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.'
+    WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.',
+    TRENDS : 'Trends'
 }
 
 const censored = {

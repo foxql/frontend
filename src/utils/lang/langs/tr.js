@@ -11,7 +11,8 @@ const notification  = {
     MIN_CONTENT_LENGTH : 'En az 1 karakter girmelisiniz.',
     DOCUMENT_ADDED : 'Doküman başarı ile oluşturuldu',
     REDIRECT : 'Yönlendiriliyorsunuz...',
-    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
+    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı',
+    TRENDS_REFRESH : 'Gündem listesi yeniden hesaplandı'
 }
 
 const navbar = {
@@ -20,7 +21,8 @@ const navbar = {
     SEARCH_INPUT_PLACEHOLDER : 'Ne verim abime?',
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
-    NEWS : 'Olaylar'
+    NEWS : 'Olaylar',
+    TRENDS : 'Gündem'
 }
 
 const infoCards = {
@@ -58,7 +60,8 @@ const app = {
     PREV : 'Geri',
     WALLET_ADDRESS : 'Cüzdan Adresi',
     WALLET_ADDRESS_PLACEHOLDER : 'Tron ağında geçerli bir cüzdan adresi.',
-    WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.'
+    WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.',
+    TRENDS : 'Gündem'
 }
 
 const censored = {

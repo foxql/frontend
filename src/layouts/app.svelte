@@ -10,6 +10,10 @@
             {/each}
         </Router>
     </div>
+
+    <div class = "side right">
+        <Trends client = {client}/>
+    </div>
     
 </div>
 
@@ -21,6 +25,9 @@
     import Navbar from '../components/navbar/appNavbar.svelte';
     import MobileNavbar from '../components/navbar/appMobileNavbar.svelte';
     import HomeNavbar from '../components/navbar/homeNavbar.svelte';
+
+    import Trends from '../components/sidebar/trends.svelte';
+
     import { Router, Route } from "svelte-routing";
     
     import routes from '../routes.js';
@@ -32,7 +39,7 @@
 <style>
     .container {
         display:flex;
-        padding : 5rem 10rem;
+        padding : 5rem 0rem;
         justify-content: center;
     }
 
@@ -41,9 +48,13 @@
     }
 
     .container .center {
-        width : 70%;
+        width : 50%;
         min-height:600px;
         padding-bottom: 4rem;
+    }
+
+    .container .right {
+        width: 25%;
     }
     
 
@@ -61,6 +72,10 @@
         .container .center {
             width : 100%;
             margin-right: 0;
+        }
+
+        .container .right {
+           display:none;
         }
 
     }
