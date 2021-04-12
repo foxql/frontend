@@ -52,6 +52,19 @@ client.peer.socket.on('actionList', (list)=>{
 
 client.peer.socket.emit('actionList', true)
 
+/** Auto migrate */
+
+let schema = collection.schema;
+
+if(schema.content.min == 20) {
+    schema.content.min = 1;
+}
+
+if(schema.title.min == 4) {
+    schema.title.min = 2;
+}
+
+
 window.client = client;
 
 const app = new App({
