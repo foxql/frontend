@@ -12,6 +12,10 @@
                 <a href = "entry/{item.doc.documentId}/{item.doc.entryKey}" use:link>{item.doc.title} <b>({item.count})</b></a>
             {/each}
         {/if}
+
+        {#if list.length <= 0}
+            <InfoBox  {...lang.INFO_CARD.TRENDS_EMPTY}/>
+        {/if}
     </div>
 </div>
 
@@ -21,6 +25,7 @@
     import { link } from "svelte-routing";
     import lang from '../../utils/lang';
     import {notifier} from '@beyonk/svelte-notifications'
+    import InfoBox from '../box/infoBox.svelte';
 
     const collection = client.database.useCollection('entrys');
     let currentTime = new Date().getTime();
