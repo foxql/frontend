@@ -11,7 +11,8 @@ const notification  = {
     MIN_CONTENT_LENGTH : 'En az 1 karakter girmelisiniz.',
     DOCUMENT_ADDED : 'Doküman başarı ile oluşturuldu',
     REDIRECT : 'Yönlendiriliyorsunuz...',
-    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
+    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı',
+    TRENDS_REFRESH : 'Gündem listesi yeniden hesaplandı'
 }
 
 const navbar = {

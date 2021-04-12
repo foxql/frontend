@@ -4,6 +4,7 @@ import Share from './views/share.svelte';
 import News from './views/news.svelte';
 import Node from './views/node.svelte';
 import Search from './views/search.svelte';
+import Trends from './views/trends.svelte';
 
 export default [
     {
@@ -37,5 +38,9 @@ export default [
     {
         path : '/search',
         component : Search
+    },
+    {
+        path : '/trends',
+        component : Trends
     }
 ];

@@ -11,7 +11,8 @@ const notification  = {
     MIN_CONTENT_LENGTH : 'You must enter at least 2 characters.',
     DOCUMENT_ADDED : 'Document successfully created',
     REDIRECT : 'Redirecting...',
-    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı'
+    DOCUMENT_NOT_ADDED : 'Doküman oluşturulamadı',
+    TRENDS_REFRESH : 'Trend list refreshed'
 }
 
 const navbar = {
