@@ -6,6 +6,6 @@ const langs = {
     en : en
 };
 
-const currentCountry = localStorage.getItem('lang') || 'tr';
+const currentCountry = localStorage.getItem('lang') || 'en';
 
 export default langs[currentCountry];

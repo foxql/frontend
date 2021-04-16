@@ -8,7 +8,7 @@ export default async ()=> {
 
         const json = await request.json();
 
-        const country = json.country || 'Turkey';
+        const country = json.country || 'UnitedState';
 
         if(country != 'Turkey') {
             localStorage.setItem('lang', 'en')
