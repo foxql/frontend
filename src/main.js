@@ -39,6 +39,9 @@ client.peer.socket.on('actionList', (list)=>{
         if(item.type == 'new-document') {
             const doc = item.document;
             if(collection.documents[doc.documentId] === undefined) {
+                if(doc.parentDocumentId === undefined) {
+                    doc.parentDocumentId = null;
+                }
                 collection.addDoc(doc)
                 dedectedNewDocument = true;
             }
