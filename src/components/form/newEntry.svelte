@@ -20,45 +20,27 @@
     export let height;
     export let client;
     import { fade } from 'svelte/transition';
-    import { notifier } from '@beyonk/svelte-notifications'
+    import addDoc from '../../utils/documents/add';
     import lang from '../../utils/lang'
 
     const collection = client.database.useCollection('entrys');
 
     function handleButton ()
     {
-        const title = document.querySelector('.title-input').value.trim();
-        const content = document.querySelector('textarea').value.trim();
-
-        if(title.length < 2) {
-            notifier.danger(lang.APP.TITLE_MIN_LENGTH, 1400)
-            return false;
-        }
-
-        if(content.length < 1) {
-            notifier.danger(lang.APP.CONTENT_MIN_LENGTH, 1400)
-            return false;
-        }
-
         let doc = {
-            title : title,
-            content : content,
-            createDate : new Date()
+            title : document.querySelector('.title-input').value.trim(),
+            content : document.querySelector('textarea').value.trim(),
+            createDate : new Date(),
+            parentDocumentId : null
         };
 
-        const add = collection.addDoc(doc)
-
+        const add = addDoc(collection, doc)
 
         if(add){
-            notifier.success(lang.APP.CONTENT_ADDED, 1200)
             document.querySelector('.title-input').value = '';
             document.querySelector('textarea').value = '';
             client.peer.socket.emit('newDoc', doc);
-        }else{
-            notifier.danger(lang.APP.CONTENT_NOT_ADDED, 1200)
         }
-
-
     }
 
 </script>
