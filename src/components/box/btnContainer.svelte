@@ -11,9 +11,11 @@
     </button>
 
     {#if replyBtn}
-        <button class = "reply">
+        <button class = "reply" on:click="{handleReplyButton}">
             <span class = "fa fa-comment-dots"></span>
         </button>
+
+        <ReplyBox show = {replyBoxShowingStatus} client = {client} targetDoc = {doc}/>
     {/if}
    
 </div>
@@ -23,7 +25,11 @@
     export let client;
     export let hide;
     export let replyBtn;
+
+    let replyBoxShowingStatus = false;
+
     import { notifier } from '@beyonk/svelte-notifications'
+    import ReplyBox from './replyBox.svelte';
 
     let documentId = doc.documentId;
 
@@ -42,6 +48,16 @@
         }else {
             check = collection.addDoc(doc);
             notifier.success('İçerik cihazınıza klonlandı', 1500) 
+        }
+    }
+
+
+    function handleReplyButton()
+    {
+        if(replyBoxShowingStatus){
+            replyBoxShowingStatus = false;
+        }else{
+            replyBoxShowingStatus = true;
         }
     }
 </script>
