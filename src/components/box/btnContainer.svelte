@@ -9,12 +9,20 @@
         <span class = "fa fa-heart"></span>
     {/if}
     </button>
+
+    {#if replyBtn}
+        <button class = "reply">
+            <span class = "fa fa-comment-dots"></span>
+        </button>
+    {/if}
+   
 </div>
 
 <script>
     export let doc;
     export let client;
     export let hide;
+    export let replyBtn;
     import { notifier } from '@beyonk/svelte-notifications'
 
     let documentId = doc.documentId;
@@ -52,4 +60,9 @@
     .not-active {
         color: #675555;
     }
+
+    .reply {
+        color: #d6b462;
+    }
+    
 </style>

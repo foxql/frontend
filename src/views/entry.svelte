@@ -17,8 +17,9 @@
             {#each data.results as item}
 
                     <div class = "box-content">
-                        <BtnContainer doc = {item.doc} client = {client} />
                         {@html xssReplace(censoreFilter(JSON.parse(JSON.stringify(item.doc))).document.content).replace(/\n/g, "<br />")}
+
+                        <BtnContainer doc = {item.doc} client = {client} replyBtn = {true}/>
                     </div>
             {/each}
 
@@ -137,9 +138,9 @@
 
     .box-content {
         padding : 1rem;
-        padding-bottom : 1.5rem;
+        padding-bottom : 1rem;
         background: #00000026;
-        margin-bottom : 8px;
         border-radius : 4px;
+        margin-bottom:0.5rem;
     }
 </style>

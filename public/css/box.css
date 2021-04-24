@@ -24,11 +24,7 @@
 }
 
 .btn-container {
-    align-items : center;
-    justify-content : center;
-    position: absolute;
-    right : 1rem;
-    top : 0rem;
+
 }
 
 .btn-container button {
@@ -37,7 +33,7 @@
     cursor : pointer;
     transition : color 0.5s ease;
     text-align: center;
-    width:100%;
+    margin-left: 0.4rem;
 }
 
 
