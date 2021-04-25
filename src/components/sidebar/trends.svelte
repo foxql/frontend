@@ -26,6 +26,7 @@
     import lang from '../../utils/lang';
     import {notifier} from '@beyonk/svelte-notifications'
     import InfoBox from '../box/infoBox.svelte';
+    import censoreFilter from '../../utils/censore';
 
     const collection = client.database.useCollection('entrys');
     let currentTime = new Date().getTime();
@@ -37,14 +38,20 @@
         Object.values(collection.documents).forEach((doc)=>{
             const diff = ( currentTime - new Date(doc.createDate).getTime() ) / 1000;
             if(diff <= 24000) {
+
+                const censoreStatus = censoreFilter(JSON.parse(JSON.stringify(doc)));
+
                 const entryKey = doc.entryKey;
-                if(hashMap[entryKey] === undefined) {
-                    hashMap[entryKey] = {
-                        count : 0,
-                        doc : doc
-                    };
+
+                if(!censoreStatus.censored) {
+                    if(hashMap[entryKey] === undefined) {
+                        hashMap[entryKey] = {
+                            count : 0,
+                            doc : doc
+                        };
+                    }
+                    hashMap[entryKey].count += 1;
                 }
-                hashMap[entryKey].count += 1;
             }
         })
 
