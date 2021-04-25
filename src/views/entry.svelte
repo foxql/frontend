@@ -11,12 +11,20 @@
                     {data.metadata.title}
                 </div>
 
-            {#each data.query.results as item}
+            {#each data.query as doc}
 
                     <div class = "box-content">
-                        {@html xssReplace(censoreFilter(JSON.parse(JSON.stringify(item.doc))).document.content).replace(/\n/g, "<br />")}
+                        {@html contentParser(doc)}
 
-                        <BtnContainer doc = {item.doc} client = {client} replyBtn = {true}/>
+                        {#if doc.comments.length > 0 && showComments}
+                            {#each doc.comments as comment}
+                                <div class = "comment-container">
+                                    {@html contentParser(comment)}
+                                </div>
+                            {/each}
+                        {/if}
+
+                        <BtnContainer doc = {doc} client = {client} replyBtn = {true} commentStatus = {handleCommentStatus}/>
                     </div>
             {/each}
 
@@ -39,6 +47,9 @@
     export let id;
     export let entryKey;
 
+    let showComments = false
+
+
     let title = '';
     let showingTitle = '';
 
@@ -51,6 +62,16 @@
     import xssReplace from '../utils/xss';
     import censoreFilter from '../utils/censore';
     import loadEntrys from '../utils/loadEntrys';
+
+    function contentParser(obj)
+    {
+        return xssReplace(censoreFilter(JSON.parse(JSON.stringify(obj))).document.content).replace(/\n/g, "<br />")
+    }
+
+    function handleCommentStatus(status)
+    {
+        showComments = status
+    }
 
     let promise = async()=>{
         return {
@@ -87,4 +108,12 @@
         border-radius : 4px;
         margin-bottom:0.5rem;
     }
+
+    .comment-container {
+        padding: 0.5rem 1rem;
+        margin-top: 0.5rem;
+        background: rgb(0 0 0 / 20%);
+        border-radius: 4px;
+    }
+
 </style>

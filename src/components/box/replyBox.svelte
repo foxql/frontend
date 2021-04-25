@@ -23,6 +23,7 @@
         let doc = {...targetDoc};
         doc.content = document.querySelector('textarea').value.trim();
         doc.parentDocumentId = targetDoc.documentId;
+        doc.createDate = new Date()
 
         const add = addDoc(collection, doc)
 

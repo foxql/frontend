@@ -23,12 +23,9 @@
     color : #ccc;
 }
 
-.btn-container {
-
-}
 
 .btn-container button {
-    font-size : 1.4rem;
+    font-size : 1rem;
     background : transparent;
     cursor : pointer;
     transition : color 0.5s ease;

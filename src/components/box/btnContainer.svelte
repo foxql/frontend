@@ -12,7 +12,7 @@
 
     {#if replyBtn}
         <button class = "reply" on:click="{handleReplyButton}">
-            <span class = "fa fa-comment-dots"></span>
+            <span class = "fa fa-comment-dots"></span> {commentCounts}
         </button>
 
         <ReplyBox show = {replyBoxShowingStatus} client = {client} targetDoc = {doc}/>
@@ -25,8 +25,10 @@
     export let client;
     export let hide;
     export let replyBtn;
+    export let commentStatus;
 
     let replyBoxShowingStatus = false;
+    let commentCounts = doc.comments.length || 0;
 
     import { notifier } from '@beyonk/svelte-notifications'
     import ReplyBox from './replyBox.svelte';
@@ -56,7 +58,9 @@
     {
         if(replyBoxShowingStatus){
             replyBoxShowingStatus = false;
+            commentStatus(false);
         }else{
+            commentStatus(true);
             replyBoxShowingStatus = true;
         }
     }

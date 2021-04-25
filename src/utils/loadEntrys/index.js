@@ -30,6 +30,36 @@ function sortByCreateDate(documents)
     return documents
 }
 
+
+function findResultsInComments(results)
+{
+    let hashMap = {};
+    results.forEach( item => {
+
+        let doc = item.doc;
+        const documentId = doc.documentId;
+        const parentDocumentId = doc.parentDocumentId;
+
+        if(parentDocumentId === null) {
+
+            doc.comments = [];
+
+            hashMap[documentId] = doc;
+        }else {
+
+            let mappingDoc = hashMap[parentDocumentId] || false;
+            if(mappingDoc) { // commented doc is found
+                mappingDoc.comments.push(doc)
+            }
+
+        }
+    })
+
+
+    return hashMap;
+
+}
+
 export default async ({client, documentId, entryKey}) => {
 
     const metadata = {
@@ -70,15 +100,25 @@ export default async ({client, documentId, entryKey}) => {
     metadata.title = filteredFirstEntry.title;
     metadata.orginalTitle = filteredFirstEntry.title;
 
-    query.results = sortByCreateDate(query.results)
+    let filteredResults = findResultsInComments(
+        sortByCreateDate(query.results)
+    )
 
-    console.log({
-        metadata : metadata,
-        query : query
+
+    const finalResults = Object.values(filteredResults).map(item => {
+
+        if(item.comments.length > 0) {
+            item.comments.sort((a,b)=>{
+                return new Date(a.createDate) - new Date(b.createDate);
+            });
+        }
+
+        return item;
+
     })
 
     return {
         metadata : metadata,
-        query : query
+        query : finalResults
     }
 }   
