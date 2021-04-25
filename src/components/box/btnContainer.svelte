@@ -80,5 +80,14 @@
     .reply {
         color: #d6b462;
     }
+
+
+    @media screen and (max-width: 992px) { 
+
+        button {
+            font-size: 1rem;
+        }
+
+    }
     
 </style>

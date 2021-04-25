@@ -13,12 +13,23 @@
     export let show;
     export let client;
     import { fade } from 'svelte/transition';
+    import addDoc from '../../utils/documents/add'
 
     const collection = client.database.useCollection('entrys');
 
 
     function handleButton() {
         
+        let doc = {...targetDoc};
+        doc.content = document.querySelector('textarea').value.trim();
+        doc.parentDocumentId = targetDoc.documentId;
+
+        const add = addDoc(collection, doc)
+
+        if(add){
+            document.querySelector('textarea').value = '';
+        }
+
     }
 </script>
 
@@ -28,17 +39,16 @@
         padding : 0rem !important;
         display: flex;
         background: rgb(0 0 0 / 30%);
-        margin-top : 0.5rem;
+        margin-top : 1rem;
     }
 
     .box textarea {
         width: 90%;
-        padding: 0.4rem 0.5rem;
+        padding: 0.3rem 0rem 0rem 0.5rem;
         border-radius: 4px;
         resize: none;
         color:#eee;
         background: transparent;
-        font-size:0.9rem
     }
 
     button {
@@ -50,4 +60,13 @@
         border-bottom-right-radius: 4px;
         margin-left: auto;
     }
+
+    @media screen and (max-width: 992px) { 
+
+        button {
+            font-size:0.9rem;
+        }
+
+    }
+
 </style>
