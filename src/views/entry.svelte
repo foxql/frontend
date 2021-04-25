@@ -20,6 +20,8 @@
                             {#each doc.comments as comment}
                                 <div class = "comment-container">
                                     {@html contentParser(comment)}
+
+                                    <BtnContainer doc = {comment} client = {client} replyBtn = {false} commentStatus = {handleCommentStatus}/>
                                 </div>
                             {/each}
                         {/if}
