@@ -28,7 +28,7 @@
     export let commentStatus;
 
     let replyBoxShowingStatus = false;
-    let commentCounts = doc.comments.length || 0;
+    let commentCounts = replyBtn ? doc.comments.length || 0 : 0;
 
     import { notifier } from '@beyonk/svelte-notifications'
     import ReplyBox from './replyBox.svelte';
