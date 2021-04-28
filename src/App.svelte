@@ -7,12 +7,12 @@
 
 	const storage = localStorage.getItem('landing') || false;
 
-	let themes = { // These are the defaults
+	let themes = { 
 		danger: '#712829',
 		success: '#529259',
 		warning: '#f0ad4e',
 		info: '#5bc0de',
-		default: '#aaaaaa' // relates to simply '.show()'
+		default: '#aaaaaa' 
 	}
 
 </script>
