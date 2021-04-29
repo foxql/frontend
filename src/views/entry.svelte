@@ -3,16 +3,23 @@
 {:then data}
     <Entry>
         <div slot = "header">
-            <Header {...data.metadata}/>
+            <Header {...data}/>
         </div>
 
         <div slot = "posts">
-            {#each data.query as post}
+            {#each posts as post}
                 <Post {...post} collection = {collection}/>
             {/each}
         </div>  
 
     </Entry>
+
+    <NewEntry 
+        client = {client}
+        title = {data.orginalTitle}
+        height = {125}
+        on:newDocument = {listenNewPost}
+    />
 {/await}
 
 
@@ -27,27 +34,41 @@
 
     import Loading from '../components/box/loading.svelte';
     import loadEntrys from '../utils/loadEntrys';
+    import NewEntry from '../components/form/newEntry.svelte';
 
     const collection = client.database.useCollection('entrys');
+
+    let posts = [];
+
+    function listenNewPost(event)
+    {
+        posts = [...posts, collection.getDoc(event.detail.documentId)]
+    }
+
+    async function init()
+    {
+        const results = await loadEntrys({
+            client : client,
+            documentId : id,
+            entryKey : entryKey
+        })
+
+
+        posts = results.query
+        return results.metadata;
+    }
 
     let promise = async()=>{
         return {
             metadata : {
                 title : '',
                 orginalTitle : ''
-            },
-            query : {
-                count : 0
             }
         };
     }
 
     $ : {
-        promise = loadEntrys({
-            client : client,
-            documentId : id,
-            entryKey : entryKey
-        })
+        promise = init();
     }
 
 </script>
