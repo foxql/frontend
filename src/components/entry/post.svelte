@@ -81,6 +81,8 @@
             content : commentContent
         }
 
+        collection.addDoc(commentBody);
+
         comments = [...comments, commentBody];
     }
 
