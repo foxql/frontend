@@ -42,7 +42,6 @@ export default (collection, doc)=> {
     const documentRef = collection.addDoc(doc);
 
     if(documentRef) {
-        notifier.success(lang.APP.CONTENT_ADDED, 1200)
         return documentRef;
     }
 
