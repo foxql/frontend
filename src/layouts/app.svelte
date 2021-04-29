@@ -65,8 +65,9 @@
     @media screen and (max-width: 992px) {
 
         .container {
-            padding : 1rem;
+            padding : 0rem;
             width: 100%;
+            margin-top: 0.5rem;
         }
 
         .container .center {
