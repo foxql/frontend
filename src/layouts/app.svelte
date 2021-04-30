@@ -20,11 +20,14 @@
 
 <MobileNavbar/>
 
+<ScrollTop />
+
 <script>
     export let client;
     import Navbar from '../components/navbar/appNavbar.svelte';
     import MobileNavbar from '../components/navbar/appMobileNavbar.svelte';
     import HomeNavbar from '../components/navbar/homeNavbar.svelte';
+    import ScrollTop from '../components/scroll/top.svelte'
 
     import Trends from '../components/sidebar/trends.svelte';
 
