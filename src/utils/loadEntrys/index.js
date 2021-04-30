@@ -1,4 +1,5 @@
 import censoreFilter from '../censore';
+import findResultsInComments from './findComments'
 
 
 function searchOnMyIndex(collection, entryKey)
@@ -28,36 +29,6 @@ function sortByCreateDate(documents)
     });
 
     return documents
-}
-
-
-function findResultsInComments(results)
-{
-    let hashMap = {};
-    results.forEach( item => {
-
-        let doc = item.doc;
-        const documentId = doc.documentId;
-        const parentDocumentId = doc.parentDocumentId;
-
-        if(parentDocumentId === null) {
-
-            doc.comments = [];
-
-            hashMap[documentId] = doc;
-        }else {
-
-            let mappingDoc = hashMap[parentDocumentId] || false;
-            if(mappingDoc) { // commented doc is found
-                mappingDoc.comments.push(doc)
-            }
-
-        }
-    })
-
-
-    return hashMap;
-
 }
 
 export default async ({client, documentId, entryKey}) => {
@@ -101,7 +72,8 @@ export default async ({client, documentId, entryKey}) => {
     metadata.orginalTitle = filteredFirstEntry.title;
 
     let filteredResults = findResultsInComments(
-        sortByCreateDate(query.results)
+        sortByCreateDate(query.results),
+        collection
     )
 
 
