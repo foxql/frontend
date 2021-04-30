@@ -38,49 +38,11 @@
     </div>
 </div>
 
-<div class = "box" in:fade>
-    <div class = "box-title">
-        {lang.APP.DOCUMENTS}
-    </div>
-    <div class = "box-content">
-        {#each showingDocuments as doc}
-        <div class = "box box-primary" in:fade>
-            <div class = "box-title">
-                <a href = "entry/{doc.documentId}/{doc.entryKey}" use:link>{doc.title}</a>
-            </div>
-
-            <div class = "box-content"> 
-                <p>
-                    {doc.content}
-                </p>
-            </div>
-
-            <BtnContainer client = {client} doc = {doc} hide = {true}/>
-        </div>
-
-        {/each}
-    </div>
-</div>
-
-<div class = "button-group">
-    <button class = "prev" on:click="{handlePrev}" in:fade>
-        <span class = "fa fa-angle-left"></span> {lang.APP.PREV}
-    </button>
-    <button class = "next" on:click="{handleNext}" in:fade>
-        {lang.APP.NEXT} <span class = "fa fa-angle-right"></span>
-    </button>
-</div>
-
 <script>
     export let client;
     import { fade } from 'svelte/transition';
-    import { link } from "svelte-routing";
     import lang from '../utils/lang';
-    import BtnContainer from '../components/box/btnContainer.svelte';
     import {notifier} from '@beyonk/svelte-notifications'
-
-    let perPage = 5;
-    let offset = 0;
 
     function formatBytes(str, decimals = 2) {
         var b = str.match(/[^\x00-\xff]/g);
@@ -98,37 +60,6 @@
     } 
 
     let dbSize = formatBytes(JSON.stringify(client.database))
-
-    let allDocuments = Object.values(client.database.useCollection('entrys').documents);
-    let showingDocuments = allDocuments.slice(0, perPage);
-    let documentLength = allDocuments.length;
-
-    function changeView()
-    {
-        showingDocuments = allDocuments.slice(offset, offset + perPage);
-    }
-
-    function handleNext()
-    {
-        if( (offset + perPage) > documentLength){
-            return false;
-        }
-
-        offset += perPage;
-
-        changeView();
-    }
-
-    function handlePrev()
-    {
-        if(offset <= 0){
-            return false;
-        }
-
-        offset -= perPage;
-        
-        changeView();
-    }
 
 
     function handleSaveWalletAddress()
