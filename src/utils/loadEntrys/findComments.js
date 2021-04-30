@@ -16,8 +16,15 @@ export default (results, collection) =>
             let mappingDoc = hashMap[parentDocumentId] || false;
             if(mappingDoc) { // commented doc is found
                 mappingDoc.comments.push(doc)
-            }else{ // parentDocument is not found.
-                collection.deleteDoc(documentId)
+            }else{ // parentDocument is not in results.
+                let parentDocument = collection.getDoc(parentDocumentId);
+                if(parentDocument) {
+                    parentDocument.comments = [doc]
+                    hashMap[parentDocumentId] = parentDocument;
+                }else{
+                    collection.deleteDoc(documentId)
+                }
+                
             }
 
         }
