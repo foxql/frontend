@@ -47,7 +47,7 @@
 
 
 <script>
-    export let queryString;
+    export let queryString = false;
     export let client;
 
     import EntryBox from '../components/box/entryBox.svelte';
@@ -60,6 +60,11 @@
 
 
     async function searchNetwork(qString) {
+
+        if(typeof qString !== 'string'){
+            return []
+        }
+
         const queryObject = {
             query : qString,
             collection : 'entrys'
