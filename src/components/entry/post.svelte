@@ -1,6 +1,6 @@
 <div class = "post" in:fade>
     <div class = "content">
-        {xssReplace(content)}
+        {@html xssReplace(content).replace(/\n/g, "<br />")}
     </div>
     
     {#if commentShowStatus}
@@ -47,6 +47,14 @@
         background: #161922;
     }
 
+    @media screen and (max-width: 992px) { 
+
+        .content {
+            font-size: 0.84rem;
+        }
+
+    }
+
 </style>
 
 <script>
@@ -58,6 +66,11 @@
     export let entryKey;
     export let comments = [];
     import { fade } from 'svelte/transition';
+    import xssReplace from '../../utils/xss'
+
+    import ButtonContainer from './buttonContainer.svelte'
+    import Comment from './comment.svelte'
+    import CommentForm from '../form/newComment.svelte'
 
     let commentShowStatus = false;
 
@@ -86,10 +99,4 @@
         comments = [...comments, commentBody];
     }
 
-
-    import ButtonContainer from './buttonContainer.svelte'
-    import Comment from './comment.svelte'
-    import CommentForm from '../form/newComment.svelte'
-
-    import xssReplace from '../../utils/xss'
 </script>
