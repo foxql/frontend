@@ -1,12 +1,13 @@
 {#if visible}
     <div class = "navbar">
-        <div class = "nav-item {currentPage == 'home' ? 'active' : ''}">
-            <a href = "/home" use:link on:click="{handleNavItem}">
-                <span class = "fa fa-random"></span> {lang.NAVBAR.DISCOVERY}</a>
-        </div>
         <div class = "nav-item {currentPage == 'news' ? 'active' : ''}">
             <a href = "/news" use:link on:click="{handleNavItem}">
                 <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS}</a>
+        </div>
+
+        <div class = "nav-item {currentPage == 'home' ? 'active' : ''}">
+            <a href = "/home" use:link on:click="{handleNavItem}">
+                <span class = "fa fa-random"></span> {lang.NAVBAR.DISCOVERY}</a>
         </div>
 
         <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
@@ -32,7 +33,7 @@
         'trends'
     ];
 
-    let currentPage = 'home';
+    let currentPage = 'news';
 
     function handleNavItem(e)
     {
@@ -59,7 +60,7 @@
     {
         const split = document.location.href.split('/');
         let path = split[split.length - 1]
-        path = path == '' ? 'home' : path;
+        path = path == '' ? 'news' : path;
         currentPage = path;
         visible = visibleArray.includes(currentPage);
     }

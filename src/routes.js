@@ -13,7 +13,7 @@ export default [
     },
     {
         path : '/',
-        component : Home
+        component : News
     },
     {
         path : '/home',
