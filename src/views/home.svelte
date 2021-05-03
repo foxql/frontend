@@ -1,11 +1,12 @@
+
     {#await promise}
         <Loading/>
     {:then data}
-        {#if data.count <= 0}
+        {#if data.length <= 0}
                 <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
             {:else}
 
-                {#each data.results as document}
+                {#each data as document}
 
                     <EntryBox data = {document} client = {client}/>
 
@@ -38,17 +39,18 @@
     async function query() {
 
         const queryObject = {
-            limit : 4,
+            limit : 1,
             collection : 'entrys'
         };
 
-        const results = await client.sendEvent(queryObject, {
-            timeOut : 0, 
+        let event = await client.sendEvent(queryObject, {
+            timeOut : 150, 
             peerListener : 'onRandom',
-            documentPool : myDocuments.slice(0, 5)
+            documentPool : myDocuments.slice(0, 3)
         });
 
-        return results;
+        shuffle(event.results)
+        return event.results;
     }
 
     const promise = query();
