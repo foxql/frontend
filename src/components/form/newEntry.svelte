@@ -49,7 +49,6 @@
 
             if(redidect) {
                 const findDoc = collection.getDoc(refId);
-                console.log(findDoc)
                 if(findDoc) {
                     navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
                 }
