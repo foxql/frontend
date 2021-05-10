@@ -53,7 +53,7 @@ export default async ({client, documentId, entryKey}) => {
     const documentPool = searchOnMyIndex(collection, entryKey);
 
     let query = await client.sendEvent(queryObject, {
-        timeOut : 200, 
+        timeOut : 100, 
         peerListener : 'onDocumentByRef',
         documentPool : documentPool
     });

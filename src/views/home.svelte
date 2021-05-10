@@ -6,9 +6,25 @@
                 <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
             {:else}
 
-                {#each data as document}
+                {#each data as item}
 
-                    <EntryBox data = {document} client = {client}/>
+                   <Entry>
+                       <div slot = "header">
+                            <EntryHeader 
+                                title = {item.doc.title}
+                                navigate = {{
+                                    documentId : item.doc.documentId,
+                                    entryKey : item.doc.entryKey
+                                }}
+                            />
+                       </div>
+                       <div slot = "posts">
+                            <Post 
+                                {...item.doc}
+                                collection = {collection}
+                            />
+                        </div>
+                   </Entry>
 
                 {/each}
 
@@ -20,36 +36,30 @@
 
 <script>
     export let client;
-    import EntryBox from '../components/box/entryBox.svelte';
+
+    import Entry from '../components/entry/entry.svelte'
+    import EntryHeader from '../components/entry/header.svelte'
+    import Post from '../components/entry/post.svelte'
+
     import InfoBox from '../components/box/infoBox.svelte';
     import Loading from '../components/box/loading.svelte';
     import lang from '../utils/lang';
 
-    const index = client.database.useCollection('entrys');
-    const indexRef = index.ref;
-
-    let myDocuments = Object.values(index.documents);
-
-    shuffle(myDocuments)
-
-    function shuffle(array) {
-        array.sort(() => Math.random() - 0.5);
-    }
+    const collection = client.database.useCollection('entrys');
 
     async function query() {
 
         const queryObject = {
-            limit : 1,
+            limit : 3,
             collection : 'entrys'
         };
 
         let event = await client.sendEvent(queryObject, {
             timeOut : 150, 
             peerListener : 'onRandom',
-            documentPool : myDocuments.slice(0, 3)
+            documentPool : []
         });
 
-        shuffle(event.results)
         return event.results;
     }
 
