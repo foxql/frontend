@@ -19,9 +19,12 @@
     export let title;
     export let height = "200";
     export let client;
+    export let redidect = false;
     import { fade } from 'svelte/transition';
     import addDoc from '../../utils/documents/add';
     import lang from '../../utils/lang'
+
+    import { navigate } from 'svelte-routing'
 
     import { createEventDispatcher } from 'svelte';
     const dispatch = createEventDispatcher();
@@ -37,12 +40,21 @@
             parentDocumentId : null
         };
 
-        const add = addDoc(collection, doc)
-        if(add){
+        const refId = addDoc(collection, doc)
+        if(refId){
             document.querySelector('textarea').value = '';
             dispatch('newDocument', {
-                documentId : add
+                documentId : refId
             });
+
+            if(redidect) {
+                const findDoc = collection.getDoc(refId);
+                console.log(findDoc)
+                if(findDoc) {
+                    navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
+                }
+            }
+
         }
     }
 

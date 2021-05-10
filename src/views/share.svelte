@@ -1,5 +1,8 @@
 
-<NewEntry client = {client}/> 
+<NewEntry 
+    client = {client}
+    redidect = {true}
+/> 
 
 <script>
     export let client;
