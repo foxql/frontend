@@ -30,9 +30,16 @@
 
             {#if results.length > 0}
                     {#each results as item}
-                        <EntryBox  data = {{
-                            doc : item.doc.document
-                        }} client = {client} />
+                    <Entry>
+                        <div slot = "abstract">
+                            <Abstract 
+                                documentId = {item.doc.document.documentId}
+                                entryKey = {item.doc.document.entryKey}
+                                title = {item.doc.document.title}
+                                content = {item.doc.document.content}
+                            />
+                        </div>
+                    </Entry>
                     {/each}
                 {:else}
                     
@@ -49,6 +56,12 @@
 <script>
     export let queryString = false;
     export let client;
+
+    import Entry from '../components/entry/entry.svelte';
+    import Abstract from '../components/entry/abstract.svelte';
+
+    
+
 
     import EntryBox from '../components/box/entryBox.svelte';
     import Loading from '../components/box/loading.svelte';
@@ -73,7 +86,7 @@
         const searchOnMyIndexs = collection.search(qString);
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 400, 
+            timeOut : 100, 
             peerListener : 'onSearch',
             documentPool : searchOnMyIndexs
         });
@@ -91,7 +104,9 @@
         return results;
     }
 
-    let searchPromise = searchNetwork(queryString);
+    let searchPromise = async ()=> {
+        return [];
+    }
 
     $ : {
         searchPromise = searchNetwork(queryString);

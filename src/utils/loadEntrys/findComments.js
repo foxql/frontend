@@ -4,6 +4,7 @@ export default (results, collection) =>
     results.forEach( item => {
 
         let doc = item.doc;
+        
         const documentId = doc.documentId;
         const parentDocumentId = doc.parentDocumentId;
 

@@ -1,6 +1,7 @@
 <div class = "entry" in:fade>
     <slot name = "header"></slot>
     <slot name = "posts"></slot>
+    <slot name = "abstract"></slot>
 </div>
 
 
