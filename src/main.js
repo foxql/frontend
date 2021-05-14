@@ -9,7 +9,8 @@ const client = new foxql();
 client.listenEvents([
 	'onSearch',
 	'onRandom',
-	'onDocumentByRef'
+	'onDocumentByRef',
+    'onSync'
 ])
 
 

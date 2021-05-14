@@ -31,6 +31,9 @@
 
     const collection = client.database.useCollection('entrys');
 
+    const offerCollection = client.database.useCollection('entry_offers');
+    
+
     function handleButton ()
     {
         let doc = {
@@ -53,6 +56,12 @@
                     navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
                 }
             }
+
+            offerCollection.addDoc({
+                entryId : refId,
+                recieverCount : 0,
+                destroyRecieveCount : 3
+            })
 
         }
     }
