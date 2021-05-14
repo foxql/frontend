@@ -22,7 +22,8 @@ const navbar = {
     LANGS : 'Languages',
     DISCOVERY : 'Discovery',
     NEWS : 'Events',
-    TRENDS : 'Trends'
+    TRENDS : 'Trends',
+    OFFERS : 'Offers'
 }
 
 const infoCards = {

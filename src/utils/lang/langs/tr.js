@@ -22,7 +22,8 @@ const navbar = {
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
     NEWS : 'Olaylar',
-    TRENDS : 'Gündem'
+    TRENDS : 'Gündem',
+    OFFERS : 'Teklifler'
 }
 
 const infoCards = {
