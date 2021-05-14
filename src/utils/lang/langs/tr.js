@@ -38,6 +38,9 @@ const infoCards = {
     TRENDS_EMPTY : {
         title : 'Trend listesi şuan boş 😭',
         content : 'Bir şeyler paylaşarak bu listenin dolmasını sağlayabilirsin 🙏'
+    },
+    OFFERS : {
+        content : `Daha fazla insana ulaşmasını istediğin şeyleri beğenerek foxql ağını koruyabilirsin. 😍`
     }
 }
 
