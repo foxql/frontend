@@ -41,6 +41,9 @@ const infoCards = {
     },
     OFFERS : {
         content : `Daha fazla insana ulaşmasını istediğin şeyleri beğenerek foxql ağını koruyabilirsin. 😍`
+    },
+    ZERO_OFFERS : {
+        content : `Şuanda ağa teklif edilen bir içerik yok. 🤯`
     }
 }
 

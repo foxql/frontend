@@ -42,6 +42,9 @@ const infoCards = {
     OFFERS : {
         title : null,
         content : 'You can protect your foxql network by liking what you want to reach more people. 😍'
+    },
+    ZERO_OFFERS : {
+        content : `There is currently no content offered to the network. 🤯`
     }
 }
 

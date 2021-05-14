@@ -5,7 +5,9 @@
     {:then data}
 
     {#if data.length <= 0}
-        Hiç teklif yok :)
+    <InfoBox
+        {...lang.INFO_CARD.ZERO_OFFERS}
+    />
     {/if}
 
     {#if data.length > 0}
