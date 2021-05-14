@@ -68,7 +68,16 @@
             timeOut : 100, // destroy 1.2s listener
             peerListener : 'onSync'
         });
-        return consensus.results;
+
+        const results = consensus.results.filter((item)=> {
+            if(collection.documents[item.doc.documentId] === undefined) {
+                return true;
+            }
+
+            return false;
+        });
+
+        return results;
     }
 
     const promise = query();
