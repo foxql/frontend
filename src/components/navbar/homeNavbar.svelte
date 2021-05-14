@@ -36,7 +36,8 @@
         '',
         'home',
         'news',
-        'trends'
+        'trends',
+        'offers'
     ];
 
     let currentPage = 'home';
