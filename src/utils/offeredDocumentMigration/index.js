@@ -23,20 +23,31 @@ async function syncEvent(client, collection) {
 export default function (client, interval)
 {
     const collection = client.database.useCollection('entrys')
+    let newDocumentCount = localStorage.getItem('new-documents') || 0;
 
     setInterval(async()=> {
         const documents = await syncEvent(client, collection);
         if(documents.length > 0) {
 
             documents.forEach(doc => {
-                collection.addDoc({
-                    title : doc.title,
-                    content : doc.content,
-                    createDate : doc.createDate,
-                    entryKey : doc.entryKey,
-                    parentDocumentId : doc.parentDocumentId
-                })
+
+                if(collection.documents[doc.documentId] == undefined) {
+
+                    collection.addDoc({
+                        title : doc.title,
+                        content : doc.content,
+                        createDate : doc.createDate,
+                        entryKey : doc.entryKey,
+                        parentDocumentId : doc.parentDocumentId,
+                        documentId : doc.documentId
+                    })
+                    newDocumentCount++;
+                }
+
             });
+
+
+            localStorage.setItem('new-documents', newDocumentCount)
 
         }
     }, interval)

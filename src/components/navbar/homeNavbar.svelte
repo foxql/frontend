@@ -8,7 +8,13 @@
     
             <div class = "nav-item {currentPage == 'news' ? 'active' : ''}">
                 <a href = "/news" use:link on:click="{handleNavItem}">
-                    <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS}</a>
+                    <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS} 
+                    {#if newDocumentCount > 0}
+                        <small>
+                            {newDocumentCount}
+                        </small>
+                    {/if}
+                </a>
             </div>
     
             <div class = "nav-item {currentPage == 'offers' ? 'active' : ''}">
@@ -29,6 +35,9 @@
     import { link } from "svelte-routing";
     import lang from '../../utils/lang';
     let visible = true;
+
+    let newDocumentCount =  localStorage.getItem('new-documents') || 0;
+
     
     let visibleArray = [
         '',
@@ -68,6 +77,12 @@
         path = path == '' ? 'home' : path;
         currentPage = path;
         visible = visibleArray.includes(currentPage);
+
+        newDocumentCount = localStorage.getItem('new-documents') || 0;
+
+        if(path == 'news') {
+            localStorage.setItem('new-documents', 0)
+        }
     }
 
 
@@ -117,6 +132,11 @@
         left: 0px;
         top: 0px;
         padding-right: 1rem;
+    }
+
+    small {
+        margin-left: -3px;
+        color: #d43a3a;
     }
 
     @media screen and (max-width: 992px) {
