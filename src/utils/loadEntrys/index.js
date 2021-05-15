@@ -64,12 +64,8 @@ export default async ({client, documentId, entryKey}) => {
 
     const firstEntry = cloneObject(query.results[0].doc);
 
-    let filteredFirstEntry = censoreFilter(
-        firstEntry
-    ).document;
-
-    metadata.title = filteredFirstEntry.title;
-    metadata.orginalTitle = filteredFirstEntry.title;
+    metadata.title = firstEntry.title;
+    metadata.orginalTitle = firstEntry.title;
 
     let filteredResults = findResultsInComments(
         sortByCreateDate(query.results),
