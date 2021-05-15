@@ -17,11 +17,6 @@
                 </a>
             </div>
     
-            <div class = "nav-item {currentPage == 'offers' ? 'active' : ''}">
-                <a href = "/offers" use:link on:click="{handleNavItem}">
-                    <span class = "fa fa-hourglass-start"></span> {lang.NAVBAR.OFFERS}</a>
-            </div>
-    
             <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
                 <a href = "/trends" use:link on:click="{handleNavItem}">
                     <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>

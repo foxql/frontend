@@ -5,7 +5,6 @@ import News from './views/news.svelte';
 import Node from './views/node.svelte';
 import Search from './views/search.svelte';
 import Trends from './views/trends.svelte';
-import Offers from './views/offers.svelte';
 
 export default [
     {
@@ -43,9 +42,5 @@ export default [
     {
         path : '/trends',
         component : Trends
-    },
-    {
-        path : '/offers',
-        component : Offers
     }
 ];
