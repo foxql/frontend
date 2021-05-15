@@ -11,7 +11,9 @@
 
             <Entry>
                 <div slot = "header">
-                    <Header {...data}/>
+                    <Header 
+                        title = {data.title}
+                    />
                 </div>
         
                 <div slot = "posts">
@@ -49,6 +51,7 @@
     import NewEntry from '../components/form/newEntry.svelte';
     import InfoBox from '../components/box/infoBox.svelte'
 
+
     const collection = client.database.useCollection('entrys');
 
     let posts = [];
@@ -58,12 +61,12 @@
         posts = [...posts, collection.getDoc(event.detail.documentId)]
     }
 
-    async function init()
+    async function init(documentId, entryId)
     {
         const results = await loadEntrys({
             client : client,
-            documentId : id,
-            entryKey : entryKey
+            documentId : documentId,
+            entryKey : entryId
         })
 
 
@@ -81,7 +84,7 @@
     }
 
     $ : {
-        promise = init();
+        promise = init(id, entryKey);
     }
 
 </script>
