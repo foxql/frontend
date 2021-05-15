@@ -1,10 +1,11 @@
 <div class = "comment" in:fade>
-    {content}
+    {@html contentParser(content)}
 </div>
 
 <script>
     export let content;
     import { fade } from 'svelte/transition';
+    import contentParser from '../../utils/parser/content';
 </script>
 
 <style>
