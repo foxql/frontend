@@ -34,7 +34,7 @@ export default function (client, interval)
                     content : doc.content,
                     createDate : doc.createDate,
                     entryKey : doc.entryKey,
-                    parentDocumentId : null
+                    parentDocumentId : doc.parentDocumentId
                 })
             });
 
