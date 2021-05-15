@@ -9,7 +9,7 @@
     <div class = "box-content">
         {#if list.length > 0} 
             {#each list as item}
-                <a href = "entry/{item.doc.documentId}/{item.doc.entryKey}" use:link>{item.doc.title} <b>({item.count})</b></a>
+                <a href = "entry/{item.doc.documentId}/{item.doc.entryKey}" use:link>{censoreFilter(item.doc.title)} <b>({item.count})</b></a>
             {/each}
         {/if}
 
@@ -30,7 +30,7 @@
 
     const collection = client.database.useCollection('entrys');
     let currentTime = new Date().getTime();
-
+    
     function findTrendDocs()
     {
         let hashMap = {};
@@ -39,19 +39,15 @@
             const diff = ( currentTime - new Date(doc.createDate).getTime() ) / 1000;
             if(diff <= 24000) {
 
-                const censoreStatus = censoreFilter(JSON.parse(JSON.stringify(doc)));
-
                 const entryKey = doc.entryKey;
 
-                if(!censoreStatus.censored) {
-                    if(hashMap[entryKey] === undefined) {
-                        hashMap[entryKey] = {
-                            count : 0,
-                            doc : doc
-                        };
-                    }
-                    hashMap[entryKey].count += 1;
+                if(hashMap[entryKey] === undefined) {
+                    hashMap[entryKey] = {
+                        count : 0,
+                        doc : doc
+                    };
                 }
+                hashMap[entryKey].count += 1;
             }
         })
 
