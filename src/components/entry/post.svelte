@@ -1,22 +1,22 @@
 <div class = "post" in:fade>
     <div class = "content">
-        {@html xssReplace(content).replace(/\n/g, "<br />")}
+        {@html contentParser(content)}
     </div>
     
     {#if commentShowStatus}
-    <div class = "comments" in:fade>
-        {#if comments.length > 0}
-            {#each comments as comment}
-                <Comment 
-                    content = {comment.content}
-                />
-            {/each}
-        {/if}
+        <div class = "comments" in:fade>
+            {#if comments.length > 0}
+                {#each comments as comment}
+                    <Comment 
+                        content = {comment.content}
+                    />
+                {/each}
+            {/if}
 
-        <CommentForm 
-            on:newComment = {listenNewComment}
-        />
-    </div>
+            <CommentForm 
+                on:newComment = {listenNewComment}
+            />
+        </div>
     {/if}   
 
     <ButtonContainer 
@@ -66,7 +66,7 @@
     export let entryKey;
     export let comments = [];
     import { fade } from 'svelte/transition';
-    import xssReplace from '../../utils/xss'
+    import contentParser from '../../utils/parser/content';
 
     import ButtonContainer from './buttonContainer.svelte'
     import Comment from './comment.svelte'
