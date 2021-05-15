@@ -48,3 +48,13 @@ body::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
+
+.post-content-image {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.post-content-link {
+    color: #ddd;
+    font-weight: 600;
+}
