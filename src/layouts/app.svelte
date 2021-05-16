@@ -13,6 +13,7 @@
 
     <div class = "side right">
         <Trends client = {client}/>
+        <Footer />
     </div>
     
 </div>
@@ -30,6 +31,7 @@
     import ScrollTop from '../components/scroll/top.svelte'
 
     import Trends from '../components/sidebar/trends.svelte';
+    import Footer from '../components/sidebar/footer.svelte';
 
     import { Router, Route } from "svelte-routing";
     
