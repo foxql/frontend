@@ -23,12 +23,17 @@
 
 <ScrollTop />
 
+<Waiting 
+    client = {client}
+/>
+
 <script>
     export let client;
     import Navbar from '../components/navbar/appNavbar.svelte';
     import MobileNavbar from '../components/navbar/appMobileNavbar.svelte';
     import HomeNavbar from '../components/navbar/homeNavbar.svelte';
-    import ScrollTop from '../components/scroll/top.svelte'
+    import ScrollTop from '../components/scroll/top.svelte';
+    import Waiting from '../components/waiting/waiting.svelte';
 
     import Trends from '../components/sidebar/trends.svelte';
     import Footer from '../components/sidebar/footer.svelte';
