@@ -3,7 +3,9 @@ export default (results, collection) =>
     let hashMap = {};
     results.forEach( item => {
 
-        let doc = item.doc;
+        let doc = JSON.parse(
+            JSON.stringify(item.doc)
+        );
         
         const documentId = doc.documentId;
         const parentDocumentId = doc.parentDocumentId;
