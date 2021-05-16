@@ -86,6 +86,13 @@ const censored = {
     RACISM : "(There may be racism)"
 };
 
+const home = {
+    FREEDOM : `Don't be afraid when sharing, the whole community takes on the <b> responsibilities </b> of the content 🥰`,
+    DATA : `Data is stored on <b> Users </b>, not servers 🥳`,
+    OPEN_SOURCE : `Fully open source 👨‍💻`,
+    LOVE : `By liking the content, you can clone yourself and contribute to the management.`
+}
+
 export default {
     LANDING  : landing,
     NOTIFICATION : notification,
@@ -93,5 +100,6 @@ export default {
     INFO_CARD : infoCards,
     NEW_ENTRY : newEntry,
     APP : app,
-    CENSORED : censored
+    CENSORED : censored,
+    HOME : home
 }
