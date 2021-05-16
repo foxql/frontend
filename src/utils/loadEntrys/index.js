@@ -1,4 +1,3 @@
-import censoreFilter from '../censore';
 import findResultsInComments from './findComments'
 
 
