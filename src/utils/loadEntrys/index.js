@@ -1,4 +1,4 @@
-import censoreFilter from '../censore';
+import findResultsInComments from './findComments'
 
 
 function searchOnMyIndex(collection, entryKey)
@@ -30,36 +30,6 @@ function sortByCreateDate(documents)
     return documents
 }
 
-
-function findResultsInComments(results)
-{
-    let hashMap = {};
-    results.forEach( item => {
-
-        let doc = item.doc;
-        const documentId = doc.documentId;
-        const parentDocumentId = doc.parentDocumentId;
-
-        if(parentDocumentId === null) {
-
-            doc.comments = [];
-
-            hashMap[documentId] = doc;
-        }else {
-
-            let mappingDoc = hashMap[parentDocumentId] || false;
-            if(mappingDoc) { // commented doc is found
-                mappingDoc.comments.push(doc)
-            }
-
-        }
-    })
-
-
-    return hashMap;
-
-}
-
 export default async ({client, documentId, entryKey}) => {
 
     const metadata = {
@@ -82,7 +52,7 @@ export default async ({client, documentId, entryKey}) => {
     const documentPool = searchOnMyIndex(collection, entryKey);
 
     let query = await client.sendEvent(queryObject, {
-        timeOut : 200, 
+        timeOut : 100, 
         peerListener : 'onDocumentByRef',
         documentPool : documentPool
     });
@@ -93,15 +63,12 @@ export default async ({client, documentId, entryKey}) => {
 
     const firstEntry = cloneObject(query.results[0].doc);
 
-    let filteredFirstEntry = censoreFilter(
-        firstEntry
-    ).document;
-
-    metadata.title = filteredFirstEntry.title;
-    metadata.orginalTitle = filteredFirstEntry.title;
+    metadata.title = firstEntry.title;
+    metadata.orginalTitle = firstEntry.title;
 
     let filteredResults = findResultsInComments(
-        sortByCreateDate(query.results)
+        sortByCreateDate(query.results),
+        collection
     )
 
 

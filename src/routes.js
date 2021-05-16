@@ -1,10 +1,13 @@
 import Entry from './views/entry.svelte';
-import Home from './views/home.svelte';
+import Discovery from './views/discovery.svelte';
 import Share from './views/share.svelte';
 import News from './views/news.svelte';
 import Node from './views/node.svelte';
 import Search from './views/search.svelte';
 import Trends from './views/trends.svelte';
+import Home from './views/home.svelte';
+import Offers from './views/offers.svelte';
+import Sponsors from './views/sponsors.svelte'
 
 export default [
     {
@@ -16,8 +19,8 @@ export default [
         component : Home
     },
     {
-        path : '/home',
-        component : Home
+        path : '/discovery',
+        component : Discovery
     },
     {
         path : '/share',
@@ -42,5 +45,13 @@ export default [
     {
         path : '/trends',
         component : Trends
+    },
+    {
+        path : '/offers',
+        component : Offers
+    },
+    {
+        path : '/sponsors',
+        component : Sponsors
     }
 ];

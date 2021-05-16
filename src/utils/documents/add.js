@@ -39,11 +39,10 @@ export default (collection, doc)=> {
         return false;
     }
 
-    const add = collection.addDoc(doc);
+    const documentRef = collection.addDoc(doc);
 
-    if(add) {
-        notifier.success(lang.APP.CONTENT_ADDED, 1200)
-        return true;
+    if(documentRef) {
+        return documentRef;
     }
 
     notifier.danger(lang.APP.CONTENT_NOT_ADDED, 1200)

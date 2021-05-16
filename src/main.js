@@ -1,24 +1,16 @@
 import App from './App.svelte';
 import {foxql} from 'foxql';
 import langApi from './utils/lang/api'
-import lang from './utils/lang'
-import { notifier } from '@beyonk/svelte-notifications'
 
 const client = new foxql();
 
 client.listenEvents([
 	'onSearch',
 	'onRandom',
-	'onDocumentByRef'
+	'onDocumentByRef',
+    'onOfferedDocuments',
+    'onDocumentByTimeDiff'
 ])
-
-
-client.peer.use('socketOptions', {
-    host : '127.0.0.1',
-    port : 3000,
-    protocol : 'http'
-});
-
 
 client.openNativeCollections();
 
@@ -41,27 +33,6 @@ client.open();
 
 const collection = client.database.useCollection('entrys');
 
-client.peer.socket.on('actionList', (list)=>{
-    let dedectedNewDocument = false;
-    list.forEach(item => {
-        if(item.type == 'new-document') {
-            const doc = item.document;
-            if(collection.documents[doc.documentId] === undefined) {
-                if(doc.parentDocumentId === undefined) {
-                    doc.parentDocumentId = null;
-                }
-                collection.addDoc(doc)
-                dedectedNewDocument = true;
-            }
-        }
-    });
-
-    if(dedectedNewDocument) {
-        notifier.success(lang.APP.CACHED_NEW_ENTRYS, 1200)
-    }
-})
-
-client.peer.socket.emit('actionList', true)
 
 /** Auto migrate */
 
@@ -74,6 +45,13 @@ if(schema.content.min == 20) {
 if(schema.title.min == 4) {
     schema.title.min = 2;
 }
+
+client.peer.onPeer('new-document-listener', async (data)=>{
+    collection.addDoc(
+        data.doc
+    )
+});
+
 
 
 window.client = client;

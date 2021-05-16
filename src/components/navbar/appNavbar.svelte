@@ -21,33 +21,13 @@
         <div class = "search-box">
             <SearchBox/>
         </div>
-
-        <div class = "nav-item langs">
-            <span class = "fa fa-globe-europe"></span> {lang.NAVBAR.LANGS}
-
-            <ul class="dropdown">
-                <li on:click="{handleClick}" data-lang = 'tr'>
-                    Türkçe
-                </li>
-                <li on:click="{handleClick}" data-lang = 'en'>
-                    English
-                </li>
-            </ul>
-        </div>
     </div>
 </div>
 
 <script>
     import { link } from "svelte-routing";
     import lang from '../../utils/lang';
-    import changeLang from '../../utils/lang/change.js'
     import SearchBox from '../form/searchBox.svelte';
-
-    function handleClick ()
-    {
-        const target = this.dataset.lang;
-        changeLang(target)
-    }
 
 </script>
 

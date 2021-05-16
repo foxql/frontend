@@ -22,7 +22,8 @@ const navbar = {
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
     NEWS : 'Olaylar',
-    TRENDS : 'Gündem'
+    TRENDS : 'Gündem',
+    OFFERS : 'Teklifler'
 }
 
 const infoCards = {
@@ -37,6 +38,12 @@ const infoCards = {
     TRENDS_EMPTY : {
         title : 'Trend listesi şuan boş 😭',
         content : 'Bir şeyler paylaşarak bu listenin dolmasını sağlayabilirsin 🙏'
+    },
+    OFFERS : {
+        content : `Daha fazla insana ulaşmasını istediğin şeyleri beğenerek foxql ağını koruyabilirsin. 😍`
+    },
+    ZERO_OFFERS : {
+        content : `Şuanda ağa teklif edilen bir içerik yok. 🤯`
     }
 }
 
@@ -78,6 +85,13 @@ const censored = {
     RACISM : "(Irkçılık yapılıyor olabilir)"
 };
 
+const home = {
+    FREEDOM : `Paylaşırken korkma, içeriklerin getirdiği <b>sorumlulukları</b> tüm topluluk üstlenir 🥰`,
+    DATA : `Veriler sunucularda değil <b>Kullanıcılarda</b> depolanır 🥳`,
+    OPEN_SOURCE : `Tamamen açık kaynak 👨‍💻`,
+    LOVE : `İçerikleri beğenerek kendine klonla bu şekilde yönetime katkıda bulunmuş olursun`
+}
+
 export default {
     LANDING  : landing,
     NOTIFICATION : notification,
@@ -85,5 +99,6 @@ export default {
     INFO_CARD : infoCards,
     NEW_ENTRY : newEntry,
     APP : app,
-    CENSORED : censored
+    CENSORED : censored,
+    HOME : home
 }

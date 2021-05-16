@@ -1,46 +1,37 @@
+
 {#await promise}
     <Loading/>
 {:then data}
-    {#if data.query.count <= 0}
 
-           <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
-        {:else}
+    {#if posts.length <= 0 }
         
-            <div class = "box">
-                <div class = "box-title">
-                    {data.metadata.title}
+        <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
+
+        {:else}
+
+            <Entry>
+                <div slot = "header">
+                    <Header 
+                        title = {data.title}
+                    />
                 </div>
+        
+                <div slot = "posts">
+                    {#each posts as post}
+                        <Post {...post} collection = {collection}/>
+                    {/each}
+                </div>  
+        
+            </Entry>
+            
 
-            {#each data.query as doc}
-
-                    <div class = "box-content">
-                        {@html contentParser(doc)}
-
-                        {#if doc.comments.length > 0 && showComments}
-                            {#each doc.comments as comment}
-                                <div class = "comment-container">
-                                    {@html contentParser(comment)}
-
-                                    <BtnContainer doc = {comment} client = {client} replyBtn = {false} commentStatus = {handleCommentStatus}/>
-                                </div>
-                            {/each}
-                        {/if}
-
-                        <BtnContainer doc = {doc} client = {client} replyBtn = {true} commentStatus = {handleCommentStatus}/>
-                    </div>
-            {/each}
-
-        </div>
-
+            <NewEntry 
+                client = {client}
+                title = {data.orginalTitle}
+                height = {125}
+                on:newDocument = {listenNewPost}
+            />
     {/if}
-    
-    <div class = "box box-primary">
-        {#if data.metadata.orginalTitle == ''}
-            <NewEntryForm height = '100' client = {client}/>
-            {:else}
-            <NewEntryForm height = '100' title = {data.metadata.orginalTitle} client = {client}/>
-        {/if}
-    </div>
 {/await}
 
 
@@ -49,30 +40,38 @@
     export let id;
     export let entryKey;
 
-    let showComments = false
+    import lang from '../utils/lang'
 
-
-    let title = '';
-    let showingTitle = '';
+    import Entry from '../components/entry/entry.svelte'
+    import Header from '../components/entry/header.svelte'
+    import Post from '../components/entry/post.svelte'
 
     import Loading from '../components/box/loading.svelte';
-    import NewEntryForm from '../components/form/newEntry.svelte';
-    import BtnContainer from '../components/box/btnContainer.svelte';
-    import InfoBox from '../components/box/infoBox.svelte';
-    import lang from '../utils/lang';
-    import { notifier } from '@beyonk/svelte-notifications';
-    import xssReplace from '../utils/xss';
-    import censoreFilter from '../utils/censore';
     import loadEntrys from '../utils/loadEntrys';
+    import NewEntry from '../components/form/newEntry.svelte';
+    import InfoBox from '../components/box/infoBox.svelte'
 
-    function contentParser(obj)
+
+    const collection = client.database.useCollection('entrys');
+
+    let posts = [];
+
+    function listenNewPost(event)
     {
-        return xssReplace(censoreFilter(JSON.parse(JSON.stringify(obj))).document.content).replace(/\n/g, "<br />")
+        posts = [...posts, collection.getDoc(event.detail.documentId)]
     }
 
-    function handleCommentStatus(status)
+    async function init(documentId, entryId)
     {
-        showComments = status
+        const results = await loadEntrys({
+            client : client,
+            documentId : documentId,
+            entryKey : entryId
+        })
+
+
+        posts = results.query || []
+        return results.metadata;
     }
 
     let promise = async()=>{
@@ -80,42 +79,12 @@
             metadata : {
                 title : '',
                 orginalTitle : ''
-            },
-            query : {
-                count : 0
             }
         };
     }
 
     $ : {
-        promise = loadEntrys({
-            client : client,
-            documentId : id,
-            entryKey : entryKey
-        })
+        promise = init(id, entryKey);
     }
 
 </script>
-
-<style>
-    .box-title {
-        margin-bottom : 8px;
-        font-size : 1.2rem;
-    }
-
-    .box-content {
-        padding : 1rem;
-        padding-bottom : 1rem;
-        background: #00000026;
-        border-radius : 4px;
-        margin-bottom:0.5rem;
-    }
-
-    .comment-container {
-        padding: 0.5rem 1rem;
-        margin-top: 0.5rem;
-        background: rgb(0 0 0 / 20%);
-        border-radius: 4px;
-    }
-
-</style>

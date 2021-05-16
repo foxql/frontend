@@ -1,4 +1,4 @@
-<div in:fade>
+<div class = "container" in:fade>
     <div class = "new-entry-box">
         <input 
             type = "text"
@@ -6,7 +6,7 @@
             class = "title-input {title != undefined ? 'hidden' : ''}"
             value = "{title != undefined ? title : ''}"    
         >
-        <textarea placeholder = "{lang.NEW_ENTRY.PLACEHOLDER}" style="height:{height == undefined ? '200' : height}px;"></textarea>
+        <textarea placeholder = "{lang.NEW_ENTRY.PLACEHOLDER}" style="height:{height}px;"></textarea>
     </div>
 
     <button class = "share-button" on:click="{handleButton}">
@@ -17,13 +17,22 @@
 
 <script>
     export let title;
-    export let height;
+    export let height = "200";
     export let client;
+    export let redidect = false;
     import { fade } from 'svelte/transition';
     import addDoc from '../../utils/documents/add';
     import lang from '../../utils/lang'
 
+    import { navigate } from 'svelte-routing'
+
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
+
     const collection = client.database.useCollection('entrys');
+
+    const offerCollection = client.database.useCollection('entry_offers');
+    
 
     function handleButton ()
     {
@@ -34,12 +43,30 @@
             parentDocumentId : null
         };
 
-        const add = addDoc(collection, doc)
-
-        if(add){
-            document.querySelector('.title-input').value = '';
+        const refId = addDoc(collection, doc)
+        if(refId){
             document.querySelector('textarea').value = '';
-            client.peer.socket.emit('newDoc', doc);
+            dispatch('newDocument', {
+                documentId : refId
+            });
+            const findDoc = collection.getDoc(refId);
+            if(redidect && findDoc) {
+                navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
+            }
+
+            offerCollection.addDoc({
+                entryId : refId,
+                recieverCount : 0,
+                destroyRecieveCount : 3
+            })
+
+            client.peer.broadcast({
+                listener : 'new-document-listener',
+                data : {
+                    doc : findDoc
+                }
+            });
+
         }
     }
 
@@ -47,6 +74,12 @@
 
 
 <style>
+
+    .container {
+        background: rgb(0 0 0 / 35%);
+        padding: 1rem;
+        border-radius: 4px;
+    }
 
     .new-entry-box {
         position: relative;

@@ -30,9 +30,16 @@
 
             {#if results.length > 0}
                     {#each results as item}
-                        <EntryBox  data = {{
-                            doc : item.doc.document
-                        }} client = {client} />
+                    <Entry>
+                        <div slot = "abstract">
+                            <Abstract 
+                                documentId = {item.doc.document.documentId}
+                                entryKey = {item.doc.document.entryKey}
+                                title = {item.doc.document.title}
+                                content = {item.doc.document.content}
+                            />
+                        </div>
+                    </Entry>
                     {/each}
                 {:else}
                     
@@ -47,10 +54,12 @@
 
 
 <script>
-    export let queryString;
+    export let queryString = false;
     export let client;
 
-    import EntryBox from '../components/box/entryBox.svelte';
+    import Entry from '../components/entry/entry.svelte';
+    import Abstract from '../components/entry/abstract.svelte';
+
     import Loading from '../components/box/loading.svelte';
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang';
@@ -60,6 +69,11 @@
 
 
     async function searchNetwork(qString) {
+
+        if(typeof qString !== 'string'){
+            return []
+        }
+
         const queryObject = {
             query : qString,
             collection : 'entrys'
@@ -68,7 +82,7 @@
         const searchOnMyIndexs = collection.search(qString);
 
         const query = await client.sendEvent(queryObject, {
-            timeOut : 400, 
+            timeOut : 100, 
             peerListener : 'onSearch',
             documentPool : searchOnMyIndexs
         });
@@ -80,13 +94,15 @@
         let results = query.results;
 
         results.sort((a,b)=>{
-            return new Date(b.doc.score) - new Date(a.doc.score);
+            return new Date(b.doc.document.score) - new Date(a.doc.document.score);
         });
 
         return results;
     }
 
-    let searchPromise = searchNetwork(queryString);
+    let searchPromise = async ()=> {
+        return [];
+    }
 
     $ : {
         searchPromise = searchNetwork(queryString);
