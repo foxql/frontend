@@ -60,10 +60,6 @@
     import Entry from '../components/entry/entry.svelte';
     import Abstract from '../components/entry/abstract.svelte';
 
-    
-
-
-    import EntryBox from '../components/box/entryBox.svelte';
     import Loading from '../components/box/loading.svelte';
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang';
@@ -98,7 +94,7 @@
         let results = query.results;
 
         results.sort((a,b)=>{
-            return new Date(b.doc.score) - new Date(a.doc.score);
+            return new Date(b.doc.document.score) - new Date(a.doc.document.score);
         });
 
         return results;
