@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div class = "box box-danger">
+<div class = "box box-danger" in:fade>
     <span class="fa fa-heart"></span> {lang.HOME.LOVE} 
 </div>
 
