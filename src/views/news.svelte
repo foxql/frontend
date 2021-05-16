@@ -1,6 +1,7 @@
 <script>
     export let client;
 
+    import sync from '../utils/documents/sync'
     import Entry from '../components/entry/entry.svelte'
     import EntryHeader from '../components/entry/header.svelte'
     import Post from '../components/entry/post.svelte'
@@ -8,6 +9,8 @@
 
     import InfoBox from '../components/box/infoBox.svelte';
     import lang from '../utils/lang'
+
+    sync(client)
 
     const collection = client.database.useCollection('entrys');
     client.peer.socket.emit('actionList', true)

@@ -8,7 +8,7 @@ client.listenEvents([
 	'onSearch',
 	'onRandom',
 	'onDocumentByRef',
-    'onSync',
+    'onOfferedDocuments',
     'onDocumentByTimeDiff'
 ])
 

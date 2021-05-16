@@ -13,35 +13,30 @@ async function sendEvent(client) {
     return results;
 }
 
-export default function(client, interval) {
+export default async function(client) {
 
     const collection = client.database.useCollection('entrys');
 
-    setInterval(async ()=> {
+    let dedectedNewDocuments = 0;
 
-        let dedectedNewDocuments = 0;
+    const query = await sendEvent(client);
 
-        const query = await sendEvent(client);
+    if(query.count <= 0) {
+        return false;
+    }
 
-        if(query.count <= 0) {
+
+    query.results.forEach( item => {
+        const doc = item.doc;
+        if(collection.documents[doc.documentId] != undefined) {
             return false;
         }
+        collection.addDoc(doc);
+        dedectedNewDocuments += 1;
+    });
 
- 
-        query.results.forEach( item => {
-            const doc = item.doc;
-            if(collection.documents[doc.documentId] != undefined) {
-                return false;
-            }
-            collection.addDoc(doc);
-            dedectedNewDocuments += 1;
-        });
-
-        if(dedectedNewDocuments > 0) {
-            localStorage.setItem('new-documents',dedectedNewDocuments)
-        }
-       
-
-    }, interval)
+    if(dedectedNewDocuments > 0) {
+        localStorage.setItem('new-documents',dedectedNewDocuments)
+    }
 
 }

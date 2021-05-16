@@ -1,10 +1,6 @@
 <div class = "box">
     <div class = "box-title">
         {lang.APP.TRENDS}
-
-        <button on:click="{handleRefresh}">
-            <span class = "fa fa-sync-alt"></span>
-        </button>
     </div>
     <div class = "box-content">
         {#if list.length > 0} 
@@ -24,7 +20,6 @@
     export let client;
     import { link } from "svelte-routing";
     import lang from '../../utils/lang';
-    import {notifier} from '@beyonk/svelte-notifications'
     import InfoBox from '../box/infoBox.svelte';
     import censoreFilter from '../../utils/censore';
 
@@ -58,11 +53,9 @@
 
     let list = findTrendDocs();
 
-    function handleRefresh()
-    {
+    setInterval(()=>{
         list = findTrendDocs();
-        notifier.success(lang.NOTIFICATION.TRENDS_REFRESH, 1200)
-    }
+    }, 1500)
 
 </script>
 
