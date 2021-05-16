@@ -1,70 +1,101 @@
+<div class = "box" in:fade>
+    <div class = "box-content flex">
+        <div class = "side img-container">
+            <img src = "./assets/freedom.svg">
+        </div>
 
-    {#await promise}
-        <Loading/>
-    {:then data}
-        {#if data.length <= 0}
-                <InfoBox {...lang.INFO_CARD.NOT_FOUND}/>
-            {:else}
+        <div class = "side pull-right">
+            <p>
+               {@html lang.HOME.FREEDOM}
+            </p>
+        </div>
+    </div>
+</div>
 
-                {#each data as item}
+<div class = "box box-danger">
+    <span class="fa fa-heart"></span> {lang.HOME.LOVE} 
+</div>
 
-                   <Entry>
-                       <div slot = "header">
-                            <EntryHeader 
-                                title = {item.doc.title}
-                                navigate = {{
-                                    documentId : item.doc.documentId,
-                                    entryKey : item.doc.entryKey
-                                }}
-                            />
-                       </div>
-                       <div slot = "posts">
-                            <Post 
-                                {...item.doc}
-                                collection = {collection}
-                            />
-                        </div>
-                   </Entry>
+<div class = "box" in:fade>
+    <div class = "box-content flex">
 
-                {/each}
+        <div class = "side">
+            <p>
+               {@html lang.HOME.DATA}
+            </p>
+        </div>
 
-        {/if}
+        <div class = "side img-container pull-right">
+            <img src = "./assets/database.svg">
+        </div>
+    </div>
+</div>
 
-        
-    {/await}
-                                                                                                                                    
+<div class = "box" in:fade>
+    <div class = "box-content flex">
+        <div class = "side img-container">
+            <img src = "./assets/open_source.svg">
+        </div>
+
+        <div class = "side">
+            <p>
+               {@html lang.HOME.OPEN_SOURCE}
+            </p>
+            <p>
+                <a href = "https://github.com/foxql" class = "github">Github</a>
+            </p>
+        </div>
+    </div>
+</div>
 
 <script>
-    export let client;
+    import { fade } from 'svelte/transition'
+    import lang from '../utils/lang'
+</script>
 
-    import Entry from '../components/entry/entry.svelte'
-    import EntryHeader from '../components/entry/header.svelte'
-    import Post from '../components/entry/post.svelte'
 
-    import InfoBox from '../components/box/infoBox.svelte';
-    import Loading from '../components/box/loading.svelte';
-    import lang from '../utils/lang';
-
-    const collection = client.database.useCollection('entrys');
-
-    async function query() {
-
-        const queryObject = {
-            limit : 3,
-            collection : 'entrys'
-        };
-
-        let event = await client.sendEvent(queryObject, {
-            timeOut : 250, 
-            peerListener : 'onRandom',
-            documentPool : []
-        });
-
-        return event.results;
+<style>
+    .flex {
+        display: flex;
+        align-items: center;
     }
 
-    const promise = query();
+    .flex .side {
+        width: 50%;
+        margin-left: 1rem;
+    }
 
-    
+    .side p {
+        text-align: center;
+        margin-bottom:0.5rem;
+    }
 
-</script>
+    .flex .side .img-container {
+        padding : 0.5rem;
+        align-items: center;
+    }
+
+    .side img{
+        width: 70%;
+    }
+
+    .side:last-child {
+        margin-left: auto;
+    }
+
+    .pull-right {
+        display: flex;
+    }
+
+    .pull-right img, .pull-right p {
+        margin-left: auto;
+    }
+
+    .github {
+        padding: 0.3rem 0.8rem;
+        border-radius: 8px;
+        background: #24292e;
+        color: #f6f8fa;
+        margin-top: 1rem;
+    }
+</style>
