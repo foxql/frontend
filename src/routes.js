@@ -7,6 +7,7 @@ import Search from './views/search.svelte';
 import Trends from './views/trends.svelte';
 import Home from './views/home.svelte';
 import Offers from './views/offers.svelte';
+import Sponsors from './views/sponsors.svelte'
 
 export default [
     {
@@ -48,5 +49,9 @@ export default [
     {
         path : '/offers',
         component : Offers
+    },
+    {
+        path : '/sponsors',
+        component : Sponsors
     }
 ];
