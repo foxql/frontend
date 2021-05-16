@@ -12,6 +12,17 @@
 		default: '#aaaaaa' 
 	}
 
+	const queryObject = {
+		limit : 1,
+		collection : 'entrys'
+	};
+
+	client.sendEvent(queryObject, { // direct connect a activated peers
+		timeOut : 250, 
+		peerListener : 'onRandom',
+		documentPool : []
+	});
+
 </script>
 
 <style>
