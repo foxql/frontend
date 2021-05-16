@@ -37,7 +37,7 @@
 </div>
 
 
-<div class = "box">
+<div class = "box" in:fade>
     <div class = "box-title">
         <span class = "fa fa-server"></span> Signaling Server
     </div>
