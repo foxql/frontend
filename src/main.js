@@ -54,6 +54,12 @@ if(schema.title.min == 4) {
     schema.title.min = 2;
 }
 
+client.peer.onPeer('new-document-listener', async (data)=>{
+    collection.addDoc(
+        data.doc
+    )
+});
+
 
 
 window.client = client;

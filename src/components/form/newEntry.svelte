@@ -49,12 +49,9 @@
             dispatch('newDocument', {
                 documentId : refId
             });
-
-            if(redidect) {
-                const findDoc = collection.getDoc(refId);
-                if(findDoc) {
-                    navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
-                }
+            const findDoc = collection.getDoc(refId);
+            if(redidect && findDoc) {
+                navigate(`entry/${findDoc.documentId}/${findDoc.entryKey}`);
             }
 
             offerCollection.addDoc({
@@ -62,6 +59,13 @@
                 recieverCount : 0,
                 destroyRecieveCount : 3
             })
+
+            client.peer.broadcast({
+                listener : 'new-document-listener',
+                data : {
+                    doc : findDoc
+                }
+            });
 
         }
     }
