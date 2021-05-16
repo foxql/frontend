@@ -21,7 +21,7 @@
     "@foxql/word-replace": "^1.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "foxql": "^1.0.17",
+    "foxql": "^1.0.19",
     "sirv-cli": "^1.0.0",
     "svelte-routing": "^1.5.0"
   }
