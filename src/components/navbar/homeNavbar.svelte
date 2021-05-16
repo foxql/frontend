@@ -1,21 +1,32 @@
 {#if visible}
     <div class = "navbar">
-        <div class = "nav-item {currentPage == 'home' ? 'active' : ''}">
-            <a href = "/home" use:link on:click="{handleNavItem}">
-                <span class = "fa fa-random"></span> {lang.NAVBAR.DISCOVERY}</a>
+        <div class = "navbar-container">
+            <div class = "nav-item {currentPage == 'discovery' ? 'active' : ''}">
+                <a href = "/discovery" use:link on:click="{handleNavItem}">
+                    <span class = "fa fa-random"></span> {lang.NAVBAR.DISCOVERY}</a>
+            </div>
+    
+            <div class = "nav-item {currentPage == 'news' ? 'active' : ''}">
+                <a href = "/news" use:link on:click="{handleNavItem}">
+                    <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS} 
+                    {#if newDocumentCount > 0}
+                        <small>
+                            {newDocumentCount}
+                        </small>
+                    {/if}
+                </a>
+            </div>
+
+            <div class = "nav-item {currentPage == 'offers' ? 'active' : ''}">
+                <a href = "/offers" use:link on:click="{handleNavItem}">
+                    <span class = "fa fa-fist-raised"></span> {lang.NAVBAR.OFFERS}</a>
+            </div>
+    
+            <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
+                <a href = "/trends" use:link on:click="{handleNavItem}">
+                    <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>
+            </div>
         </div>
-        <div class = "nav-item {currentPage == 'news' ? 'active' : ''}">
-            <a href = "/news" use:link on:click="{handleNavItem}">
-                <span class = "fa fa-newspaper"></span> {lang.NAVBAR.NEWS}</a>
-        </div>
-
-        <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
-            <a href = "/trends" use:link on:click="{handleNavItem}">
-                <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>
-        </div>
-
-
-
     </div>
 {/if}
 
@@ -24,15 +35,19 @@
     import { link } from "svelte-routing";
     import lang from '../../utils/lang';
     let visible = true;
+
+    let newDocumentCount =  localStorage.getItem('new-documents') || 0;
+
     
     let visibleArray = [
         '',
-        'home',
+        'discovery',
         'news',
-        'trends'
+        'trends',
+        'offers'
     ];
 
-    let currentPage = 'home';
+    let currentPage = '';
 
     function handleNavItem(e)
     {
@@ -59,9 +74,14 @@
     {
         const split = document.location.href.split('/');
         let path = split[split.length - 1]
-        path = path == '' ? 'home' : path;
         currentPage = path;
         visible = visibleArray.includes(currentPage);
+
+        newDocumentCount = localStorage.getItem('new-documents') || 0;
+
+        if(path == 'news') {
+            localStorage.setItem('new-documents', 0)
+        }
     }
 
 
@@ -71,7 +91,6 @@
 <style>
 
     .navbar {
-        display: flex;
         width: 100%;
         background : rgb(0 0 0 / 35%);
         padding : 1rem;
@@ -80,6 +99,7 @@
     }
 
     .nav-item {
+        position:relative;
         margin-right : 1rem;
         font-size: 1.1rem;
     }
@@ -104,10 +124,28 @@
         display:none;
     }
 
+    .navbar .navbar-container {
+        position: relative;
+        display: flex;
+        width: max-content;
+        left: 0px;
+        top: 0px;
+        padding-right: 1rem;
+    }
+
+    small {
+        margin-left: -3px;
+        color: #d43a3a;
+    }
+
     @media screen and (max-width: 992px) {
 
         .nav-item {
             font-size: 0.8rem;
+        }
+
+        .navbar {
+            overflow-x: scroll;
         }
 
         .home-navbar-trend-link {

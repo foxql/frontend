@@ -1,8 +1,8 @@
 <div class = "navbar">
 
-    <div class = "nav-item {currentPage == 'home' ? 'active' : ''}">
-        <a href = "/home" use:link on:click="{handleNavItem}">
-            <span class = "fa fa-home"></span>
+    <div class = "nav-item {currentPage == 'discovery' ? 'active' : ''}">
+        <a href = "/discovery" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-globe-europe"></span>
         </a>
     </div>
 
@@ -31,7 +31,7 @@
 <script>
     import { link } from "svelte-routing";
 
-    let currentPage = 'home';
+    let currentPage = '';
 
     function handleNavItem()
     {

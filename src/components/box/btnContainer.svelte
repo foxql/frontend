@@ -9,13 +9,29 @@
         <span class = "fa fa-heart"></span>
     {/if}
     </button>
+
+    {#if replyBtn}
+        <button class = "reply" on:click="{handleReplyButton}">
+            <span class = "fa fa-comment-dots"></span> {commentCounts}
+        </button>
+
+        <ReplyBox show = {replyBoxShowingStatus} client = {client} targetDoc = {doc}/>
+    {/if}
+   
 </div>
 
 <script>
     export let doc;
     export let client;
     export let hide;
+    export let replyBtn;
+    export let commentStatus;
+
+    let replyBoxShowingStatus = false;
+    let commentCounts = replyBtn ? doc.comments.length || 0 : 0;
+
     import { notifier } from '@beyonk/svelte-notifications'
+    import ReplyBox from './replyBox.svelte';
 
     let documentId = doc.documentId;
 
@@ -36,6 +52,18 @@
             notifier.success('İçerik cihazınıza klonlandı', 1500) 
         }
     }
+
+
+    function handleReplyButton()
+    {
+        if(replyBoxShowingStatus){
+            replyBoxShowingStatus = false;
+            commentStatus(false);
+        }else{
+            commentStatus(true);
+            replyBoxShowingStatus = true;
+        }
+    }
 </script>
 
 
@@ -52,4 +80,18 @@
     .not-active {
         color: #675555;
     }
+
+    .reply {
+        color: #d6b462;
+    }
+
+
+    @media screen and (max-width: 992px) { 
+
+        button {
+            font-size: 1rem;
+        }
+
+    }
+    
 </style>

@@ -11,6 +11,16 @@
     font-family: 'Mulish', sans-serif;
     margin-bottom: 0;
     margin-top : 0; 
+    scroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+button:hover {
+    filter: brightness(0.8);
 }
 
 :root {
@@ -37,4 +47,14 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
+}
+
+.post-content-image {
+    max-width: 100%;
+    border-radius: 4px;
+}
+
+.post-content-link {
+    color: #ddd;
+    font-weight: 600;
 }

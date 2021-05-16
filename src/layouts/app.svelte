@@ -13,6 +13,7 @@
 
     <div class = "side right">
         <Trends client = {client}/>
+        <Footer />
     </div>
     
 </div>
@@ -20,13 +21,17 @@
 
 <MobileNavbar/>
 
+<ScrollTop />
+
 <script>
     export let client;
     import Navbar from '../components/navbar/appNavbar.svelte';
     import MobileNavbar from '../components/navbar/appMobileNavbar.svelte';
     import HomeNavbar from '../components/navbar/homeNavbar.svelte';
+    import ScrollTop from '../components/scroll/top.svelte'
 
     import Trends from '../components/sidebar/trends.svelte';
+    import Footer from '../components/sidebar/footer.svelte';
 
     import { Router, Route } from "svelte-routing";
     
@@ -65,8 +70,9 @@
     @media screen and (max-width: 992px) {
 
         .container {
-            padding : 1rem;
+            padding : 0rem;
             width: 100%;
+            margin-top: 0.5rem;
         }
 
         .container .center {

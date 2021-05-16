@@ -4,13 +4,9 @@ export default async ()=> {
 
     try {
 
-        const request = await fetch('https://ip-api.com/json');
+        const country = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UnitedState';
 
-        const json = await request.json();
-
-        const country = json.country || 'UnitedState';
-
-        if(country != 'Turkey') {
+        if(country != 'Europe/Istanbul') {
             localStorage.setItem('lang', 'en')
         }else{
             localStorage.setItem('lang', 'tr')

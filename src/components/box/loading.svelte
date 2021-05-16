@@ -1,7 +1,5 @@
-    <div class = "box loading" in:fade>
-        <div class = "content">
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-        </div>
+    <div class = "loading" in:fade>
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
 
 
@@ -67,7 +65,7 @@
     }
 
 
-    .content {
+    .loading {
         display: flex;
         justify-content: center;
     }

@@ -22,7 +22,8 @@ const navbar = {
     LANGS : 'Languages',
     DISCOVERY : 'Discovery',
     NEWS : 'Events',
-    TRENDS : 'Trends'
+    TRENDS : 'Trends',
+    OFFERS : 'Offers'
 }
 
 const infoCards = {
@@ -37,6 +38,13 @@ const infoCards = {
     TRENDS_EMPTY : {
         title : 'Trend list is empty now 😭',
         content : 'You can fill this list by sharing something 🙏'
+    },
+    OFFERS : {
+        title : null,
+        content : 'You can protect your foxql network by liking what you want to reach more people. 😍'
+    },
+    ZERO_OFFERS : {
+        content : `There is currently no content offered to the network. 🤯`
     }
 }
 
@@ -78,6 +86,13 @@ const censored = {
     RACISM : "(There may be racism)"
 };
 
+const home = {
+    FREEDOM : `Don't be afraid when sharing, the whole community takes on the <b> responsibilities </b> of the content 🥰`,
+    DATA : `Data is stored on <b> Users </b>, not servers 🥳`,
+    OPEN_SOURCE : `Fully open source 👨‍💻`,
+    LOVE : `By liking the content, you can clone yourself and contribute to the management.`
+}
+
 export default {
     LANDING  : landing,
     NOTIFICATION : notification,
@@ -85,5 +100,6 @@ export default {
     INFO_CARD : infoCards,
     NEW_ENTRY : newEntry,
     APP : app,
-    CENSORED : censored
+    CENSORED : censored,
+    HOME : home
 }
