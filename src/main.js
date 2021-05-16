@@ -1,7 +1,6 @@
 import App from './App.svelte';
 import {foxql} from 'foxql';
 import langApi from './utils/lang/api'
-import offerMigrator from './utils/offeredDocumentMigration'
 
 const client = new foxql();
 
@@ -55,10 +54,6 @@ if(schema.title.min == 4) {
     schema.title.min = 2;
 }
 
-
-/** Auto add offers documents */
-
-offerMigrator(client, 2000)
 
 
 window.client = client;
