@@ -50,12 +50,12 @@
     async function query() {
 
         const queryObject = {
-            limit : 3,
+            limit : 2,
             collection : 'entrys'
         };
 
         let event = await client.sendEvent(queryObject, {
-            timeOut : 250, 
+            timeOut : 350, 
             peerListener : 'onRandom',
             documentPool : []
         });
