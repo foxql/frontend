@@ -52,9 +52,19 @@ body::-webkit-scrollbar-thumb {
 .post-content-image {
     max-width: 100%;
     border-radius: 4px;
+    max-height: 500px;
 }
 
 .post-content-link {
     color: #ddd;
     font-weight: 600;
+}
+
+
+@media screen and (max-width: 992px) {
+    .post-content-image {
+        max-width: 100%;
+        border-radius: 4px;
+        max-height: auto !important;
+    }
 }
