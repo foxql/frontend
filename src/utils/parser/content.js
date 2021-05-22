@@ -1,11 +1,35 @@
 import censore from '../censore';
 import xssReplace from '../xss';
+import methods from './methods'
 
-export default function (text) {
-    return xssReplace(
-        censore(text)
-    )
-    .replace(/(?:https?|ftp):\/\/[\S]*\.(?:png|jpe?g|gif|svg|webp)(?:\?\S+=\S*(?:&\S+=\S*)*)?/g, '<img src="$&" class = "post-content-image"/>')
-    .replace(/(https?:\/\/[^\s]+)$(?<!png|jpg\i)/g, '<a href="$1" target = "_blank" class = "post-content-link">$1</a>')
-    .replace(/\n/g, "<br />")
+export default function (content) {
+
+    content = xssReplace(
+        censore(content)
+    );
+
+    const splitLineBreak = content.split('\n');
+
+    splitLineBreak.forEach((line, i) => {
+        const splitWords = line.split(' ');
+        splitWords.forEach((word) => {
+            if(word.trim() !== '') {
+                methods.forEach(method => {
+                    const process = method(word);
+                    if(process) {
+                        content = content.replace(word, 
+                            process
+                        )
+                    }
+                    
+                })
+            }
+            
+        })
+    });
+
+
+
+    return content.replace(/\n/g, "<br />");
+
 }   
