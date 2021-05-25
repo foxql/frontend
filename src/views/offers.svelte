@@ -22,10 +22,6 @@
             <div slot = "header">
                  <EntryHeader 
                      title = {item.doc.title}
-                     navigate = {{
-                         documentId : item.doc.documentId,
-                         entryKey : item.doc.entryKey
-                     }}
                  />
             </div>
             <div slot = "posts">
@@ -59,7 +55,7 @@
             sync : true
         };
         const consensus = await client.sendEvent(queryObject, {
-            timeOut : 100, // destroy 1.2s listener
+            timeOut : 400, // destroy 1.2s listener
             peerListener : 'onOfferedDocuments'
         });
         const results = consensus.results.filter((item)=> {
