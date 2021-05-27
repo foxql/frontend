@@ -23,6 +23,9 @@
                 <a href = "/sponsors" use:link>
                     Sponsors
                 </a>
+                <a href = "/stats" use:link>
+                    Stats
+                </a>
             </div>
         </div>
 
