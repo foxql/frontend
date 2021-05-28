@@ -3,8 +3,7 @@
         FoxQL - Stats
     </div>
     <div class = "box-content">
-        <iframe width="600" height="800" src="https://datastudio.google.com/embed/reporting/27d2531a-19d0-4134-8fc5-7beda70b3bb9/page/1M" 
-        frameborder="0" style="border:0" allowfullscreen></iframe>
+        <iframe width="600" height="800" src="{dataStudioUrl}" frameborder="0" style="border:0" title = "FoxQL | Stats"></iframe>
     </div>
 </div>
 
