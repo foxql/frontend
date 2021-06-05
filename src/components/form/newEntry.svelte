@@ -10,7 +10,7 @@
     </div>
 
     <button class = "share-button" on:click="{handleButton}">
-        <span class = "fa fa-paper-plane"></span>
+        <span class = "fas fa-paw"></span>
         {lang.NEW_ENTRY.BUTTON}
     </button>
 </div>
