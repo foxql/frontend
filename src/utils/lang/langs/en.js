@@ -17,7 +17,7 @@ const notification  = {
 
 const navbar = {
     SHARE : 'Share',
-    NODE : 'Node',
+    NODE : 'Profile',
     SEARCH_INPUT_PLACEHOLDER : 'Search any content!',
     LANGS : 'Languages',
     DISCOVERY : 'Discovery',
@@ -49,7 +49,7 @@ const infoCards = {
 }
 
 const newEntry = {
-    BUTTON : 'Share',
+    BUTTON : 'Hunt',
     TITLE : 'Topic title',
     PLACEHOLDER : 'What do you think?'
 }

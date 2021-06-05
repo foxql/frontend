@@ -1,111 +1,78 @@
-<div class = "box" in:fade>
-    <div class = "box-title">
-        <span class = "fa fa-globe-europe"></span> {lang.NAVBAR.LANGS}
-    </div>
-    <div class = "box-content wallet-form-container">
-        <div on:click="{handleClick}" data-lang = 'tr' class = "lng">
-            Türkçe
-        </div>
-        <div on:click="{handleClick}" data-lang = 'en' class = "lng">
-            English
-        </div>
-    </div>
-</div>
-
-<div class = "box" in:fade>
-    <div class = "box-title">
-       <span class = "fa fa-database"></span> {lang.APP.NODE_STATS}
-    </div>
+<div class = "box profile" in:fade>
     <div class = "box-content">
-        <div class = "stat">
-            {lang.APP.DOCUMENT_COUNT}
-            <span>{client.database.useCollection('entrys').documentLength}</span>
+        <div class = "profile-image">
+            <img src='{peerInformation.avatar}' alt = "avatar"/>
         </div>
-        <div class = "stat">
-            {lang.APP.DATA_SIZE}
-            <span>{dbSize}</span>
-        </div>
-        <div class = "stat">
-            {lang.APP.COLLECTIONS}
-            <span>2</span>
-        </div>
-        <div class = "stat">
-            {lang.APP.CONNECTED_NODES}
-            <span>{client.peer.stableConnectionCount()}</span>
+        <div class = "profile-alias">
+            <h4>{peerInformation.alias}</h4>
+            <p>
+                {peerInformation.explanation}
+            </p>
+            <span class = "peer-id">
+                @{peerId}
+            </span>
         </div>
     </div>
+
+    <a href = "/settings" class = "settings-link" use:link>
+        <span class = "fa fa-cog"></span>
+    </a>
+
 </div>
 
 
-<div class = "box" in:fade>
-    <div class = "box-title">
-        <span class = "fa fa-server"></span> Signaling Server
-    </div>
-    <div class = "box-content">
-        <div class = "stat">
-            foxql-signal.herokuapp.com
-        </div>
-    </div>
-</div>
+<Rehunts 
+    client = {client}
+/>
+
 
 <script>
     export let client;
     import { fade } from 'svelte/transition';
-    import lang from '../utils/lang';
-    import changeLang from '../utils/lang/change.js'
-    function formatBytes(str, decimals = 2) {
-        var b = str.match(/[^\x00-\xff]/g);
-        const bytes =  (str.length + (!b ? 0: b.length)); 
+    import { link } from 'svelte-routing';
+    import Rehunts from '../components/node/rehuntList.svelte';
 
-        if (bytes === 0) return '0 Bytes';
-
-        const k = 1024;
-        const dm = decimals < 0 ? 0 : decimals;
-        const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-    } 
-
-    let dbSize = formatBytes(JSON.stringify(client.database))
-
-    function handleClick ()
-    {
-        const target = this.dataset.lang;
-        changeLang(target)
+    let peerId = null;
+    let peerInformation = {
+        alias : null,
+        avatar : null,
+        explanation : 'My node custom object!'
     }
 
+    setTimeout(()=> {
+        peerId = client.peer.myPeerId
+        peerInformation = client.peer.peerInformation
+    }, 150)
 </script>
 
 <style>
-    .box-title {
-        font-size : 1rem;
+    .profile .box-content {
+        display: flex;
     }
 
-   .stat {
-       display: flex;
-       padding : 0.5rem 1rem;
-       background: rgb(0 0 0 / 20%);
-       margin-bottom : 0.4rem;
-       align-items: center;
-       border-radius: 4px;
-   }
+    .profile-image img{
+        width: 64px;
+        height: 64px;
+        border-radius: 300px;
+    }
 
-   .stat span {
-       margin-left :auto;
-       font-weight: 600;
-       padding : 0.3rem 0.6rem;
-       color : #e6bf60;
-   }
+    .profile-alias {
+        padding: 0.5rem;
+    }
 
-   .lng {
-        padding: 0.3rem 1rem;
-        background: #131212;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 0.8rem;
-        border-radius: 4px;
-   }
+    .profile-alias p {
+        font-size: 0.9rem;
+    }
+    .profile-alias .peer-id {
+        font-size: 0.6rem;
+        position: absolute;
+        right: 10px;
+    }
 
+    .settings-link {
+        position: absolute;
+        color: #eee;
+        right:10px;
+        top: 10px;
+    }
 </style>

@@ -1,4 +1,5 @@
 
+
     {#await promise}
         <Loading/>
     {:then data}
@@ -21,6 +22,7 @@
                        <div slot = "posts">
                             <Post 
                                 {...item.doc}
+                                senders = {Object.values(item.senderMap)}
                                 collection = {collection}
                             />
                         </div>

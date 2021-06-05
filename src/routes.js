@@ -9,6 +9,7 @@ import Home from './views/home.svelte';
 import Offers from './views/offers.svelte';
 import Sponsors from './views/sponsors.svelte'
 import Stats from './views/stats.svelte';
+import Settings from './views/settings.svelte';
 
 export default [
     {
@@ -58,5 +59,9 @@ export default [
     {
         path : '/stats',
         component : Stats
+    },
+    {
+        path : '/settings',
+        component : Settings
     }
 ];

@@ -17,7 +17,7 @@ const notification  = {
 
 const navbar = {
     SHARE : 'Paylaş',
-    NODE : 'Node',
+    NODE : 'Profil',
     SEARCH_INPUT_PLACEHOLDER : 'Ne verim abime?',
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
@@ -48,7 +48,7 @@ const infoCards = {
 }
 
 const newEntry = {
-    BUTTON : 'Paylaş',
+    BUTTON : 'Hunt',
     TITLE : 'Konu başlığı',
     PLACEHOLDER : 'Ne düşünüyorsun?'
 }

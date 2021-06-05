@@ -4,6 +4,13 @@ import langApi from './utils/lang/api'
 
 const client = new foxql();
 
+client.peer.use('socketOptions', {
+    host : 'localhost',
+    port : 1923,
+    protocol : 'http'
+});
+
+
 client.listenEvents([
 	'onSearch',
 	'onRandom',
@@ -28,6 +35,13 @@ client.use('documentLengthInterval', {
         }
     ]
 });
+
+client.peer.use('peerInformation', {
+    alias : 'BitcoinFucker',
+    avatar : 'https://cdn.dribbble.com/users/9685/screenshots/997495/avatarzzz.gif',
+    explanation : `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et leo eros. Morbi nulla ornare.`
+})
+
 
 client.open();
 

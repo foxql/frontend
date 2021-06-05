@@ -1,5 +1,10 @@
 <div class = "comment" in:fade>
-    {@html contentParser(content)}
+    <div class = "content">
+        {@html contentParser(content)}
+    </div>
+    <div class = "alias">
+        @BitcoinFucker
+    </div>
 </div>
 
 <script>
@@ -9,11 +14,22 @@
 </script>
 
 <style>
-    div {
+    .comment {
         padding: 0.5rem;
         background: #1312128a;
         font-size: 0.8rem;
         margin-bottom: 0.4rem;
         border-radius: 4px;
+        position: relative;
+    }
+
+    .content {
+        width: 100%;
+    }
+    .alias {
+        font-size: 10px;
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
     }
 </style>
