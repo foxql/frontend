@@ -28,7 +28,7 @@
         <button 
             on:click="{showMore}"
         >
-            Daha Fazla
+            {lang.APP.SHOW_MORE}
         </button>
         
     </div>
@@ -41,6 +41,7 @@
     import Entry from '../entry/entry.svelte';
     import Post from '../entry/post.svelte';
     import Header from '../entry/header.svelte';
+    import lang from '../../utils/lang'
 
     const collection = client.database.useCollection('entrys');
 
