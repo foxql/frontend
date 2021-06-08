@@ -2,6 +2,11 @@
 
 
 <div class = "container">
+
+    <div class = "side left">
+        <Offers />
+    </div>
+    
     <div class = "side center">
         <HomeNavbar/>  
         <Router url="{url}">
@@ -37,6 +42,7 @@
 
     import Trends from '../components/sidebar/trends.svelte';
     import Footer from '../components/sidebar/footer.svelte';
+    import Offers from '../components/sidebar/offers.svelte';
 
     import { Router, Route } from "svelte-routing";
     
@@ -51,14 +57,20 @@
         display:flex;
         padding : 5rem 0rem;
         justify-content: center;
+        width:85%;
+        margin:0 auto;
     }
 
     .side {
         margin-right : 1rem;
     }
 
+    .container .left {
+        width: 23%;
+    }
+
     .container .center {
-        width : 50%;
+        width : 52%;
         min-height:600px;
         padding-bottom: 4rem;
     }
@@ -85,7 +97,7 @@
             margin-right: 0;
         }
 
-        .container .right {
+        .container .right, .left {
            display:none;
         }
 

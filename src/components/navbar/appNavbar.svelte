@@ -48,7 +48,7 @@
     }
 
     .navbar .navbar-container {
-        width : 75%;
+        width : 85%;
         display: flex;
     }
 
