@@ -61,6 +61,7 @@ if(schema.title.min == 4) {
 }
 
 client.peer.onPeer('new-document-listener', async (data)=>{
+    return false;
     collection.addDoc(
         data.doc
     )

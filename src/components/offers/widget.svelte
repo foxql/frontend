@@ -1,5 +1,5 @@
 <div class = "offer-box">
-    <a href = "/">
+    <a href = "/peer-offers/{peerId}/{alias}" use:link>
         <div class = "header">
             <img src = "{avatar}" alt = "avatar"/>
             {alias}
@@ -12,6 +12,9 @@
     export let count;
     export let alias;
     export let avatar;
+    export let peerId;
+
+    import { link } from 'svelte-routing';
 </script>
 
 

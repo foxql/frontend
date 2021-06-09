@@ -10,6 +10,7 @@ import Offers from './views/offers.svelte';
 import Sponsors from './views/sponsors.svelte'
 import Stats from './views/stats.svelte';
 import Settings from './views/settings.svelte';
+import PeerOffers from './views/peerOffers.svelte';
 
 export default [
     {
@@ -63,5 +64,9 @@ export default [
     {
         path : '/settings',
         component : Settings
+    },
+    {
+        path : '/peer-offers/:peerId/:alias',
+        component : PeerOffers
     }
 ];

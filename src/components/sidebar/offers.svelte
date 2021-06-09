@@ -4,15 +4,30 @@
     </div>
     <div class = "box-content">
 
-        <OfferWidget 
-            alias = "Fikri"
-            avatar = "https://cdn.dribbble.com/users/9685/screenshots/997495/avatarzzz.gif"
-            count = 32
-        />
+        {#each offerPeerList as peer}
+            <OfferWidget 
+                alias = {peer.information.alias}
+                avatar = {peer.information.avatar}
+                count = {peer.count}
+                peerId = {peer.information.sender}
+            />
+        {/each}
 
     </div>
 </div>
 
 <script>
+    import { init,  onOffer} from '../../stores/offeredDocuments';
     import OfferWidget from '../offers/widget.svelte';
+
+    let offerPeerList = [];
+
+
+    async function handleOfferList(data)
+    {
+        offerPeerList = Object.values(data)
+    }   
+
+    onOffer(handleOfferList)
+    init();
 </script>

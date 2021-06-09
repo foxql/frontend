@@ -51,6 +51,7 @@
     import Post from '../components/entry/post.svelte'
     const collection = client.database.useCollection('entrys')
     async function query() {
+        return [];
         const queryObject = {
             sync : true
         };
