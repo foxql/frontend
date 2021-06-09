@@ -1,5 +1,5 @@
 <div class = "offer-box">
-    <a href = "/peer-offers/{peerId}/{alias}" use:link>
+    <a href = "/peer-offers/{peerId}" use:link>
         <div class = "header">
             <img src = "{avatar}" alt = "avatar"/>
             {alias}

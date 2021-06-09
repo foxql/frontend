@@ -66,7 +66,7 @@ export default [
         component : Settings
     },
     {
-        path : '/peer-offers/:peerId/:alias',
+        path : '/peer-offers/:peerId',
         component : PeerOffers
     }
 ];

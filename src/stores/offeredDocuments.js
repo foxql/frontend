@@ -1,10 +1,10 @@
 import { writable } from "svelte/store";
 
-let foxqlClient = null;
 const localStorageKey = 'foxql-offered-storage';
 let eventListener = null;
+let foxqlClient = null;
 
-let storedData = localStorage.getItem(localStorageKey) || false;
+export let storedData = localStorage.getItem(localStorageKey) || false;
 
 if(!storedData) {
     storedData = {
@@ -23,9 +23,8 @@ if(!storedData) {
     
 }
 
-const store = writable(storedData);
+export const store = writable(storedData);
 store.subscribe(data => { localStorage.setItem(localStorageKey, data) });
-
 
 const queryObject = {
     sync : true
@@ -41,7 +40,10 @@ async function loader()
 
     const query = await foxqlClient.sendEvent(queryObject, eventParams);
     
-    if(query.count <= 0) return false;
+    if(query.count <= 0) {
+        eventListener(storedData.peerList)
+        return false;
+    }
 
     query.results.forEach(item => {
         const doc = item.doc;
@@ -76,7 +78,6 @@ async function loader()
 
 }
 
-
 export function init()
 {
     if(foxqlClient === null){
@@ -91,8 +92,12 @@ export function init()
     eventListener(storedData.peerList)
 }
 
-
 export function onOffer(listener)
 {
     eventListener = listener;
+}
+
+export function getData()
+{
+    return storedData;
 }

@@ -25,6 +25,7 @@
 
     async function handleOfferList(data)
     {
+        console.log(data)
         offerPeerList = Object.values(data)
     }   
 
