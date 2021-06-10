@@ -39,6 +39,7 @@ async function loader()
 {
 
     const query = await foxqlClient.sendEvent(queryObject, eventParams);
+    const collection = foxqlClient.database.useCollection('entrys');
     
     if(query.count <= 0) {
         eventListener(storedData.peerList)
@@ -48,6 +49,10 @@ async function loader()
     query.results.forEach(item => {
         const doc = item.doc;
         const documentId = doc.documentId;
+
+        if(collection.getDoc(documentId)) {
+            return false;
+        }
 
         if(storedData.documents[documentId] === undefined) {
             storedData.documents[documentId] = doc;
