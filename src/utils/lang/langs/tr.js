@@ -44,6 +44,9 @@ const infoCards = {
     },
     ZERO_OFFERS : {
         content : `Şuanda ağa teklif edilen bir içerik yok. 🤯`
+    },
+    NOT_FOUND_OFFERED_DOC : {
+        content : 'Onay bekleyen bir içerik teklifi yok. 😒'
     }
 }
 

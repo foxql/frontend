@@ -46,5 +46,7 @@
         store.set(JSON.stringify(storedData));
     }
 
+    document.querySelector(`#offer-widget-${peerId}`).style.display = 'none';
+
 
 </script>

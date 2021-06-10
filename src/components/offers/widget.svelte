@@ -1,4 +1,4 @@
-<div class = "offer-box">
+<div class = "offer-box" id = "offer-widget-{peerId}">
     <a href = "/peer-offers/{peerId}" use:link>
         <div class = "header">
             <img src = "{avatar}" alt = "avatar"/>

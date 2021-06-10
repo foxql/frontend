@@ -45,6 +45,9 @@ const infoCards = {
     },
     ZERO_OFFERS : {
         content : `There is currently no content offered to the network. 🤯`
+    },
+    NOT_FOUND_OFFERED_DOC : {
+        content : 'No content offers pending approval. 😒'
     }
 }
 
