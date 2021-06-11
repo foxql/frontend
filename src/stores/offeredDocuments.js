@@ -37,6 +37,9 @@ const eventParams = {
 
 async function loader()
 {
+    if(client.peer.stableConnectionCount() <= 0) {
+        return false;
+    }
 
     const query = await foxqlClient.sendEvent(queryObject, eventParams);
     const collection = foxqlClient.database.useCollection('entrys');

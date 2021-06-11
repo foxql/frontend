@@ -10,6 +10,8 @@ client.peer.use('socketOptions', {
     protocol : 'http'
 });
 
+client.peer.maxSocketConnectionCheckInterval = 500;
+
 
 client.listenEvents([
 	'onSearch',
@@ -59,13 +61,6 @@ if(schema.content.min == 20) {
 if(schema.title.min == 4) {
     schema.title.min = 2;
 }
-
-client.peer.onPeer('new-document-listener', async (data)=>{
-    return false;
-    collection.addDoc(
-        data.doc
-    )
-});
 
 
 
