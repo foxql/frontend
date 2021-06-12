@@ -83,14 +83,6 @@
         margin-right: 0.4rem;
     }
 
-    .active:hover{
-        filter : brightness(0.7);
-    }
-
-    .passive:hover {
-        filter : brightness(1);
-    }
-
     .button-container {
         display: flex;
         padding: 0.5rem 0rem 0rem 0rem;

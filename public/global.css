@@ -65,3 +65,7 @@ body::-webkit-scrollbar-thumb {
         max-height: auto !important;
     }
 }
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
