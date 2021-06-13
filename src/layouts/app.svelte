@@ -1,3 +1,7 @@
+{#if !pwaMode}
+    <PlayStore />
+{/if}
+
 <Navbar/>
 
 
@@ -44,9 +48,13 @@
     import Footer from '../components/sidebar/footer.svelte';
     import Offers from '../components/sidebar/offers.svelte';
 
+    import PlayStore from '../components/playstore/index.svelte'
+
     import { Router, Route } from "svelte-routing";
     
     import routes from '../routes.js';
+
+    const pwaMode = window.matchMedia('(display-mode: standalone)').matches || false;
 
     export let url = '';
 </script>
