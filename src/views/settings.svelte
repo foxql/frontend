@@ -1,5 +1,48 @@
 <div class = "box" in:fade>
     <div class = "box-title">
+        <span class = "fa fa-globe-europe"></span> Avatar (URL)
+    </div>
+    <div class = "box-content form">
+        {#if currentAvatar}
+            <input type = "text" value = "{currentAvatar}"/>
+        {/if}
+
+        {#if !currentAvatar}
+            <input type = "text" placeholder = "Your avatar image url" />
+        {/if}
+        <button on:click="{handleSave}" data-storagekey = 'node-avatar'> 
+            <span class = "fa fa-check"></span>
+        </button>
+    </div>
+</div>
+
+<div class = "box" in:fade>
+    <div class = "box-title">
+        <span class = "fa fa-globe-europe"></span> Alias
+    </div>
+    <div class = "box-content form">
+        <input type = "text" value = "{currentAlias}" />
+        <button on:click="{handleSave}" data-storagekey = 'node-alias'> 
+            <span class = "fa fa-check"></span>
+        </button>
+    </div>
+</div>
+
+<div class = "box" in:fade>
+    <div class = "box-title">
+        <span class = "fa fa-globe-europe"></span> Biyografi
+    </div>
+    <div class = "box-content form">
+        <input type = "text" value = "{currentExplanation}" />
+        <button on:click="{handleSave}" data-storagekey = 'node-explanation'> 
+            <span class = "fa fa-check"></span>
+        </button>
+    </div>
+</div>
+
+
+<div class = "box" in:fade>
+    <div class = "box-title">
         <span class = "fa fa-globe-europe"></span> {lang.NAVBAR.LANGS}
     </div>
     <div class = "box-content wallet-form-container">
@@ -54,6 +97,10 @@
     import lang from '../utils/lang';
     import changeLang from '../utils/lang/change.js'
 
+    const currentAvatar = localStorage.getItem('node-avatar') || false;
+    const currentAlias = localStorage.getItem('node-alias') || '';
+    const currentExplanation = localStorage.getItem('node-explanation') || '';
+
     function formatBytes(str, decimals = 2) {
         var b = str.match(/[^\x00-\xff]/g);
         const bytes =  (str.length + (!b ? 0: b.length)); 
@@ -75,6 +122,14 @@
     {
         const target = this.dataset.lang;
         changeLang(target)
+    }
+
+    function handleSave()
+    {
+        const dataset = this.dataset.storagekey;
+        const value = this.parentNode.querySelector('input').value;
+        localStorage.setItem(dataset, value)
+        window.location.href = window.location.href
     }
 </script>
 
@@ -106,5 +161,26 @@
         display: inline-block;
         font-size: 0.8rem;
         border-radius: 4px;
+    }
+
+    input {
+        width: 85%;
+        padding: 0.5rem;
+        background: rgb(0, 0, 0, 0.3);
+        color: #eee;
+        border-radius: 4px;
+    }
+
+    .form {
+        display: flex;
+    }
+
+    .form button {
+        padding: 0.4rem;
+        background: rgb(0, 0, 0, 0.3);
+        color: #eee;
+        cursor: pointer;
+        width: 15%;
+        margin-left: 0.4rem;
     }
 </style>
