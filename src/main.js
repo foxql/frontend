@@ -3,13 +3,6 @@ import {foxql} from 'foxql';
 import langApi from './utils/lang/api'
 
 const client = new foxql();
-
-client.peer.use('socketOptions', {
-    host : 'localhost',
-    port : 1923,
-    protocol : 'http'
-});
-
 client.peer.maxSocketConnectionCheckInterval = 500;
 
 
