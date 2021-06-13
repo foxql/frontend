@@ -63,7 +63,7 @@
         };
 
         let event = await client.sendEvent(queryObject, {
-            timeOut : 350, 
+            timeOut : 550, 
             peerListener : 'onRandom',
             documentPool : []
         });
