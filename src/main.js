@@ -39,9 +39,9 @@ client.use('documentLengthInterval', {
 });
 
 client.peer.use('peerInformation', {
-    alias : 'BitcoinFucker',
-    avatar : 'https://cdn.dribbble.com/users/9685/screenshots/997495/avatarzzz.gif',
-    explanation : `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et leo eros. Morbi nulla ornare.`
+    alias : localStorage.getItem('node-alias') || client.peer.myPeerId,
+    avatar : localStorage.getItem('node-avatar') || './media/emptyAvatar.png',
+    explanation : localStorage.getItem('node-explanation') || ``
 })
 
 
