@@ -1,9 +1,12 @@
 <div class = "button-container">
+
     <button 
         class = "save-btn {savedStatus ? 'active' : 'passive'}"
         on:click="{handleSave}"
     >   
-        <span class = "fa fa-heart"></span>
+        <span class = "fas fa-paw"></span>
+
+        Rehunt
     </button>
 
     <button 
@@ -13,6 +16,17 @@
         <span class = "fa fa-comments"></span>
         {commentsCount}
     </button>
+
+    {#if senders.length > 0}
+
+        <button
+            class = "show-senders"
+        >
+            @{senders[0].information.alias}
+        </button>
+
+    {/if}
+
 </div>
 
 <script>
@@ -23,6 +37,7 @@
     export let collection;
     export let commentsCount;
     export let commentShowStatus;
+    export let senders = [];
 
     import { createEventDispatcher } from 'svelte';
 
@@ -62,7 +77,7 @@
 <style>
 
     button {
-        font-size: 1.1rem;
+        font-size: 1rem;
         background: transparent;
         cursor: pointer;
         margin-right: 0.4rem;
@@ -78,10 +93,17 @@
     }
 
     .passive {
-        filter : brightness(0.5);
+        filter : brightness(0.7);
     }
 
     .comment-btn {
         color : #e6bf60;
+    }
+
+    .show-senders {
+        border-radius: 150px;
+        margin-left: auto;
+        font-size: 0.6rem;
+        color: #ccc;
     }
 </style>

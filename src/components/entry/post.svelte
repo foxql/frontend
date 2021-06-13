@@ -27,6 +27,7 @@
         collection = {collection}
         commentsCount = {comments.length}
         commentShowStatus = {commentShowStatus}
+        senders = {senders}
         on:commentStatus={listenCommentShowStatus}
     />
 </div>
@@ -65,6 +66,7 @@
     export let collection;
     export let entryKey;
     export let comments = [];
+    export let senders = [];
     import { fade } from 'svelte/transition';
     import contentParser from '../../utils/parser/content';
 

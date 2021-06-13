@@ -16,12 +16,9 @@
 
 button {
     cursor: pointer;
-    transition: all 0.5s ease;
+    transition: filter ease 0.2s;
 }
 
-button:hover {
-    filter: brightness(0.8);
-}
 
 :root {
     --background-color : #222831;
@@ -67,4 +64,8 @@ body::-webkit-scrollbar-thumb {
         border-radius: 4px;
         max-height: auto !important;
     }
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
 }

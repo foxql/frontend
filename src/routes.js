@@ -6,9 +6,11 @@ import Node from './views/node.svelte';
 import Search from './views/search.svelte';
 import Trends from './views/trends.svelte';
 import Home from './views/home.svelte';
-import Offers from './views/offers.svelte';
 import Sponsors from './views/sponsors.svelte'
 import Stats from './views/stats.svelte';
+import Settings from './views/settings.svelte';
+import PeerOffers from './views/peerOffers.svelte';
+import Offers from './views/offers.svelte';
 
 export default [
     {
@@ -48,15 +50,23 @@ export default [
         component : Trends
     },
     {
-        path : '/offers',
-        component : Offers
-    },
-    {
         path : '/sponsors',
         component : Sponsors
     },
     {
         path : '/stats',
         component : Stats
+    },
+    {
+        path : '/settings',
+        component : Settings
+    },
+    {
+        path : '/peer-offers/:peerId',
+        component : PeerOffers
+    },
+    {
+        path : '/offers',
+        component : Offers
     }
 ];

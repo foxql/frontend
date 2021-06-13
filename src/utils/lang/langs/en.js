@@ -17,7 +17,7 @@ const notification  = {
 
 const navbar = {
     SHARE : 'Share',
-    NODE : 'Node',
+    NODE : 'Profile',
     SEARCH_INPUT_PLACEHOLDER : 'Search any content!',
     LANGS : 'Languages',
     DISCOVERY : 'Discovery',
@@ -45,11 +45,14 @@ const infoCards = {
     },
     ZERO_OFFERS : {
         content : `There is currently no content offered to the network. 🤯`
+    },
+    NOT_FOUND_OFFERED_DOC : {
+        content : 'No content offers pending approval. 😒'
     }
 }
 
 const newEntry = {
-    BUTTON : 'Share',
+    BUTTON : 'Hunt',
     TITLE : 'Topic title',
     PLACEHOLDER : 'What do you think?'
 }
@@ -73,7 +76,12 @@ const app = {
     WALLET_ADDRESS : 'Wallet Address',
     WALLET_ADDRESS_PLACEHOLDER : 'A valid wallet address in the Tron network.',
     WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.',
-    TRENDS : 'Trends'
+    TRENDS : 'Trends',
+    SHOW_MORE : 'Show More',
+    DOWNLOAD_PLAY_STORE : 'Get it on google play 🥰',
+    ALIAS : 'Avatar',
+    AVATAR : 'Avatar',
+    EXPLANATION : 'Explanation'
 }
 
 const censored = {

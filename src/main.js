@@ -4,6 +4,15 @@ import langApi from './utils/lang/api'
 
 const client = new foxql();
 
+client.peer.use('socketOptions', {
+    host : 'localhost',
+    port : 1923,
+    protocol : 'http'
+});
+
+client.peer.maxSocketConnectionCheckInterval = 500;
+
+
 client.listenEvents([
 	'onSearch',
 	'onRandom',
@@ -24,10 +33,17 @@ client.use('documentLengthInterval', {
     maxDocumentsInCollections : [
         {
             collection : 'entrys',
-            maxDocument : 1000
+            maxDocument : 2500
         }
     ]
 });
+
+client.peer.use('peerInformation', {
+    alias : localStorage.getItem('node-alias') || client.peer.myPeerId,
+    avatar : localStorage.getItem('node-avatar') || './media/emptyAvatar.png',
+    explanation : localStorage.getItem('node-explanation') || ``
+})
+
 
 client.open();
 
@@ -45,12 +61,6 @@ if(schema.content.min == 20) {
 if(schema.title.min == 4) {
     schema.title.min = 2;
 }
-
-client.peer.onPeer('new-document-listener', async (data)=>{
-    collection.addDoc(
-        data.doc
-    )
-});
 
 
 

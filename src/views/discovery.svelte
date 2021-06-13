@@ -1,4 +1,5 @@
 
+
     {#await promise}
         <Loading/>
     {:then data}
@@ -21,6 +22,7 @@
                        <div slot = "posts">
                             <Post 
                                 {...item.doc}
+                                senders = {Object.values(item.senderMap)}
                                 collection = {collection}
                             />
                         </div>
@@ -47,10 +49,16 @@
 
     const collection = client.database.useCollection('entrys');
 
+    const limit = 20;
+
     async function query() {
 
+        const connectedPeerCount = client.peer.stableConnectionCount();
+        const queryUsedLimit = limit / connectedPeerCount;
+
+
         const queryObject = {
-            limit : 2,
+            limit : queryUsedLimit < 1 ? 1 : queryUsedLimit,
             collection : 'entrys'
         };
 

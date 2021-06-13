@@ -34,10 +34,17 @@
     export let client;
     import Loading from '../box/loading.svelte'
     import { fade } from 'svelte/transition'
+
+    const currentPage = window.location.pathname;
     
     let activePeerCount = 0;
 
     let interval = setInterval(()=>{
+        if(currentPage != '/' && currentPage != '/node') {
+            activePeerCount = 1;
+            clearInterval(interval)
+            return false;
+        }
         client.peer.socket.emit('call', 10);
         activePeerCount = client.peer.stableConnectionCount()
 

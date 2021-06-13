@@ -8,7 +8,7 @@
     
         <div class = "nav-item">
             <a href = "/node" use:link>
-                <span class = "fa fa-database"></span> {lang.NAVBAR.NODE}
+                <span class = "fa fa-user"></span> {lang.NAVBAR.NODE}
             </a>
         </div>
 
@@ -48,7 +48,7 @@
     }
 
     .navbar .navbar-container {
-        width : 75%;
+        width : 85%;
         display: flex;
     }
 

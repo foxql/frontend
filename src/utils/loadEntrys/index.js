@@ -71,7 +71,6 @@ export default async ({client, documentId, entryKey}) => {
         collection
     )
 
-
     const finalResults = Object.values(filteredResults).map(item => {
 
         if(item.comments.length > 0) {

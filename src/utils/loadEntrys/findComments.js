@@ -13,6 +13,15 @@ export default (results, collection) =>
         if(parentDocumentId === null) {
 
             doc.comments = [];
+            doc.senders = []
+
+            if(item.senderMap !== undefined){
+              
+                doc.senders = Object.values(
+                    item.senderMap
+                )
+                
+            }
 
             hashMap[documentId] = doc;
         }else {

@@ -17,7 +17,7 @@ const notification  = {
 
 const navbar = {
     SHARE : 'Paylaş',
-    NODE : 'Node',
+    NODE : 'Profil',
     SEARCH_INPUT_PLACEHOLDER : 'Ne verim abime?',
     LANGS : 'Diller',
     DISCOVERY : 'Rastgele',
@@ -44,11 +44,14 @@ const infoCards = {
     },
     ZERO_OFFERS : {
         content : `Şuanda ağa teklif edilen bir içerik yok. 🤯`
+    },
+    NOT_FOUND_OFFERED_DOC : {
+        content : 'Onay bekleyen bir içerik teklifi yok. 😒'
     }
 }
 
 const newEntry = {
-    BUTTON : 'Paylaş',
+    BUTTON : 'Hunt',
     TITLE : 'Konu başlığı',
     PLACEHOLDER : 'Ne düşünüyorsun?'
 }
@@ -72,7 +75,12 @@ const app = {
     WALLET_ADDRESS : 'Cüzdan Adresi',
     WALLET_ADDRESS_PLACEHOLDER : 'Tron ağında geçerli bir cüzdan adresi.',
     WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.',
-    TRENDS : 'Gündem'
+    TRENDS : 'Gündem',
+    SHOW_MORE : 'Devamını Göster',
+    DOWNLOAD_PLAY_STORE : 'Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰',
+    ALIAS : 'Takma ad',
+    AVATAR : 'Profil fotoğrafı',
+    EXPLANATION : 'Hakkımda'
 }
 
 const censored = {

@@ -5,14 +5,6 @@
             <span class = "fa fa-globe-europe"></span>
         </a>
     </div>
-
-
-    <div class = "nav-item {currentPage == 'node' ? 'active' : ''}">
-        <a href = "/node" use:link on:click="{handleNavItem}">
-            <span class = "fa fa-database"></span>
-        </a>
-    </div>
-
     
 
     <div class = "nav-item {currentPage == 'share' ? 'active' : ''}">
@@ -26,6 +18,13 @@
             <span class = "fa fa-search"></span>
         </a>
     </div>
+
+    <div class = "nav-item {currentPage == 'node' ? 'active' : ''}">
+        <a href = "/node" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-user"></span>
+        </a>
+    </div>
+
 </div>
 
 <script>
