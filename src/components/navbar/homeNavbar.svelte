@@ -3,7 +3,7 @@
         <div class = "navbar-container">
             <div class = "nav-item {currentPage == 'discovery' ? 'active' : ''}">
                 <a href = "/discovery" use:link on:click="{handleNavItem}">
-                    <span class = "fa fa-random"></span> {lang.NAVBAR.DISCOVERY}</a>
+                    <span class = "fa fa-globe-europe"></span> {lang.NAVBAR.DISCOVERY}</a>
             </div>
     
             <div class = "nav-item {currentPage == 'news' ? 'active' : ''}">
@@ -15,11 +15,6 @@
                         </small>
                     {/if}
                 </a>
-            </div>
-
-            <div class = "nav-item {currentPage == 'offers' ? 'active' : ''}">
-                <a href = "/offers" use:link on:click="{handleNavItem}">
-                    <span class = "fa fa-fist-raised"></span> {lang.NAVBAR.OFFERS}</a>
             </div>
     
             <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
@@ -43,8 +38,7 @@
         '',
         'discovery',
         'news',
-        'trends',
-        'offers'
+        'trends'
     ];
 
     let currentPage = '';
