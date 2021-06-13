@@ -33,7 +33,7 @@ client.use('documentLengthInterval', {
     maxDocumentsInCollections : [
         {
             collection : 'entrys',
-            maxDocument : 1000
+            maxDocument : 2500
         }
     ]
 });
