@@ -77,7 +77,8 @@ const app = {
     WALLET_ADDRESS_PLACEHOLDER : 'A valid wallet address in the Tron network.',
     WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.',
     TRENDS : 'Trends',
-    SHOW_MORE : 'Show More'
+    SHOW_MORE : 'Show More',
+    DOWNLOAD_PLAY_STORE : 'Get it on google play 🥰'
 }
 
 const censored = {

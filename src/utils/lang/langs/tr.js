@@ -76,7 +76,8 @@ const app = {
     WALLET_ADDRESS_PLACEHOLDER : 'Tron ağında geçerli bir cüzdan adresi.',
     WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.',
     TRENDS : 'Gündem',
-    SHOW_MORE : 'Devamını Göster'
+    SHOW_MORE : 'Devamını Göster',
+    DOWNLOAD_PLAY_STORE : 'Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰'
 }
 
 const censored = {

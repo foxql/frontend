@@ -2,7 +2,7 @@
     <a href='https://play.google.com/store/apps/details?id=com.foxql.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
         <div class = "container">
             <div class = "side">
-                Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰
+               {lang.APP.DOWNLOAD_PLAY_STORE}
             </div>
             <div class = "side">
                 <img alt='Get it on Google Play' src='./assets/play-store.svg'>
@@ -18,6 +18,7 @@
 <script>    
     let close = localStorage.getItem('clicked-google-play-widget') || false;
     let agent = navigator.userAgent.toLowerCase() || '';
+    import lang from '../../utils/lang';
 
     console.log(agent)
 
