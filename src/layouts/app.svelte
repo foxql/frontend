@@ -1,7 +1,3 @@
-{#if !pwaMode}
-    <PlayStore />
-{/if}
-
 <Navbar/>
 
 
@@ -12,6 +8,10 @@
     </div>
     
     <div class = "side center">
+        {#if !pwaMode}
+            <PlayStore />
+        {/if}
+
         <HomeNavbar/>  
         <Router url="{url}">
             {#each routes as route}
@@ -103,6 +103,10 @@
         .container .center {
             width : 100%;
             margin-right: 0;
+            position: fixed;
+            top: 0px;
+            overflow-y: scroll;
+            height: 100%;
         }
 
         .container .right, .left {

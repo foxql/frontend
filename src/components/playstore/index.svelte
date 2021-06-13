@@ -40,6 +40,7 @@
         color: #eee;
         font-size: 0.9rem;
         align-items: center;
+        margin-bottom: 1rem;
     }
 
     .side img {
@@ -53,6 +54,12 @@
     @media screen and (min-width: 992px) {
         .container {
             display: none;
+        }
+    }
+
+    @media screen and (max-width: 992px) { 
+        .container {
+            border-radius: 0px;
         }
     }
 

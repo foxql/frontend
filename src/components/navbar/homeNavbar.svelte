@@ -133,13 +133,13 @@
     }
 
     @media screen and (max-width: 992px) {
-
         .nav-item {
             font-size: 0.8rem;
         }
 
         .navbar {
             overflow-x: scroll;
+            border-radius: 0px;
         }
 
         .home-navbar-trend-link {

@@ -18,6 +18,12 @@
         border-bottom: 3.5px solid rgb(0 0 0 / 30%);
     }
 
+    @media screen and (max-width: 992px) {
+        .entry {
+            border-radius: 0px;
+        }
+    }
+
 </style>
 
 <script>
