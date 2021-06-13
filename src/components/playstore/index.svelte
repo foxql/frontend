@@ -35,7 +35,6 @@
         display: flex;
         padding: 1rem;
         background: rgb(0 0 0 / 30%);
-        margin-top: 0.5rem;
         border-radius: 8px;
         color: #eee;
         font-size: 0.9rem;

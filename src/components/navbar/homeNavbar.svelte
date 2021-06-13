@@ -17,9 +17,14 @@
                 </a>
             </div>
     
-            <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-trend-link" >
+            <div class = "nav-item {currentPage == 'trends' ? 'active' : ''} home-navbar-show-mobile" >
                 <a href = "/trends" use:link on:click="{handleNavItem}">
                     <span class = "fa fa-fire"></span> {lang.NAVBAR.TRENDS}</a>
+            </div>
+
+            <div class = "nav-item {currentPage == 'offers' ? 'active' : ''} home-navbar-show-mobile" >
+                <a href = "/offers" use:link on:click="{handleNavItem}">
+                    <span class = "fa fa-fist-raised"></span> {lang.NAVBAR.OFFERS}</a>
             </div>
         </div>
     </div>
@@ -38,7 +43,8 @@
         '',
         'discovery',
         'news',
-        'trends'
+        'trends',
+        'offers'
     ];
 
     let currentPage = '';
@@ -114,7 +120,7 @@
         color: #e0c49b;
     }
 
-    .home-navbar-trend-link {
+    .home-navbar-show-mobile {
         display:none;
     }
 
@@ -140,9 +146,11 @@
         .navbar {
             overflow-x: scroll;
             border-radius: 0px;
+            border-bottom: 2px dashed rgb(107 100 100 / 20%);
+            margin-bottom: 0px;
         }
 
-        .home-navbar-trend-link {
+        .home-navbar-show-mobile {
             display: block;
         }
 
