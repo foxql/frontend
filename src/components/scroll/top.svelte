@@ -16,6 +16,7 @@
         font-size: 1.3rem;
         background: #eee;
         color: #555;
+        z-index: 2038;
     }
 
 
@@ -30,24 +31,40 @@
 
 
 <script>
+    import { onMount } from 'svelte';
     import {fade, fly} from 'svelte/transition'
     let showButton = false;
+    let watchingElement = window;
 
-    let currentScrollPos = window.scrollY;
+    onMount(()=> {
+        const windowWidth = window.innerWidth;
+        let currentScrollPos = 0;
+
+        if(windowWidth < 920) {
+            watchingElement = document.querySelector('.center');
+            currentScrollPos = watchingElement.scrollTop;
+        }else{
+            currentScrollPos = watchingElement.scrollY;
+        }
+
+        function checkPosition ()
+        {
+            showButton = currentScrollPos > 300 ? true : false
+        }
+
+        watchingElement.onscroll = (e)=> {
+            if(watchingElement.scrollY !== undefined) {
+                currentScrollPos = watchingElement.scrollY;
+            }else{
+                currentScrollPos = watchingElement.scrollTop;
+            }
+            
+            checkPosition()
+        }
+    })
 
     function handleButton() {
-        window.scrollTo(0, 0);
+        watchingElement.scrollTo(0, 0);
     }
 
-    function checkPosition ()
-    {
-        showButton = currentScrollPos > 300 ? true : false
-    }
-
-    window.onscroll = (e)=> {
-        currentScrollPos = window.scrollY;
-        checkPosition()
-    }
-
-    checkPosition()
 </script>
