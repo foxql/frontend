@@ -78,7 +78,10 @@ const app = {
     WALLET_ADDRESS_SAVED : 'The wallet address has been successfully registered.',
     TRENDS : 'Trends',
     SHOW_MORE : 'Show More',
-    DOWNLOAD_PLAY_STORE : 'Get it on google play 🥰'
+    DOWNLOAD_PLAY_STORE : 'Get it on google play 🥰',
+    ALIAS : 'Avatar',
+    AVATAR : 'Avatar',
+    EXPLANATION : 'Explanation'
 }
 
 const censored = {

@@ -77,7 +77,10 @@ const app = {
     WALLET_ADDRESS_SAVED : 'Cüzdan adresi başarı ile kayıt edildi.',
     TRENDS : 'Gündem',
     SHOW_MORE : 'Devamını Göster',
-    DOWNLOAD_PLAY_STORE : 'Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰'
+    DOWNLOAD_PLAY_STORE : 'Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰',
+    ALIAS : 'Takma ad',
+    AVATAR : 'Profil fotoğrafı',
+    EXPLANATION : 'Hakkımda'
 }
 
 const censored = {

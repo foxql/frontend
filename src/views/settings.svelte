@@ -1,6 +1,6 @@
 <div class = "box" in:fade>
     <div class = "box-title">
-        <span class = "fa fa-globe-europe"></span> Avatar (URL)
+        <span class = "fa fa-globe-europe"></span> {lang.APP.AVATAR}
     </div>
     <div class = "box-content form">
         {#if currentAvatar}
@@ -18,7 +18,7 @@
 
 <div class = "box" in:fade>
     <div class = "box-title">
-        <span class = "fa fa-globe-europe"></span> Alias
+        <span class = "fa fa-globe-europe"></span> {lang.APP.ALIAS}
     </div>
     <div class = "box-content form">
         <input type = "text" value = "{currentAlias}" />
@@ -30,7 +30,7 @@
 
 <div class = "box" in:fade>
     <div class = "box-title">
-        <span class = "fa fa-globe-europe"></span> Biyografi
+        <span class = "fa fa-globe-europe"></span> {lang.APP.EXPLANATION}
     </div>
     <div class = "box-content form">
         <input type = "text" value = "{currentExplanation}" />
