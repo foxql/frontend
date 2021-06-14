@@ -3,12 +3,13 @@
         {@html contentParser(content)}
     </div>
     <div class = "alias">
-        @BitcoinFucker
+        @{sender.information.alias || sender.information.sender}
     </div>
 </div>
 
 <script>
     export let content;
+    export let sender;
     import { fade } from 'svelte/transition';
     import contentParser from '../../utils/parser/content';
 </script>
