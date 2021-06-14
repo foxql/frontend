@@ -9,6 +9,7 @@
                 {#each comments as comment}
                     <Comment 
                         content = {comment.content}
+                        sender = {senders[0]}
                     />
                 {/each}
             {/if}
