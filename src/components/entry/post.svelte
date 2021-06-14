@@ -9,7 +9,7 @@
                 {#each comments as comment}
                     <Comment 
                         content = {comment.content}
-                        sender = {senders[0]}
+                        sender = {firstSenderPackage}
                     />
                 {/each}
             {/if}
@@ -76,6 +76,20 @@
     import CommentForm from '../form/newComment.svelte'
 
     let commentShowStatus = false;
+    const firstSender = senders[0] || {};
+
+    let firstSenderPackage = {
+        information : {
+            alias : '',
+            sender : ''
+        }
+    }
+
+    if(firstSender.information !== undefined) {
+        firstSenderPackage = firstSender
+    }
+
+
 
     function listenCommentShowStatus(event)
     {
