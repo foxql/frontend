@@ -19,7 +19,7 @@ export default (string)=> {
             if(mediaTypes[lastWord] !== undefined) { // image dedected
                 string = string.replace(string, `<img src = '${string}'  class = "post-content-image">`)
             }else{
-                string = string.replace(string, `<a href = '${string}' target = "_blank" class = "post-content-link">${string.slice(0, 30)}</a>`)
+                string = string.replace(string, `<a href = '${string}' target = "_blank" class = "post-content-link">${string.slice(0, 125)}</a>`)
             }
 
         }
