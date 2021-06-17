@@ -27,6 +27,9 @@
 
     {/if}
 
+    <div class = "date">
+        {new Date(createDate).toDateString()}
+    </div>
 </div>
 
 <script>
@@ -86,6 +89,7 @@
     .button-container {
         display: flex;
         padding: 0.5rem 0rem 0rem 0rem;
+        align-items: center;
     }
 
     .save-btn {
@@ -105,5 +109,11 @@
         margin-left: auto;
         font-size: 0.6rem;
         color: #ccc;
+    }
+
+    .date {
+        font-size: 0.8rem;
+        color: #ccc;
+        margin-left: auto;
     }
 </style>

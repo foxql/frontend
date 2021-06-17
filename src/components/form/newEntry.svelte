@@ -57,7 +57,7 @@
             offerCollection.addDoc({
                 entryId : refId,
                 recieverCount : 0,
-                destroyRecieveCount : 3
+                destroyRecieveCount : 25
             })
 
             client.peer.broadcast({
