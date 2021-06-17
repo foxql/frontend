@@ -18,5 +18,5 @@
 <script>
     import { fade } from 'svelte/transition';
 
-    const dataStudioUrl = 'http://datastudio.google.com/reporting/27d2531a-19d0-4134-8fc5-7beda70b3bb9';
+    const dataStudioUrl = 'https://datastudio.google.com/reporting/27d2531a-19d0-4134-8fc5-7beda70b3bb9';
 </script>
