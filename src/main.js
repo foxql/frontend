@@ -69,6 +69,8 @@ const app = new App({
 const langCache = localStorage.getItem('lang') || false;
 
 
+client.peer.socket.emit('actionList', true)
+
 if(!langCache) {
 	langApi();
 }
