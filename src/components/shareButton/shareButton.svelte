@@ -1,11 +1,26 @@
-<a href = "/share" use:link>
+{#if !hide}
+<a href = "/share" use:link in:fly="{{ y: 200, duration: 500 }}" out:fade>
     <span class = "fa fa-paper-plane"></span>
 </a>
+{/if}
 
 
 
 <script>
     import { link } from 'svelte-routing'
+    import {fade, fly} from 'svelte/transition'
+
+    let hide = false;
+
+    window.onclick = function(event) {
+        const path = window.location.pathname;
+
+        if(path.indexOf('/entry') > -1){
+            hide = true;
+        }else{
+            hide = false;
+        }
+    };
 </script>
 
 <style>

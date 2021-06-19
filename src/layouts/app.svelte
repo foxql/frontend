@@ -1,5 +1,9 @@
 <Navbar/>
-<MobileShareButton />
+
+{#if window.innerWidth <= 920}
+    <MobileShareButton />
+{/if}
+
 
 
 <div class = "container">
