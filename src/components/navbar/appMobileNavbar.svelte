@@ -7,9 +7,9 @@
     </div>
     
 
-    <div class = "nav-item {currentPage == 'share' ? 'active' : ''}">
-        <a href = "/share" use:link on:click="{handleNavItem}">
-            <span class = "far fa-envelope"></span>
+    <div class = "nav-item {currentPage == 'trends' ? 'active' : ''}">
+        <a href = "/trends" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-fire"></span>
         </a>
     </div>
 
