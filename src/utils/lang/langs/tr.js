@@ -84,7 +84,8 @@ const app = {
     DOWNLOAD_PLAY_STORE : 'Android uygulamamızı indirerek bize daha kolay ulaşabilirsin 🥰',
     ALIAS : 'Takma ad',
     AVATAR : 'Profil fotoğrafı',
-    EXPLANATION : 'Hakkımda'
+    EXPLANATION : 'Hakkımda',
+    NOTIFICATIONS : 'Bildirimler'
 }
 
 const censored = {
