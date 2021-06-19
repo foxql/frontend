@@ -65,4 +65,8 @@
     .box-content {
         font-size : 0.9rem;
     }
+
+    .box-danger {
+        border-right: 0px;
+    }
 }
