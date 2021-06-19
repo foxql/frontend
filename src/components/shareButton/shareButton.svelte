@@ -15,7 +15,7 @@
     window.onclick = function(event) {
         const path = window.location.pathname;
 
-        if(path.indexOf('/entry') > -1){
+        if(path.indexOf('/entry') > -1 || path.indexOf('/share') > -1){
             hide = true;
         }else{
             hide = false;
