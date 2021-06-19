@@ -47,6 +47,10 @@ const infoCards = {
     },
     NOT_FOUND_OFFERED_DOC : {
         content : 'Onay bekleyen bir içerik teklifi yok. 😒'
+    },
+    NOTIFICATION_IS_EMPTY : {
+        title : 'Tespit edebildiğimiz bir bildirim yok 😭',
+        content : 'Bir şeyler paylaşırsan, insanlar seni fark edebilir 🤩'
     }
 }
 

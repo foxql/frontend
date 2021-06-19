@@ -48,6 +48,10 @@ const infoCards = {
     },
     NOT_FOUND_OFFERED_DOC : {
         content : 'No content offers pending approval. 😒'
+    },
+    NOTIFICATION_IS_EMPTY : {
+        title : 'No notification we can detect 😭',
+        content : 'If you share something, people might notice you. 🤩'
     }
 }
 

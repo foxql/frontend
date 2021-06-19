@@ -11,6 +11,7 @@ import Stats from './views/stats.svelte';
 import Settings from './views/settings.svelte';
 import PeerOffers from './views/peerOffers.svelte';
 import Offers from './views/offers.svelte';
+import Notification from './views/notifications.svelte';
 
 export default [
     {
@@ -68,5 +69,9 @@ export default [
     {
         path : '/offers',
         component : Offers
+    },
+    {
+        path : '/notification',
+        component : Notification
     }
 ];

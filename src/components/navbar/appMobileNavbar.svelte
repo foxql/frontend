@@ -13,8 +13,8 @@
         </a>
     </div>
 
-    <div class = "nav-item {currentPage == 'search' ? 'active' : ''}">
-        <a href = "/search" use:link on:click="{handleNavItem}">
+    <div class = "nav-item {currentPage == 'notification' ? 'active' : ''}">
+        <a href = "/notification" use:link on:click="{handleNavItem}">
             <span class = "fa fa-bell"></span>
         </a>
     </div>
