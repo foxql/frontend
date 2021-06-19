@@ -1,6 +1,6 @@
 {#if !hide}
 <a href = "/share" use:link in:fly="{{ y: 200, duration: 500 }}" out:fade>
-    <span class = "fa fa-paper-plane"></span>
+    <span class = "fas fa-paw"></span>
 </a>
 {/if}
 
@@ -28,7 +28,7 @@
         position: fixed;
         padding: 1rem 1.2rem 1rem 1rem;
         border-radius: 125px;
-        color: #eee;
+        color: #202123;
         background: rgb(255 173 31);
         bottom: 64px;
         font-size: 1.1rem;
