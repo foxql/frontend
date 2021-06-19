@@ -1,4 +1,6 @@
-
+<div class = "box search-box">
+    <SearchBox />
+</div>
 
     {#await promise}
         <Loading/>
@@ -39,6 +41,8 @@
 <script>
     export let client;
 
+    import SearchBox from '../components/form/searchBox.svelte';
+
     import Entry from '../components/entry/entry.svelte'
     import EntryHeader from '../components/entry/header.svelte'
     import Post from '../components/entry/post.svelte'
@@ -76,3 +80,16 @@
     
 
 </script>
+
+
+<style>
+    .search-box {
+        display: none;
+    }
+
+    @media screen and (max-width: 992px) {
+        .search-box {
+            display: block;
+        }
+    }
+</style>

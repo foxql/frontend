@@ -21,6 +21,8 @@
     @media screen and (max-width: 992px) {
         .entry {
             border-radius: 0px;
+            border-bottom: 0px;
+            border-right: 0px;
         }
     }
 

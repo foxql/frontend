@@ -13,7 +13,6 @@
     margin-top : 0; 
     scroll-behavior: smooth;
 }
-
 button {
     cursor: pointer;
     transition: filter ease 0.2s;

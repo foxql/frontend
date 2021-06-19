@@ -111,8 +111,20 @@
     }
 
     @media screen and (max-width: 992px) {
+        .container {
+            padding: 0px;
+            margin-bottom: 1rem;
+        }
+        input, textarea {
+            border-radius: 0px;
+            margin-bottom: 0px;
+        }
+        textarea {
+            border-top: 1.5px solid rgb(0 0 0 / 20%);
+        }
         .share-button {
             font-size : 0.8rem;
+            border-radius: 0px;
         }
 
         textarea {

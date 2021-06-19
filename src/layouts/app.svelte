@@ -1,5 +1,10 @@
 <Navbar/>
 
+{#if window.innerWidth <= 920}
+    <MobileShareButton />
+{/if}
+
+
 
 <div class = "container">
 
@@ -47,6 +52,8 @@
     import Trends from '../components/sidebar/trends.svelte';
     import Footer from '../components/sidebar/footer.svelte';
     import Offers from '../components/sidebar/offers.svelte';
+
+    import MobileShareButton from '../components/shareButton/shareButton.svelte';
 
     import PlayStore from '../components/playstore/index.svelte'
 

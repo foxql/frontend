@@ -2,20 +2,20 @@
 
     <div class = "nav-item {currentPage == 'discovery' ? 'active' : ''}">
         <a href = "/discovery" use:link on:click="{handleNavItem}">
-            <span class = "fa fa-globe-europe"></span>
+            <span class = "fa fa-search"></span>
         </a>
     </div>
     
 
-    <div class = "nav-item {currentPage == 'share' ? 'active' : ''}">
-        <a href = "/share" use:link on:click="{handleNavItem}">
-            <span class = "fa fa-paper-plane"></span>
+    <div class = "nav-item {currentPage == 'trends' ? 'active' : ''}">
+        <a href = "/trends" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-fire"></span>
         </a>
     </div>
 
-    <div class = "nav-item {currentPage == 'search' ? 'active' : ''}">
-        <a href = "/search" use:link on:click="{handleNavItem}">
-            <span class = "fa fa-search"></span>
+    <div class = "nav-item {currentPage == 'notification' ? 'active' : ''}">
+        <a href = "/notification" use:link on:click="{handleNavItem}">
+            <span class = "fa fa-bell"></span>
         </a>
     </div>
 

@@ -22,9 +22,7 @@
 
     @media screen and (max-width: 992px) {
         button {
-            right: 1rem;
-            bottom: 5rem;
-            font-size: 1.1rem;
+            display: none;
         }
     }
 </style>

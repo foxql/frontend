@@ -90,6 +90,7 @@
         display: flex;
         padding: 0.5rem 0rem 0rem 0rem;
         align-items: center;
+        flex-wrap: wrap;
     }
 
     .save-btn {
@@ -107,12 +108,13 @@
     .show-senders {
         border-radius: 150px;
         margin-left: auto;
-        font-size: 0.6rem;
+        font-size: 0.9rem;
         color: #ccc;
+        margin-right: 0px !important;
     }
 
     .date {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         color: #ccc;
         margin-left: auto;
     }
