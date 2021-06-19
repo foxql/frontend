@@ -85,7 +85,8 @@ const app = {
     DOWNLOAD_PLAY_STORE : 'Get it on google play 🥰',
     ALIAS : 'Avatar',
     AVATAR : 'Avatar',
-    EXPLANATION : 'Explanation'
+    EXPLANATION : 'Explanation',
+    NOTIFICATIONS : 'Notifications'
 }
 
 const censored = {

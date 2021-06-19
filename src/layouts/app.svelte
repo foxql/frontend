@@ -110,7 +110,6 @@
         .container .center {
             width : 100%;
             margin-right: 0;
-            position: fixed;
             top: 0px;
             overflow-y: scroll;
             height: 100%;

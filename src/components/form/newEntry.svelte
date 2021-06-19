@@ -112,7 +112,6 @@
 
     @media screen and (max-width: 992px) {
         .container {
-            padding: 0px;
             margin-bottom: 1rem;
         }
         input, textarea {
